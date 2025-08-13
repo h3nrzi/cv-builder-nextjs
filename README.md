@@ -1,10 +1,21 @@
-# Professional CV Application
+# CV Builder
 
-A modern, responsive CV/Resume application built with React, TypeScript, and Tailwind CSS, optimized for Persian/Farsi content with RTL support.
+A modern, extensible CV/Resume builder with multiple themes, built with React, TypeScript, and Tailwind CSS. Optimized for Persian/Farsi content with RTL support, and designed for community contributions.
 
 ## ✨ Features
 
-- **Modern Design**: Clean, professional layout with gradient backgrounds
+### 🎨 Theme System
+
+- **Multiple Themes**: Switch between different CV designs instantly
+- **Theme Selector**: Easy-to-use theme switching interface
+- **Community Themes**: Extensible system for community-contributed themes
+- **Custom Themes**: Create and share your own theme designs
+- **Export Themes**: Download and share theme files
+- **Import Themes**: Load external theme files
+
+### 💼 Professional Features
+
+- **Modern Design**: Clean, professional layouts with customizable styling
 - **RTL Support**: Fully optimized for Persian/Farsi content
 - **Print-Ready**: Optimized PDF generation and printing
 - **Responsive**: Works perfectly on desktop, tablet, and mobile
@@ -83,18 +94,25 @@ npm run dev
 ```
 ├── App.tsx                 # Main application component
 ├── components/             # React components
-│   ├── ui/                # Reusable UI components (shadcn/ui)
+│   ├── ThemedCV.tsx       # Main themed CV component
+│   ├── ThemeSelector.tsx  # Theme selection interface
 │   ├── CVHeader.tsx       # CV header section
-│   ├── SummarySection.tsx # Professional summary
-│   ├── SkillsSection.tsx  # Technical skills
-│   ├── ExperienceSection.tsx # Work experience
-│   ├── ProjectsSection.tsx # Featured projects
-│   ├── EducationAndOther.tsx # Education & certificates
-│   ├── TopNavigation.tsx  # Navigation bar
-│   ├── FloatingActions.tsx # Floating action buttons
 │   └── ...               # Other components
+├── themes/                # Theme definitions
+│   ├── default/          # Default Persian Modern theme
+│   ├── minimal/          # Minimal Clean theme
+│   └── ...              # Additional themes
+├── types/
+│   └── theme.ts          # TypeScript theme interfaces
+├── hooks/
+│   └── useTheme.tsx      # Theme management hooks
+├── lib/
+│   └── theme-registry.ts # Theme registry system
+├── data/
+│   └── sample-cv.ts      # Sample CV data
 ├── styles/
 │   └── globals.css       # Global styles and Tailwind config
+├── THEME_DEVELOPMENT.md   # Theme development guide
 ├── package.json          # Dependencies and scripts
 ├── vite.config.ts       # Vite configuration
 ├── tsconfig.json        # TypeScript configuration
@@ -141,6 +159,36 @@ The CV is fully responsive and works on:
 - Desktop (1024px and above)
 - Tablet (768px - 1023px)
 - Mobile (below 768px)
+
+## 🎨 Theme Development
+
+Want to create your own theme? We welcome contributions!
+
+### Available Themes
+
+- **Persian Modern** (default) - Modern gradient design optimized for Persian content
+- **Minimal Clean** - Clean, typography-focused design with minimal styling
+
+### Creating a New Theme
+
+1. Read the [Theme Development Guide](./THEME_DEVELOPMENT.md)
+2. Create your theme in the `themes/` directory
+3. Follow the TypeScript interface requirements
+4. Test your theme thoroughly
+5. Submit a pull request
+
+### Theme Features
+
+- 🎨 **Complete styling control** - Colors, typography, spacing, and more
+- 📱 **Responsive design** - Automatic mobile and tablet optimization
+- 🖨️ **Print optimization** - Custom print styles for professional output
+- ♿ **Accessibility** - Built-in accessibility features
+- 🔄 **Live preview** - Instant theme switching
+- 📦 **Export/Import** - Share themes as JSON files
+
+### Contributing Themes
+
+We encourage theme contributions! Popular themes will be featured and credited to their authors.
 
 ## 🌍 RTL Support
 
@@ -203,4 +251,4 @@ If you have any questions or need help customizing your CV:
 
 ---
 
-Built with ❤️ by Ali Ahmadi
+Built with ❤️ by Hossein Rezaei

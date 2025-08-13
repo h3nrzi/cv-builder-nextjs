@@ -1,7 +1,7 @@
 {
-  "name": "professional-cv-app",
-  "version": "2.0.1",
-  "description": "Professional CV/Resume application built with React, TypeScript, and Tailwind CSS - Optimized for Persian/Farsi content",
+  "name": "cv-builder",
+  "version": "3.0.0",
+  "description": "Extensible CV/Resume builder with multiple themes, built with React, TypeScript, and Tailwind CSS - Community-driven and optimized for Persian/Farsi content",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -114,6 +114,8 @@
   "keywords": [
     "cv",
     "resume",
+    "builder",
+    "themes",
     "react",
     "typescript",
     "tailwindcss",
@@ -123,20 +125,23 @@
     "pdf",
     "print",
     "professional",
-    "portfolio"
+    "portfolio",
+    "extensible",
+    "community",
+    "open-source"
   ],
   "author": {
-    "name": "Ali Ahmadi",
-    "email": "ali@example.com",
-    "url": "https://ali-ahmadi.dev"
+    "name": "Hossein",
+    "email": "your-email@example.com",
+    "url": "https://github.com/your-username"
   },
   "license": "MIT",
   "homepage": ".",
   "repository": {
     "type": "git",
-    "url": "https://github.com/username/professional-cv-app.git"
+    "url": "https://github.com/your-username/cv-builder.git"
   },
   "bugs": {
-    "url": "https://github.com/username/professional-cv-app/issues"
+    "url": "https://github.com/your-username/cv-builder/issues"
   }
 }
