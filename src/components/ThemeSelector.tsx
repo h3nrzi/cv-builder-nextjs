@@ -68,11 +68,11 @@ export function ThemeSelector({ className = '' }: ThemeSelectorProps) {
       {/* Theme Selector Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2 shadow-sm transition-shadow duration-200 hover:shadow-md"
+        className="ml-1 flex items-center gap-2 rounded-lg border border-gray-600 bg-white px-4 py-2 shadow-sm transition-shadow duration-200 hover:shadow-md"
         disabled={isLoading}
       >
         {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Palette className="h-4 w-4" />}
-        <span className="text-sm font-medium">{currentTheme.config.name}</span>
+        <span className="hidden text-sm font-medium md:block">{currentTheme.config.name}</span>
       </button>
 
       {/* Loading Transition Overlay */}

@@ -84,7 +84,7 @@ export function CVHeader({
         {/* Left Column: Actions and Save Status */}
         <div className="flex items-center justify-between sm:justify-end sm:gap-4">
           {/* Theme Selector */}
-          <ThemeSelector className="hidden sm:block" />
+          <ThemeSelector />
 
           {/* Action Buttons */}
           <div className="flex items-center gap-1 sm:gap-2">
