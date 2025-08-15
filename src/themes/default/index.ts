@@ -3,26 +3,26 @@ import { Theme } from '../../types/theme';
 export const defaultTheme: Theme = {
   config: {
     id: 'modern-professional',
-    name: 'مدرن حرفه‌ای',
-    description: 'قالب مدرن و شیک با گرادیان‌های ظریف و استایل حرفه‌ای',
-    author: 'CV Builder Pro',
-    version: '2.0.0',
+    name: 'مدرن',
+    description: 'قالب مدرن و شیک با گرادیان‌های ظریف',
+    author: 'حسین رضایی',
+    version: '1.1.0',
     tags: ['مدرن', 'حرفه‌ای', 'گرادیان', 'تمیز', 'همه‌کاره'],
   },
   colors: {
-    primary: '#1e40af',
-    secondary: '#f8fafc',
-    accent: '#6366f1',
-    background: '#ffffff',
-    foreground: '#0f172a',
-    muted: '#f1f5f9',
+    primary: '#2563eb',
+    secondary: '#f1f5f9',
+    accent: '#7c3aed',
+    background: '#fafbfc',
+    foreground: '#1e293b',
+    muted: '#f8fafc',
     mutedForeground: '#64748b',
-    border: 'rgba(30, 64, 175, 0.1)',
+    border: 'rgba(37, 99, 235, 0.15)',
     card: '#ffffff',
-    cardForeground: '#0f172a',
-    destructive: '#dc2626',
+    cardForeground: '#1e293b',
+    destructive: '#ef4444',
     destructiveForeground: '#ffffff',
-    ring: '#6366f1',
+    ring: '#2563eb',
   },
   typography: {
     fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif',
@@ -68,12 +68,12 @@ export const defaultTheme: Theme = {
     full: '9999px',
   },
   shadows: {
-    sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
-    md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-    lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-    xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-    '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-    inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
+    sm: '0 2px 4px rgba(37, 99, 235, 0.08)',
+    md: '0 4px 12px rgba(37, 99, 235, 0.12)',
+    lg: '0 8px 24px rgba(37, 99, 235, 0.15)',
+    xl: '0 16px 32px rgba(37, 99, 235, 0.18)',
+    '2xl': '0 24px 48px rgba(37, 99, 235, 0.25)',
+    inner: 'inset 0 2px 4px rgba(37, 99, 235, 0.06)',
   },
   layout: {
     maxWidth: '1024px',
@@ -96,35 +96,79 @@ export const defaultTheme: Theme = {
   },
   customCSS: `
     .cv-gradient-bg {
-      background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 50%, #faf5ff 100%);
+      background: linear-gradient(135deg, #fafbfc 0%, #f1f5f9 30%, #e2e8f0 100%);
+      position: relative;
+    }
+    
+    .cv-gradient-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 20%, rgba(37, 99, 235, 0.05) 0%, transparent 50%);
+      pointer-events: none;
     }
     
     .cv-section-card {
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(37, 99, 235, 0.1);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+      transition: all 0.3s ease;
+    }
+    
+    .cv-section-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12);
+      border-color: rgba(37, 99, 235, 0.2);
     }
     
     .cv-skill-progress {
-      background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+      background: linear-gradient(90deg, #2563eb, #7c3aed);
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+    }
+    
+    .cv-header-accent {
+      background: linear-gradient(90deg, #2563eb, #7c3aed);
+      height: 4px;
+      border-radius: 2px;
+    }
+    
+    .cv-section-title {
+      position: relative;
+      color: #1e293b;
+      font-weight: 600;
+    }
+    
+    .cv-section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: linear-gradient(90deg, #2563eb, #7c3aed);
+      border-radius: 2px;
     }
     
     .cv-floating-decoration {
       position: absolute;
       border-radius: 50%;
-      background: rgba(59, 130, 246, 0.1);
-      animation: float 6s ease-in-out infinite;
+      background: rgba(37, 99, 235, 0.08);
+      animation: float 8s ease-in-out infinite;
     }
     
     @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(180deg); }
     }
     
     @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(40px);
       }
       to {
         opacity: 1;
@@ -133,7 +177,23 @@ export const defaultTheme: Theme = {
     }
     
     .animate-fade-in-up {
-      animation: fadeInUp 0.8s ease-out forwards;
+      animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    
+    .cv-button-primary {
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+    
+    .cv-button-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
     }
   `,
 };

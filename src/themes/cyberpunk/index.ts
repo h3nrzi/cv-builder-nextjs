@@ -4,10 +4,10 @@ export const cyberpunkTheme: Theme = {
   config: {
     id: 'cyberpunk-neon',
     name: 'سایبرپانک نئون',
-    description: 'قالب آیندهنگر سایبرپانک با لهجههای نئون و زیبایی تاریک',
-    author: 'CV Builder Pro',
+    description: 'قالب سایبرپانک با استایل نئون و زیبایی تاریک',
+    author: 'حسین رضایی',
     version: '1.0.0',
-    tags: ['سایبرپانک', 'نئون', 'تاریک', 'آیندهنگر', 'مدرن'],
+    tags: ['سایبرپانک', 'نئون', 'تاریک', 'مدرن'],
   },
   colors: {
     primary: '#00ff88',
