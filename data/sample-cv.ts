@@ -120,7 +120,6 @@ export const sampleCVData: CVData = {
   languages: [
     { name: 'فارسی', level: 'زبان مادری' },
     { name: 'انگلیسی', level: 'پیشرفته' },
-    { name: 'عربی', level: 'متوسط' },
   ],
   interests: ['توسعه نرم‌افزار متن باز', 'یادگیری ماشین', 'طراحی UI/UX', 'عکاسی', 'مطالعه'],
 };

@@ -474,78 +474,90 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
 
         {/* Additional Sections */}
         {(data.languages || data.interests) && (
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {/* Languages */}
-            {data.languages && (
-              <section>
-                <SectionTitle title="زبان‌ها" />
-                <div
-                  className="cv-section-card rounded-lg p-6"
-                  style={{
-                    padding: theme.layout.cardPadding,
-                    borderRadius: theme.borderRadius.lg,
-                    backgroundColor: colors.card,
-                    boxShadow: theme.shadows.sm,
-                  }}
-                >
-                  <div className="space-y-3">
-                    {data.languages.map((lang, index) => (
-                      <div key={index} className="flex justify-between">
-                        <span
-                          style={{
-                            fontSize: theme.typography.fontSize.sm,
-                            fontWeight: theme.typography.fontWeight.medium,
-                          }}
-                        >
-                          {lang.name}
-                        </span>
-                        <span
-                          style={{
-                            fontSize: theme.typography.fontSize.sm,
-                            color: colors.mutedForeground,
-                          }}
-                        >
-                          {lang.level}
-                        </span>
-                      </div>
-                    ))}
+          <section style={{ marginBottom: theme.layout.sectionSpacing }}>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              {/* Languages */}
+              {data.languages && (
+                <div>
+                  <SectionTitle title="زبان‌ها" />
+                  <div
+                    className="cv-section-card p-6 rounded-lg"
+                    style={{
+                      padding: theme.layout.cardPadding,
+                      borderRadius: theme.borderRadius.lg,
+                      backgroundColor: colors.card,
+                      color: colors.cardForeground,
+                      boxShadow: theme.shadows.sm,
+                    }}
+                  >
+                    <div className="space-y-3">
+                      {data.languages.map((lang, index) => (
+                        <div key={index} className="flex justify-between items-center">
+                          <span
+                            style={{
+                              fontSize: theme.typography.fontSize.sm,
+                              fontWeight: theme.typography.fontWeight.medium,
+                              color: colors.cardForeground,
+                            }}
+                          >
+                            {lang.name}
+                          </span>
+                          <span
+                            className="px-2 py-1 rounded text-xs"
+                            style={{
+                              fontSize: theme.typography.fontSize.xs,
+                              color: colors.accent,
+                              backgroundColor: colors.accent + '20',
+                              borderRadius: theme.borderRadius.sm,
+                              fontWeight: theme.typography.fontWeight.medium,
+                            }}
+                          >
+                            {lang.level}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </section>
-            )}
+              )}
 
-            {/* Interests */}
-            {data.interests && (
-              <section>
-                <SectionTitle title="علایق" />
-                <div
-                  className="cv-section-card rounded-lg p-6"
-                  style={{
-                    padding: theme.layout.cardPadding,
-                    borderRadius: theme.borderRadius.lg,
-                    backgroundColor: colors.card,
-                    boxShadow: theme.shadows.sm,
-                  }}
-                >
-                  <div className="flex flex-wrap gap-2">
-                    {data.interests.map((interest, index) => (
-                      <span
-                        key={index}
-                        className="rounded-full px-3 py-1 text-sm"
-                        style={{
-                          backgroundColor: colors.muted,
-                          color: colors.mutedForeground,
-                          borderRadius: theme.borderRadius.full,
-                        }}
-                      >
-                        {interest}
-                      </span>
-                    ))}
+              {/* Interests */}
+              {data.interests && (
+                <div>
+                  <SectionTitle title="علایق" />
+                  <div
+                    className="cv-section-card p-6 rounded-lg"
+                    style={{
+                      padding: theme.layout.cardPadding,
+                      borderRadius: theme.borderRadius.lg,
+                      backgroundColor: colors.card,
+                      color: colors.cardForeground,
+                      boxShadow: theme.shadows.sm,
+                    }}
+                  >
+                    <div className="flex flex-wrap gap-2">
+                      {data.interests.map((interest, index) => (
+                        <span
+                          key={index}
+                          className="px-3 py-2 text-sm rounded-full transition-colors hover:opacity-80"
+                          style={{
+                            backgroundColor: colors.muted,
+                            color: colors.mutedForeground,
+                            borderRadius: theme.borderRadius.full,
+                            fontSize: theme.typography.fontSize.sm,
+                            fontWeight: theme.typography.fontWeight.normal,
+                            border: `1px solid ${colors.border}`,
+                          }}
+                        >
+                          {interest}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </section>
-            )}
-          </div>
+              )}
+            </div>
+          </section>
         )}
       </div>
     </div>
@@ -564,7 +576,9 @@ function ContactItem({ icon: Icon, text, href }: ContactItemProps) {
 
   const content = (
     <div className="flex items-center gap-2">
-      <Icon className="h-4 w-4" style={{ color: colors.accent }} />
+      <div style={{ color: colors.accent }}>
+        <Icon className="h-4 w-4" />
+      </div>
       <span>{text}</span>
     </div>
   );
