@@ -1,8 +1,8 @@
 'use client';
 
-import { Button } from './ui/button';
+import { Button } from '../../components/ui/button';
 import { Edit3, Eye, RefreshCw, Save, Printer, Download, Upload } from 'lucide-react';
-import { ThemeSelector } from './ThemeSelector';
+import { ThemeSelector } from '../../components/ThemeSelector';
 
 type EditorMode = 'edit' | 'preview';
 
@@ -27,7 +27,7 @@ export function CVHeader({
 }: CVHeaderProps) {
   return (
     <div className="sticky top-0 z-40 border-b border-gray-200 bg-white shadow-sm print:hidden">
-      <div className="flex flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+      <div className="flex flex-row items-center justify-between gap-3 px-12 py-3">
         {/* Right Column: Mode Toggle and Save Status */}
         <div className="flex items-center justify-between sm:justify-start sm:gap-6">
           {/* Mode Toggle */}
@@ -40,8 +40,8 @@ export function CVHeader({
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
-              <Edit3 className="h-3 w-3 sm:h-4 sm:w-4" />
-              <span className="min-[400px]:inline hidden">ویرایش</span>
+              <Edit3 className="h-5 w-5" />
+              <span className="hidden sm:block">ویرایش</span>
             </button>
             <button
               onClick={() => setMode('preview')}
@@ -51,8 +51,8 @@ export function CVHeader({
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
-              <Eye className="h-3 w-3 sm:h-4 sm:w-4" />
-              <span className="min-[400px]:inline hidden">پیشنمایش</span>
+              <Eye className="h-5 w-5" />
+              <span className="hidden sm:block">پیش نمایش</span>
             </button>
           </div>
 
