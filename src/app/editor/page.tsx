@@ -83,8 +83,8 @@ export default function EditorPage() {
     { id: 'personal', label: 'اطلاعات شخصی', icon: Edit3 },
     { id: 'skills', label: 'مهارت‌ها', icon: Award },
     { id: 'experience', label: 'تجربه کاری', icon: Briefcase },
-    { id: 'education', label: 'تحصیلات', icon: GraduationCap },
     { id: 'projects', label: 'پروژه‌ها', icon: FolderOpen },
+    { id: 'education', label: 'تحصیلات', icon: GraduationCap },
     { id: 'languages', label: 'زبان‌ها', icon: Languages },
     { id: 'interests', label: 'علایق', icon: Heart },
   ];
