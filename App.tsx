@@ -2,15 +2,17 @@ import { useState, useEffect } from 'react';
 import { ThemeProvider } from './hooks/useTheme';
 import { ThemedCV } from './components/ThemedCV';
 import { ThemeSelector } from './components/ThemeSelector';
+import { CVEditor } from './components/CVEditor';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { sampleCVData } from './data/sample-cv';
 import { useKeyboardShortcuts } from './hooks/useKeyboardShortcuts';
-import { Loader2, Settings, Keyboard } from 'lucide-react';
+import { Loader2, Settings, Keyboard, Edit } from 'lucide-react';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [showThemeSelector, setShowThemeSelector] = useState(false);
   const [showShortcutsHelp, setShowShortcutsHelp] = useState(false);
+  const [isEditMode, setIsEditMode] = useState(false);
 
   // Keyboard shortcuts
   const { getShortcutDisplay } = useKeyboardShortcuts({
@@ -46,6 +48,14 @@ export default function App() {
           setShowShortcutsHelp(!showShortcutsHelp);
         },
         description: 'نمایش کلیدهای میانبر'
+      },
+      {
+        key: 'e',
+        ctrlKey: true,
+        callback: () => {
+          setIsEditMode(!isEditMode);
+        },
+        description: 'تغییر به حالت ویرایش'
       }
     ],
     enabled: !isLoading
@@ -94,6 +104,17 @@ export default function App() {
         {/* Action Buttons */}
         <div className="fixed right-2 top-2 z-50 flex gap-1 print:hidden sm:right-4 sm:top-4 sm:gap-2">
           <button
+            onClick={() => setIsEditMode(!isEditMode)}
+            className={`flex items-center gap-2 rounded-lg border px-2 py-2 shadow-sm transition-all duration-200 hover:shadow-md sm:px-3 ${
+              isEditMode 
+                ? 'border-blue-500 bg-blue-50 text-blue-700' 
+                : 'border-gray-200 bg-white text-gray-700'
+            }`}
+            title="حالت ویرایش (Ctrl+E)"
+          >
+            <Edit className="h-4 w-4" />
+          </button>
+          <button
             onClick={() => setShowShortcutsHelp(!showShortcutsHelp)}
             className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-2 py-2 shadow-sm transition-shadow duration-200 hover:shadow-md sm:px-3"
             title="کلیدهای میانبر (Shift+?)"
@@ -111,7 +132,11 @@ export default function App() {
         </div>
 
         {/* Main CV Content */}
-        <ThemedCV data={sampleCVData} />
+        {isEditMode ? (
+          <CVEditor />
+        ) : (
+          <ThemedCV data={sampleCVData} />
+        )}
 
         {/* Keyboard Shortcuts Help */}
         {showShortcutsHelp && (
