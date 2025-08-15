@@ -3,11 +3,11 @@ import { Theme } from '../../types/theme';
 export const defaultTheme: Theme = {
   config: {
     id: 'modern-professional',
-    name: 'Modern Professional',
-    description: 'A sleek modern theme with subtle gradients and professional styling',
+    name: 'مدرن حرفه‌ای',
+    description: 'قالب مدرن و شیک با گرادیان‌های ظریف و استایل حرفه‌ای',
     author: 'CV Builder Pro',
     version: '2.0.0',
-    tags: ['modern', 'professional', 'gradient', 'clean', 'versatile'],
+    tags: ['مدرن', 'حرفه‌ای', 'گرادیان', 'تمیز', 'همه‌کاره'],
   },
   colors: {
     primary: '#1e40af',

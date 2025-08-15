@@ -3,11 +3,11 @@ import { Theme } from '../../types/theme';
 export const minimalTheme: Theme = {
   config: {
     id: 'minimal-clean',
-    name: 'Minimal Clean',
-    description: 'A clean, minimal theme with focus on typography and white space',
+    name: 'مینیمال تمیز',
+    description: 'قالب تمیز و مینیمال با تمرکز بر تایپوگرافی و فضای سفید',
     author: 'CV Builder Community',
     version: '1.0.0',
-    tags: ['minimal', 'clean', 'typography', 'professional', 'simple'],
+    tags: ['مینیمال', 'تمیز', 'تایپوگرافی', 'حرفهای', 'ساده'],
   },
   colors: {
     primary: '#1a1a1a',

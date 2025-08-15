@@ -3,11 +3,11 @@ import { Theme } from '../../types/theme';
 export const glassmorphismTheme: Theme = {
   config: {
     id: 'glassmorphism',
-    name: 'Glassmorphism',
-    description: 'A modern glassmorphism theme with frosted glass effects and vibrant backgrounds',
+    name: 'شیشهای مات',
+    description: 'قالب مدرن با افکت شیشه مات و پس‌زمینههای پررنگ',
     author: 'CV Builder Pro',
     version: '1.0.0',
-    tags: ['glassmorphism', 'modern', 'glass', 'blur', 'trendy'],
+    tags: ['شیشهای', 'مدرن', 'شیشه', 'محو', 'مد'],
   },
   colors: {
     primary: '#667eea',

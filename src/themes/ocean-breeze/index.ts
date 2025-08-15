@@ -3,11 +3,11 @@ import { Theme } from '../../types/theme';
 export const oceanBreezeTheme: Theme = {
   config: {
     id: 'ocean-breeze',
-    name: 'Ocean Breeze',
-    description: 'A calming ocean-inspired theme with blue gradients and wave-like animations',
+    name: 'نسیم اقیانوس',
+    description: 'قالب آرامبخش الهامگرفته از اقیانوس با گرادیانهای آبی و انیمیشنهای موجی',
     author: 'CV Builder Pro',
     version: '1.0.0',
-    tags: ['ocean', 'blue', 'calm', 'gradient', 'professional'],
+    tags: ['اقیانوس', 'آبی', 'آرام', 'گرادیان', 'حرفهای'],
   },
   colors: {
     primary: '#0ea5e9',

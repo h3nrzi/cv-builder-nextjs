@@ -3,11 +3,11 @@ import { Theme } from '../../types/theme';
 export const sunsetGradientTheme: Theme = {
   config: {
     id: 'sunset-gradient',
-    name: 'Sunset Gradient',
-    description: 'A warm and vibrant theme inspired by beautiful sunset colors',
+    name: 'گرادیان غروب',
+    description: 'قالب گرم و پرانرژی الهامگرفته از رنگهای زیبای غروب',
     author: 'CV Builder Pro',
     version: '1.0.0',
-    tags: ['sunset', 'warm', 'gradient', 'vibrant', 'creative'],
+    tags: ['غروب', 'گرم', 'گرادیان', 'پرانرژی', 'خلاق'],
   },
   colors: {
     primary: '#f97316',

@@ -3,11 +3,11 @@ import { Theme } from '../../types/theme';
 export const cyberpunkTheme: Theme = {
   config: {
     id: 'cyberpunk-neon',
-    name: 'Cyberpunk Neon',
-    description: 'A futuristic cyberpunk theme with neon accents and dark aesthetics',
+    name: 'سایبرپانک نئون',
+    description: 'قالب آیندهنگر سایبرپانک با لهجههای نئون و زیبایی تاریک',
     author: 'CV Builder Pro',
     version: '1.0.0',
-    tags: ['cyberpunk', 'neon', 'dark', 'futuristic', 'modern'],
+    tags: ['سایبرپانک', 'نئون', 'تاریک', 'آیندهنگر', 'مدرن'],
   },
   colors: {
     primary: '#00ff88',

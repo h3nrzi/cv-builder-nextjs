@@ -3,11 +3,11 @@ import { Theme } from '../../types/theme';
 export const nordicMinimalTheme: Theme = {
   config: {
     id: 'nordic-minimal',
-    name: 'Nordic Minimal',
-    description: 'A clean Scandinavian-inspired theme with muted colors and excellent typography',
+    name: 'نوردیک مینیمال',
+    description: 'قالب تمیز الهامگرفته از اسکاندیناوی با رنگهای ملایم و تایپوگرافی عالی',
     author: 'CV Builder Pro',
     version: '1.0.0',
-    tags: ['nordic', 'minimal', 'clean', 'scandinavian', 'typography'],
+    tags: ['نوردیک', 'مینیمال', 'تمیز', 'اسکاندیناوی', 'تایپوگرافی'],
   },
   colors: {
     primary: '#2e3440',
