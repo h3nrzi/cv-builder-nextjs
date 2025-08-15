@@ -31,7 +31,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
       >
         {/* Header Section */}
         <header
-          className="cv-header-minimal mb-8"
+          className="cv-header-minimal page-break-avoid mb-8"
           style={{ marginBottom: theme.layout.sectionSpacing }}
         >
           <div className="flex flex-col items-center gap-6 md:flex-row">
@@ -102,7 +102,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
         </header>
 
         {/* Summary Section */}
-        <section style={{ marginBottom: theme.layout.sectionSpacing }}>
+        <section className="page-break-avoid" style={{ marginBottom: theme.layout.sectionSpacing }}>
           <SectionTitle title="خلاصه" />
           <div
             className="cv-section-card rounded-lg p-6"
@@ -119,7 +119,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
         </section>
 
         {/* Skills Section */}
-        <section style={{ marginBottom: theme.layout.sectionSpacing }}>
+        <section className="page-break-avoid" style={{ marginBottom: theme.layout.sectionSpacing }}>
           <SectionTitle title="مهارت‌ها" />
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {data.skills.map((skillGroup, index) => (
@@ -189,7 +189,10 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
         </section>
 
         {/* Experience Section */}
-        <section style={{ marginBottom: theme.layout.sectionSpacing }}>
+        <section
+          className="page-break-before page-break-avoid"
+          style={{ marginBottom: theme.layout.sectionSpacing }}
+        >
           <SectionTitle title="تجربه کاری" />
           <div className="space-y-6">
             {data.experience.map((exp, index) => (
@@ -319,7 +322,10 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
         </section>
 
         {/* Projects Section */}
-        <section style={{ marginBottom: theme.layout.sectionSpacing }}>
+        <section
+          className="page-break-before page-break-avoid"
+          style={{ marginBottom: theme.layout.sectionSpacing }}
+        >
           <SectionTitle title="پروژه‌های برجسته" />
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {data.projects.map((project, index) => (
@@ -400,7 +406,10 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
         </section>
 
         {/* Education Section */}
-        <section style={{ marginBottom: theme.layout.sectionSpacing }}>
+        <section
+          className="page-break-before page-break-avoid"
+          style={{ marginBottom: theme.layout.sectionSpacing }}
+        >
           <SectionTitle title="تحصیلات" />
           <div className="space-y-4">
             {data.education.map((edu, index) => (
@@ -475,7 +484,10 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
 
         {/* Additional Sections */}
         {(data.languages || data.interests) && (
-          <section style={{ marginBottom: theme.layout.sectionSpacing }}>
+          <section
+            className="page-break-avoid"
+            style={{ marginBottom: theme.layout.sectionSpacing }}
+          >
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               {/* Languages */}
               {data.languages && (

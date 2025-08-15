@@ -235,25 +235,28 @@ html {
 
 /* Print and PDF optimizations */
 @media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
   .print\:hidden {
     display: none !important;
   }
 
   body {
-    background: white !important;
     font-size: 12px !important;
-  }
-
-  .cv-content {
-    max-width: none !important;
     margin: 0 !important;
-    padding: 0 !important;
-    box-shadow: none !important;
   }
 
-  .cv-content > div {
-    page-break-inside: avoid;
-    break-inside: avoid;
+  .cv-gradient-bg {
+    padding: 0 !important;
   }
 
   .page-break-before {
@@ -269,27 +272,5 @@ html {
   .page-break-avoid {
     page-break-inside: avoid;
     break-inside: avoid;
-  }
-
-  /* Optimize spacing for print */
-  .space-y-6 > * + * {
-    margin-top: 1rem !important;
-  }
-
-  .mb-6,
-  .mt-6 {
-    margin-bottom: 1rem !important;
-    margin-top: 1rem !important;
-  }
-
-  .p-6 {
-    padding: 1rem !important;
-  }
-
-  /* Ensure borders and backgrounds print */
-  * {
-    -webkit-print-color-adjust: exact !important;
-    color-adjust: exact !important;
-    print-color-adjust: exact !important;
   }
 }
