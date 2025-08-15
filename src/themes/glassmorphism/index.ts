@@ -3,14 +3,14 @@ import { Theme } from '../../types/theme';
 export const glassmorphismTheme: Theme = {
   config: {
     id: 'glassmorphism',
-    name: 'شیشهای مات',
-    description: 'قالب مدرن با افکت شیشه مات و پس‌زمینههای پررنگ',
-    author: 'CV Builder Pro',
+    name: 'شیشه ای مات',
+    description: 'قالب مدرن با افکت شیشه مات و پس‌زمینه های پررنگ',
+    author: 'حسین رضایی',
     version: '1.0.0',
-    tags: ['شیشهای', 'مدرن', 'شیشه', 'محو', 'مد'],
+    tags: ['شیشه ای', 'مدرن', 'شیشه', 'محو', 'مد'],
   },
   colors: {
-    primary: '#667eea',
+    primary: '#ffffff',
     secondary: '#764ba2',
     accent: '#f093fb',
     background: '#667eea',
@@ -120,6 +120,7 @@ export const glassmorphismTheme: Theme = {
       border: 1px solid rgba(255, 255, 255, 0.2);
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease;
+      color: #ffffff;
     }
     
     .cv-section-card:hover {
