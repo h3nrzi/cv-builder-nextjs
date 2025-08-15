@@ -1,6 +1,7 @@
 import { Check, Download, Loader2, Palette, Search, Tag, Upload, User, X } from 'lucide-react';
 import React, { useState } from 'react';
 import { useTheme } from '../hooks/useTheme';
+import { LoadingSpinner } from './LoadingSpinner';
 import { Theme } from '../types/theme';
 
 interface ThemeSelectorProps {
@@ -15,6 +16,7 @@ export function ThemeSelector({ className = '' }: ThemeSelectorProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredThemes, setFilteredThemes] = useState<Theme[]>(availableThemes);
   const [previewTheme, setPreviewTheme] = useState<Theme | null>(null);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const handleSearch = (query: string) => {
     setSearchQuery(query);
@@ -25,10 +27,16 @@ export function ThemeSelector({ className = '' }: ThemeSelectorProps) {
     }
   };
 
-  const handleThemeSelect = (themeId: string) => {
-    setTheme(themeId);
-    setIsOpen(false);
-    setPreviewTheme(null);
+  const handleThemeSelect = async (themeId: string) => {
+    setIsTransitioning(true);
+    
+    // Add a small delay for smooth transition
+    setTimeout(() => {
+      setTheme(themeId);
+      setIsTransitioning(false);
+      setIsOpen(false);
+      setPreviewTheme(null);
+    }, 300);
   };
 
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -66,15 +74,22 @@ export function ThemeSelector({ className = '' }: ThemeSelectorProps) {
         <span className="text-sm font-medium">{currentTheme.config.name}</span>
       </button>
 
+      {/* Loading Transition Overlay */}
+      {isTransitioning && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/90 backdrop-blur-sm">
+          <LoadingSpinner size="lg" text="در حال تغییر قالب..." />
+        </div>
+      )}
+
       {/* Theme Selector Modal */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-          <div className="flex max-h-[90vh] w-full max-w-4xl flex-col rounded-xl bg-white shadow-2xl">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-2 animate-in fade-in duration-200 sm:p-4">
+          <div className="flex max-h-[95vh] w-full max-w-4xl flex-col rounded-xl bg-white shadow-2xl sm:max-h-[90vh]">
             {/* Header */}
-            <div className="flex items-center justify-between border-b border-gray-200 p-6">
+            <div className="flex items-center justify-between border-b border-gray-200 p-4 sm:p-6">
               <div>
-                <h2 className="text-xl font-semibold text-gray-900">انتخاب قالب</h2>
-                <p className="mt-1 text-sm text-gray-600">قالب مورد نظر خود را انتخاب کنید</p>
+                <h2 className="text-lg font-semibold text-gray-900 sm:text-xl">انتخاب قالب</h2>
+                <p className="mt-1 text-xs text-gray-600 sm:text-sm">قالب مورد نظر خود را انتخاب کنید</p>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
@@ -85,8 +100,8 @@ export function ThemeSelector({ className = '' }: ThemeSelectorProps) {
             </div>
 
             {/* Search and Actions */}
-            <div className="space-y-4 border-b border-gray-200 p-6">
-              <div className="flex gap-4">
+            <div className="space-y-4 border-b border-gray-200 p-4 sm:p-6">
+              <div className="flex flex-col gap-2 sm:flex-row sm:gap-4">
                 <div className="relative flex-1">
                   <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 transform text-gray-400" />
                   <input
@@ -100,7 +115,7 @@ export function ThemeSelector({ className = '' }: ThemeSelectorProps) {
                 </div>
 
                 {/* Upload Theme */}
-                <label className="flex cursor-pointer items-center gap-2 rounded-lg bg-blue-500 px-4 py-2 text-white transition-colors hover:bg-blue-600">
+                <label className="flex cursor-pointer items-center justify-center gap-2 rounded-lg bg-blue-500 px-3 py-2 text-white transition-colors hover:bg-blue-600 sm:justify-start sm:px-4">
                   <Upload className="h-4 w-4" />
                   <span className="text-sm">آپلود قالب</span>
                   <input
@@ -114,8 +129,8 @@ export function ThemeSelector({ className = '' }: ThemeSelectorProps) {
             </div>
 
             {/* Themes Grid */}
-            <div className="flex-1 overflow-y-auto p-6">
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="flex-1 overflow-y-auto p-4 sm:p-6">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
                 {filteredThemes.map(theme => (
                   <div
                     key={theme.config.id}
@@ -230,8 +245,8 @@ export function ThemeSelector({ className = '' }: ThemeSelectorProps) {
             </div>
 
             {/* Footer */}
-            <div className="rounded-b-xl border-t border-gray-200 bg-gray-50 p-6">
-              <p className="text-center text-sm text-gray-600">
+            <div className="rounded-b-xl border-t border-gray-200 bg-gray-50 p-4 sm:p-6">
+              <p className="text-center text-xs text-gray-600 sm:text-sm">
                 برای ساخت قالب جدید،
                 <a
                   href="https://github.com/your-repo/cv-builder/blob/main/THEME_DEVELOPMENT.md"

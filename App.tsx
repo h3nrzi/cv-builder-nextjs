@@ -2,12 +2,54 @@ import { useState, useEffect } from 'react';
 import { ThemeProvider } from './hooks/useTheme';
 import { ThemedCV } from './components/ThemedCV';
 import { ThemeSelector } from './components/ThemeSelector';
+import { ErrorBoundary } from './components/ErrorBoundary';
 import { sampleCVData } from './data/sample-cv';
-import { Loader2, Settings } from 'lucide-react';
+import { useKeyboardShortcuts } from './hooks/useKeyboardShortcuts';
+import { Loader2, Settings, Keyboard } from 'lucide-react';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [showThemeSelector, setShowThemeSelector] = useState(false);
+  const [showShortcutsHelp, setShowShortcutsHelp] = useState(false);
+
+  // Keyboard shortcuts
+  const { getShortcutDisplay } = useKeyboardShortcuts({
+    shortcuts: [
+      {
+        key: 'p',
+        ctrlKey: true,
+        callback: () => {
+          window.print();
+        },
+        description: 'پرینت رزومه'
+      },
+      {
+        key: 'Escape',
+        callback: () => {
+          setShowThemeSelector(false);
+          setShowShortcutsHelp(false);
+        },
+        description: 'بستن پنجره‌ها'
+      },
+      {
+        key: 't',
+        ctrlKey: true,
+        callback: () => {
+          setShowThemeSelector(!showThemeSelector);
+        },
+        description: 'نمایش انتخابگر قالب'
+      },
+      {
+        key: '?',
+        shiftKey: true,
+        callback: () => {
+          setShowShortcutsHelp(!showShortcutsHelp);
+        },
+        description: 'نمایش کلیدهای میانبر'
+      }
+    ],
+    enabled: !isLoading
+  });
 
   // Simulate loading time for better UX
   useEffect(() => {
@@ -41,30 +83,89 @@ export default function App() {
   }
 
   return (
-    <ThemeProvider>
-      <div className="relative">
+    <ErrorBoundary>
+      <ThemeProvider>
+        <div className="relative">
         {/* Theme Selector Button */}
-        <div className="fixed left-4 top-4 z-50 print:hidden">
+        <div className="fixed left-2 top-2 z-50 print:hidden sm:left-4 sm:top-4">
           <ThemeSelector />
         </div>
 
-        {/* Settings Button */}
-        <div className="fixed right-4 top-4 z-50 print:hidden">
+        {/* Action Buttons */}
+        <div className="fixed right-2 top-2 z-50 flex gap-1 print:hidden sm:right-4 sm:top-4 sm:gap-2">
+          <button
+            onClick={() => setShowShortcutsHelp(!showShortcutsHelp)}
+            className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-2 py-2 shadow-sm transition-shadow duration-200 hover:shadow-md sm:px-3"
+            title="کلیدهای میانبر (Shift+?)"
+          >
+            <Keyboard className="h-4 w-4" />
+          </button>
           <button
             onClick={() => setShowThemeSelector(!showThemeSelector)}
-            className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2 shadow-sm transition-shadow duration-200 hover:shadow-md"
+            className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 shadow-sm transition-shadow duration-200 hover:shadow-md sm:px-4"
+            title="تنظیمات قالب (Ctrl+T)"
           >
             <Settings className="h-4 w-4" />
-            <span className="text-sm font-medium">تنظیمات</span>
+            <span className="hidden text-sm font-medium sm:inline">تنظیمات</span>
           </button>
         </div>
 
         {/* Main CV Content */}
         <ThemedCV data={sampleCVData} />
 
+        {/* Keyboard Shortcuts Help */}
+        {showShortcutsHelp && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-2 sm:p-4">
+            <div className="w-full max-w-md rounded-xl bg-white shadow-2xl">
+              <div className="flex items-center justify-between border-b border-gray-200 p-4 sm:p-6">
+                <h2 className="text-base font-semibold text-gray-900 sm:text-lg">کلیدهای میانبر</h2>
+                <button
+                  onClick={() => setShowShortcutsHelp(false)}
+                  className="p-1 text-gray-400 transition-colors hover:text-gray-600"
+                >
+                  ✕
+                </button>
+              </div>
+              <div className="p-4 sm:p-6">
+                <div className="space-y-2 sm:space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-700">پرینت رزومه</span>
+                    <kbd className="rounded bg-gray-100 px-2 py-1 text-xs font-medium text-gray-700">
+                      {getShortcutDisplay({ key: 'p', ctrlKey: true, callback: () => {}, description: '' })}
+                    </kbd>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-700">انتخاب قالب</span>
+                    <kbd className="rounded bg-gray-100 px-2 py-1 text-xs font-medium text-gray-700">
+                      {getShortcutDisplay({ key: 't', ctrlKey: true, callback: () => {}, description: '' })}
+                    </kbd>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-700">کلیدهای میانبر</span>
+                    <kbd className="rounded bg-gray-100 px-2 py-1 text-xs font-medium text-gray-700">
+                      {getShortcutDisplay({ key: '?', shiftKey: true, callback: () => {}, description: '' })}
+                    </kbd>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-700">بستن پنجره‌ها</span>
+                    <kbd className="rounded bg-gray-100 px-2 py-1 text-xs font-medium text-gray-700">
+                      ESC
+                    </kbd>
+                  </div>
+                </div>
+                <div className="mt-4 rounded-lg bg-blue-50 p-3">
+                  <p className="text-xs text-blue-700" dir="rtl">
+                    💡 نکته: برای پرینت سریع از Ctrl+P استفاده کنید
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Welcome Banner */}
         <div
-          className="fixed bottom-4 left-4 right-4 mx-auto max-w-md rounded-lg border border-blue-200 bg-blue-50 p-4 print:hidden"
+          className="fixed bottom-2 left-2 right-2 mx-auto max-w-md rounded-lg border border-blue-200 bg-blue-50 p-3 print:hidden sm:bottom-4 sm:left-4 sm:right-4 sm:p-4"
           dir="rtl"
         >
           <div className="flex items-start gap-3">
@@ -88,7 +189,8 @@ export default function App() {
             </div>
           </div>
         </div>
-      </div>
-    </ThemeProvider>
+        </div>
+      </ThemeProvider>
+    </ErrorBoundary>
   );
 }
