@@ -103,7 +103,7 @@ export const sampleCVData: CVData = {
       location: 'برکلی، کالیفرنیا',
       startDate: '۲۰۱۶',
       endDate: '۲۰۲۰',
-      gpa: '۳.۸/۴.۰',
+
     },
   ],
   certifications: [

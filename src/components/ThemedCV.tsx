@@ -465,7 +465,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
                     >
                       {edu.startDate} - {edu.endDate}
                     </div>
-                    {edu.gpa && (
+                    {/* {edu.gpa && (
                       <p
                         style={{
                           fontSize: theme.typography.fontSize.sm,
@@ -475,7 +475,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
                       >
                         معدل: {edu.gpa}
                       </p>
-                    )}
+                    )} */}
                   </div>
                 </div>
               </div>
@@ -573,7 +573,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
             </div>
           </section>
         )}
-        
+
         <FooterBranding />
       </div>
     </div>

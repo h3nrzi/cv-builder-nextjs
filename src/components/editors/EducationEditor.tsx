@@ -200,7 +200,7 @@ export function EducationEditor({ education, onUpdateEducation }: EducationEdito
                           </div>
                         </FormField>
 
-                        <FormField label="معدل (اختیاری)">
+                        {/* <FormField label="معدل (اختیاری)">
                           <div className="relative">
                             <Star className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
                             <Input
@@ -210,7 +210,7 @@ export function EducationEditor({ education, onUpdateEducation }: EducationEdito
                               className="pr-10"
                             />
                           </div>
-                        </FormField>
+                        </FormField> */}
 
                         <div className="grid grid-cols-2 gap-2">
                           <FormField label="تاریخ شروع" required>
@@ -262,7 +262,7 @@ export function EducationEditor({ education, onUpdateEducation }: EducationEdito
                       </div>
 
                       {/* Achievements */}
-                      <div>
+                      {/* <div>
                         <div className="mb-3 flex items-center justify-between">
                           <label className="text-sm font-medium">دستاوردها و افتخارات</label>
                           <Button
@@ -303,7 +303,7 @@ export function EducationEditor({ education, onUpdateEducation }: EducationEdito
                             </div>
                           )}
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 )}
@@ -328,9 +328,9 @@ export function EducationEditor({ education, onUpdateEducation }: EducationEdito
             <h4 className="mb-2 font-medium text-green-900">💡 نکات مفید:</h4>
             <ul className="space-y-1 text-sm text-green-700">
               <li>• تحصیلات را به ترتیب زمانی (جدیدترین ابتدا) مرتب کنید</li>
-              <li>• معدل را فقط در صورت بالا بودن (بالای 16 از 20 یا 3.5 از 4) ذکر کنید</li>
-              <li>• دستاوردهای مهم مثل رتبه‌های برتر و جوایز را بیان کنید</li>
-              <li>• برای تحصیلات فعلی، گزینه "در حال تحصیل" را انتخاب کنید</li>
+              {/* <li>• معدل را فقط در صورت بالا بودن (بالای 16 از 20 یا 3.5 از 4) ذکر کنید</li> */}
+              {/* <li>• دستاوردهای مهم مثل رتبه‌های برتر و جوایز را بیان کنید</li> */}
+              <li>• برای تحصیلات فعلی، گزینه &quot;در حال تحصیل&quot; را انتخاب کنید</li>
             </ul>
           </div>
         </div>
