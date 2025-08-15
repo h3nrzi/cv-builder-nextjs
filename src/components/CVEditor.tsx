@@ -103,6 +103,7 @@ export function CVEditor({ className = '' }: CVEditorProps) {
 
   return (
     <div className={`min-h-screen bg-gray-50 ${className}`}>
+      {/* Header */}
       <CVHeader
         mode={mode}
         setMode={setMode}
@@ -112,61 +113,59 @@ export function CVEditor({ className = '' }: CVEditorProps) {
         exportData={exportData}
         handleFileImport={handleFileImport}
       />
-      <div className="flex flex-1">
-        {/* Sidebar - Only in edit mode */}
-        {mode === 'edit' && (
-          <>
-            {/* Mobile Navigation */}
-            <div className="border-b border-gray-200 bg-white sm:hidden">
-              <div className="px-4 py-2">
-                <select
-                  value={activeSection}
-                  onChange={e => setActiveSection(e.target.value as EditorSection)}
-                  className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                  dir="rtl"
-                >
-                  {sectionTabs.map(section => (
-                    <option key={section.id} value={section.id}>
-                      {section.label}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
 
-            {/* Desktop Sidebar */}
-            <div className="hidden w-64 border-r border-gray-200 bg-white shadow-sm sm:block">
-              <div className="p-4">
-                <h3 className="mb-3 text-sm font-semibold text-gray-900">بخش‌های رزومه</h3>
-                <nav className="space-y-1">
-                  {sectionTabs.map(section => {
-                    const Icon = section.icon;
-                    return (
-                      <button
-                        key={section.id}
-                        onClick={() => setActiveSection(section.id as EditorSection)}
-                        className={`flex w-full items-center gap-3 rounded-lg px-3 py-2 text-right text-sm transition-colors ${
-                          activeSection === section.id
-                            ? 'border border-blue-200 bg-blue-50 text-blue-700'
-                            : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                        }`}
-                        dir="rtl"
-                      >
-                        <Icon className="h-4 w-4" />
-                        {section.label}
-                      </button>
-                    );
-                  })}
-                </nav>
-              </div>
+      <div className="flex flex-1">
+        {/* Desktop Sidebar - Only in edit mode */}
+        {mode === 'edit' && (
+          <div className="hidden w-64 border-r border-gray-200 bg-white shadow-sm sm:block">
+            <div className="p-4">
+              <h3 className="mb-3 text-sm font-semibold text-gray-900">بخش‌های رزومه</h3>
+              <nav className="space-y-1">
+                {sectionTabs.map(section => {
+                  const Icon = section.icon;
+                  return (
+                    <button
+                      key={section.id}
+                      onClick={() => setActiveSection(section.id as EditorSection)}
+                      className={`flex w-full items-center gap-3 rounded-lg px-3 py-2 text-right text-sm transition-colors ${
+                        activeSection === section.id
+                          ? 'border border-blue-200 bg-blue-50 text-blue-700'
+                          : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                      }`}
+                      dir="rtl"
+                    >
+                      <Icon className="h-4 w-4" />
+                      {section.label}
+                    </button>
+                  );
+                })}
+              </nav>
             </div>
-          </>
+          </div>
         )}
 
         {/* Main Content */}
         <div className="flex-1">
           {mode === 'edit' ? (
             <div className="mx-auto max-w-4xl p-4 sm:p-6">
+              {/* Mobile Navigation */}
+              <div className="mb-5 rounded-lg border border-gray-200 bg-white p-1 shadow-sm sm:hidden">
+                <div className="px-4 py-2">
+                  <select
+                    value={activeSection}
+                    onChange={e => setActiveSection(e.target.value as EditorSection)}
+                    className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                    dir="rtl"
+                  >
+                    {sectionTabs.map(section => (
+                      <option key={section.id} value={section.id}>
+                        {section.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
               {activeSection === 'personal' && (
                 <PersonalInfoEditor
                   personalInfo={cvData.personal}
