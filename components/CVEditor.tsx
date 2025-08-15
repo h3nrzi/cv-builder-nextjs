@@ -1,5 +1,5 @@
-import { Award, Briefcase, Download, Edit3, Eye, RefreshCw, Save, Upload, GraduationCap, FolderOpen, Languages, Heart } from 'lucide-react';
-import React, { useState } from 'react';
+import { Award, Briefcase, Download, Edit3, Eye, RefreshCw, Save, Upload, GraduationCap, FolderOpen, Languages, Heart, Palette, Printer } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
 import { useCVData } from '../hooks/useCVData';
 import { PersonalInfoEditor } from './editors/PersonalInfoEditor';
 import { SkillsEditor } from './editors/SkillsEditor';
@@ -10,6 +10,7 @@ import { LanguagesEditor } from './editors/LanguagesEditor';
 import { InterestsEditor } from './editors/InterestsEditor';
 import { LoadingSpinner } from './LoadingSpinner';
 import { ThemedCV } from './ThemedCV';
+import { ThemeSelector } from './ThemeSelector';
 import { Button } from './ui/button';
 
 interface CVEditorProps {
@@ -41,6 +42,19 @@ export function CVEditor({ className = '' }: CVEditorProps) {
   const [mode, setMode] = useState<EditorMode>('edit');
   const [activeSection, setActiveSection] = useState<EditorSection>('personal');
   const [isSaving, setIsSaving] = useState(false);
+
+  // Keyboard shortcuts
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.ctrlKey && e.key === 'p') {
+        e.preventDefault();
+        window.print();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   const handleSave = async () => {
     setIsSaving(true);
@@ -299,9 +313,27 @@ export function CVEditor({ className = '' }: CVEditorProps) {
               )}
             </div>
           ) : (
-            <div className="p-4">
-              <ThemedCV data={cvData} />
-            </div>
+            <>
+              {/* Preview Mode Floating Actions */}
+              <div className="fixed left-4 top-20 z-30 print:hidden">
+                <div className="flex flex-col gap-2">
+                  <ThemeSelector />
+                  <Button
+                    onClick={() => window.print()}
+                    size="sm"
+                    className="flex items-center gap-2 shadow-lg"
+                    title="پرینت رزومه (Ctrl+P)"
+                  >
+                    <Printer className="h-4 w-4" />
+                    <span className="hidden sm:inline">پرینت</span>
+                  </Button>
+                </div>
+              </div>
+              
+              <div className="p-4">
+                <ThemedCV data={cvData} />
+              </div>
+            </>
           )}
         </div>
       </div>
