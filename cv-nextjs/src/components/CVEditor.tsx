@@ -1,33 +1,32 @@
 'use client';
+import { EducationEditor } from '@/components/editors/EducationEditor';
+import { ExperienceEditor } from '@/components/editors/ExperienceEditor';
+import { InterestsEditor } from '@/components/editors/InterestsEditor';
+import { LanguagesEditor } from '@/components/editors/LanguagesEditor';
+import { PersonalInfoEditor } from '@/components/editors/PersonalInfoEditor';
+import { ProjectsEditor } from '@/components/editors/ProjectsEditor';
+import { SkillsEditor } from '@/components/editors/SkillsEditor';
+import { LoadingSpinner } from '@/components/LoadingSpinner';
+import { ThemedCV } from '@/components/ThemedCV';
+import { ThemeSelector } from '@/components/ThemeSelector';
+import { Button } from '@/components/ui/button';
+import { useCVData } from '@/hooks/useCVData';
 import {
   Award,
   Briefcase,
   Download,
   Edit3,
   Eye,
+  FolderOpen,
+  GraduationCap,
+  Heart,
+  Languages,
+  Printer,
   RefreshCw,
   Save,
   Upload,
-  GraduationCap,
-  FolderOpen,
-  Languages,
-  Heart,
-  Palette,
-  Printer,
 } from 'lucide-react';
-import React, { useState, useEffect } from 'react';
-import { useCVData } from '@/hooks/useCVData';
-import { PersonalInfoEditor } from '@/components/editors/PersonalInfoEditor';
-import { SkillsEditor } from '@/components/editors/SkillsEditor';
-import { ExperienceEditor } from '@/components/editors/ExperienceEditor';
-import { EducationEditor } from '@/components/editors/EducationEditor';
-import { ProjectsEditor } from '@/components/editors/ProjectsEditor';
-import { LanguagesEditor } from '@/components/editors/LanguagesEditor';
-import { InterestsEditor } from '@/components/editors/InterestsEditor';
-import { LoadingSpinner } from '@/components/LoadingSpinner';
-import { ThemedCV } from '@/components/ThemedCV';
-import { ThemeSelector } from '@/components/ThemeSelector';
-import { Button } from '@/components/ui/button';
+import React, { useEffect, useState } from 'react';
 
 interface CVEditorProps {
   className?: string;
@@ -121,7 +120,7 @@ export function CVEditor({ className = '' }: CVEditorProps) {
   return (
     <div className={`min-h-screen bg-gray-50 ${className}`}>
       {/* Header */}
-      <div className="sticky top-0 z-40 border-b border-gray-200 bg-white shadow-sm">
+      <div className="print:hidden sticky top-0 z-40 border-b border-gray-200 bg-white shadow-sm">
         <div className="flex flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           {/* Top Row: Mode Toggle and Save Status */}
           <div className="flex items-center justify-between sm:justify-start sm:gap-6">
@@ -178,6 +177,9 @@ export function CVEditor({ className = '' }: CVEditorProps) {
               )}
             </div>
 
+            {/* Theme Selector */}
+            <ThemeSelector className="hidden sm:block" />
+            
             {/* Action Buttons */}
             <div className="flex items-center gap-1 sm:gap-2">
               {hasUnsavedChanges && (
@@ -201,6 +203,16 @@ export function CVEditor({ className = '' }: CVEditorProps) {
                 </Button>
               )}
 
+              <Button
+                onClick={() => window.print()}
+                variant="outline"
+                size="sm"
+                className="px-2 py-1 text-xs sm:px-3 sm:py-2 sm:text-sm"
+              >
+                <Printer className="mr-1 h-3 w-3 sm:mr-2 sm:h-4 sm:w-4" />
+                <span className="hidden sm:inline">PDF</span>
+              </Button>
+              
               <Button
                 onClick={exportData}
                 variant="outline"
@@ -322,21 +334,7 @@ export function CVEditor({ className = '' }: CVEditorProps) {
             </div>
           ) : (
             <>
-              {/* Preview Mode Floating Actions */}
-              <div className="fixed left-4 top-20 z-30 print:hidden">
-                <div className="flex flex-col gap-2">
-                  <ThemeSelector />
-                  <Button
-                    onClick={() => window.print()}
-                    size="sm"
-                    className="flex items-center gap-2 shadow-lg"
-                    title="پرینت رزومه (Ctrl+P)"
-                  >
-                    <Printer className="h-4 w-4" />
-                    <span className="hidden sm:inline">پرینت</span>
-                  </Button>
-                </div>
-              </div>
+
 
               <div className="p-4">
                 <ThemedCV data={cvData} />
