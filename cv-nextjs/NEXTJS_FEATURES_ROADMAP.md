@@ -7,6 +7,7 @@ Converting your **CV Builder** project from Vite + React to Next.js opens up a w
 ## 🌟 **Core Next.js Features**
 
 ### 1. **Server-Side Rendering (SSR) & Static Generation**
+
 Transform your CV builder into a high-performance, SEO-friendly application:
 
 - **Static CV Pages**: Generate static pages for each CV with custom URLs (`/cv/john-doe-developer`)
@@ -26,6 +27,7 @@ export async function getStaticProps({ params }) {
 ```
 
 ### 2. **API Routes - Full Backend Integration**
+
 Build a complete CV management system:
 
 - **User Authentication**: JWT-based auth with NextAuth.js
@@ -39,7 +41,7 @@ Build a complete CV management system:
 export default async function handler(req, res) {
   const { cvData, themeId } = req.body;
   const pdfBuffer = await generatePDF(cvData, themeId);
-  
+
   res.setHeader('Content-Type', 'application/pdf');
   res.setHeader('Content-Disposition', 'attachment; filename=resume.pdf');
   res.send(pdfBuffer);
@@ -47,6 +49,7 @@ export default async function handler(req, res) {
 ```
 
 ### 3. **App Router (Next.js 13+)**
+
 Modern routing with enhanced features:
 
 - **Parallel Routes**: Show CV editor and preview simultaneously
@@ -59,6 +62,7 @@ Modern routing with enhanced features:
 ## 🎨 **Advanced UI/UX Features**
 
 ### 4. **Real-time Collaboration**
+
 Enable team CV editing:
 
 - **WebSocket Integration**: Real-time updates using Socket.IO
@@ -67,6 +71,7 @@ Enable team CV editing:
 - **Comments System**: Leave feedback on specific CV sections
 
 ### 5. **Dynamic Theme System**
+
 Enhanced theming capabilities:
 
 - **Theme Marketplace**: Users can browse and purchase premium themes
@@ -75,6 +80,7 @@ Enhanced theming capabilities:
 - **Responsive Theme Testing**: Preview themes across different devices
 
 ### 6. **Advanced PDF Features**
+
 Professional PDF generation:
 
 - **Multi-page Support**: Automatic page breaks and continuation
@@ -88,6 +94,7 @@ Professional PDF generation:
 ## 🔐 **User Management & Authentication**
 
 ### 7. **Complete User System**
+
 Full-featured user management:
 
 - **Social Login**: Google, LinkedIn, GitHub integration
@@ -107,6 +114,7 @@ export function middleware(request) {
 ```
 
 ### 8. **Portfolio Integration**
+
 Connect CVs to broader professional presence:
 
 - **Portfolio Generator**: Create matching portfolio websites
@@ -119,6 +127,7 @@ Connect CVs to broader professional presence:
 ## 🌍 **Internationalization & Accessibility**
 
 ### 9. **Multi-language Support**
+
 Global reach with i18n:
 
 - **Dynamic Language Switching**: Support multiple languages
@@ -127,6 +136,7 @@ Global reach with i18n:
 - **Currency/Date Formatting**: Automatic localization
 
 ### 10. **Advanced Accessibility**
+
 Inclusive design features:
 
 - **Screen Reader Optimization**: ARIA labels and semantic HTML
@@ -139,6 +149,7 @@ Inclusive design features:
 ## 🔧 **Developer & Power User Features**
 
 ### 11. **AI Integration**
+
 Smart CV enhancement:
 
 - **Content Suggestions**: AI-powered skill recommendations
@@ -155,12 +166,13 @@ export default async function handler(req, res) {
     prompt: `Improve this CV: ${JSON.stringify(cvData)}`,
     max_tokens: 500,
   });
-  
+
   res.json({ suggestions: suggestions.choices[0].text });
 }
 ```
 
 ### 12. **Advanced Analytics**
+
 Comprehensive tracking:
 
 - **CV Performance Metrics**: Views, downloads, engagement
@@ -169,6 +181,7 @@ Comprehensive tracking:
 - **Conversion Tracking**: Interview requests, job applications
 
 ### 13. **Integration Ecosystem**
+
 Connect with external services:
 
 - **Job Board APIs**: Auto-apply to jobs with formatted CVs
@@ -182,6 +195,7 @@ Connect with external services:
 ## 📱 **Mobile & Progressive Web App**
 
 ### 14. **PWA Features**
+
 Mobile-first experience:
 
 - **Offline Editing**: Work on CVs without internet
@@ -191,6 +205,7 @@ Mobile-first experience:
 - **Camera Integration**: Take profile photos directly
 
 ### 15. **Mobile Optimization**
+
 Touch-friendly editing:
 
 - **Gesture Controls**: Swipe to switch sections
@@ -203,6 +218,7 @@ Touch-friendly editing:
 ## 🏢 **Enterprise Features**
 
 ### 16. **Multi-tenant Architecture**
+
 Scale for businesses:
 
 - **White-label Solution**: Custom branding for organizations
@@ -212,6 +228,7 @@ Scale for businesses:
 - **Compliance**: GDPR, CCPA data protection features
 
 ### 17. **Advanced Security**
+
 Enterprise-grade security:
 
 - **Two-factor Authentication**: Enhanced account security
@@ -225,6 +242,7 @@ Enterprise-grade security:
 ## 🎯 **Specialized Features**
 
 ### 18. **Industry-Specific Templates**
+
 Tailored experiences:
 
 - **Academic CVs**: Publication lists, research experience
@@ -234,6 +252,7 @@ Tailored experiences:
 - **International Formats**: Europass, regional standards
 
 ### 19. **Advanced Customization**
+
 Power user features:
 
 - **Custom CSS Editor**: Advanced styling control
@@ -247,24 +266,28 @@ Power user features:
 ## 🔄 **Migration Path**
 
 ### Phase 1: Foundation (Weeks 1-2)
+
 - Set up Next.js 13+ with App Router
 - Migrate existing components
 - Implement basic API routes
 - Set up authentication
 
 ### Phase 2: Core Features (Weeks 3-4)
+
 - Add database integration
 - Implement user management
 - Build PDF generation API
 - Create responsive layouts
 
 ### Phase 3: Advanced Features (Weeks 5-8)
+
 - Add real-time collaboration
 - Implement AI features
 - Build analytics dashboard
 - Create mobile PWA
 
 ### Phase 4: Enterprise (Weeks 9-12)
+
 - Multi-tenant architecture
 - Advanced security features
 - Performance optimization
@@ -275,6 +298,7 @@ Power user features:
 ## 🛠 **Technology Stack Recommendations**
 
 ### Backend & Database
+
 - **Database**: PostgreSQL with Prisma ORM
 - **Authentication**: NextAuth.js with multiple providers
 - **File Storage**: AWS S3 or Vercel Blob
@@ -282,6 +306,7 @@ Power user features:
 - **Search**: Elasticsearch for CV/template search
 
 ### Frontend Enhancements
+
 - **State Management**: Zustand or Redux Toolkit
 - **Forms**: React Hook Form with Zod validation
 - **Animations**: Framer Motion for smooth transitions
@@ -289,6 +314,7 @@ Power user features:
 - **Rich Text**: Tiptap editor for advanced text editing
 
 ### Infrastructure
+
 - **Deployment**: Vercel or AWS with CDN
 - **Monitoring**: Vercel Analytics + Sentry
 - **Email**: SendGrid or Resend for notifications
@@ -300,16 +326,19 @@ Power user features:
 ## 📊 **Expected Outcomes**
 
 ### Performance Improvements
+
 - **50% faster loading** with SSG/SSR
 - **90% better SEO** with proper meta tags
 - **Offline functionality** with PWA features
 
 ### User Experience
+
 - **Real-time collaboration** for team editing
 - **AI-powered suggestions** for better content
 - **Cross-platform compatibility** with PWA
 
 ### Business Value
+
 - **Scalable architecture** for growth
 - **Revenue opportunities** with premium features
 - **Enterprise readiness** with security and compliance
