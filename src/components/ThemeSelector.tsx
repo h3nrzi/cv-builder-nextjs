@@ -1,9 +1,9 @@
 'use client';
-import { Check, Download, Loader2, Palette, Search, Tag, Upload, User, X } from 'lucide-react';
-import React, { useState } from 'react';
-import { useTheme } from '@/hooks/useTheme';
 import { LoadingSpinner } from '@/components/LoadingSpinner';
+import { useTheme } from '@/hooks/useTheme';
 import { Theme } from '@/types/theme';
+import { Check, Download, Loader2, Palette, Search, Tag, User, X } from 'lucide-react';
+import React, { useState } from 'react';
 
 interface ThemeSelectorProps {
   className?: string;
@@ -16,7 +16,7 @@ export function ThemeSelector({ className = '' }: ThemeSelectorProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredThemes, setFilteredThemes] = useState<Theme[]>(availableThemes);
-  const [previewTheme, setPreviewTheme] = useState<Theme | null>(null);
+  // const [previewTheme, setPreviewTheme] = useState<Theme | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const handleSearch = (query: string) => {
@@ -36,21 +36,21 @@ export function ThemeSelector({ className = '' }: ThemeSelectorProps) {
       setTheme(themeId);
       setIsTransitioning(false);
       setIsOpen(false);
-      setPreviewTheme(null);
+      // setPreviewTheme(null);
     }, 300);
   };
 
-  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      const success = await loadExternalTheme(file);
-      if (success) {
-        setFilteredThemes(availableThemes);
-      } else {
-        alert('Failed to load theme file. Please check the format.');
-      }
-    }
-  };
+  // const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   const file = event.target.files?.[0];
+  //   if (file) {
+  //     const success = await loadExternalTheme(file);
+  //     if (success) {
+  //       setFilteredThemes(availableThemes);
+  //     } else {
+  //       alert('Failed to load theme file. Please check the format.');
+  //     }
+  //   }
+  // };
 
   const exportTheme = (theme: Theme) => {
     const dataStr = JSON.stringify(theme, null, 2);
@@ -118,7 +118,7 @@ export function ThemeSelector({ className = '' }: ThemeSelectorProps) {
                 </div>
 
                 {/* Upload Theme */}
-                <label className="flex cursor-pointer items-center justify-center gap-2 rounded-lg bg-blue-500 px-3 py-2 text-white transition-colors hover:bg-blue-600 sm:justify-start sm:px-4">
+                {/* <label className="flex cursor-pointer items-center justify-center gap-2 rounded-lg bg-blue-500 px-3 py-2 text-white transition-colors hover:bg-blue-600 sm:justify-start sm:px-4">
                   <Upload className="h-4 w-4" />
                   <span className="text-sm">آپلود قالب</span>
                   <input
@@ -127,7 +127,7 @@ export function ThemeSelector({ className = '' }: ThemeSelectorProps) {
                     onChange={handleFileUpload}
                     className="hidden"
                   />
-                </label>
+                </label> */}
               </div>
             </div>
 
@@ -248,7 +248,7 @@ export function ThemeSelector({ className = '' }: ThemeSelectorProps) {
             </div>
 
             {/* Footer */}
-            <div className="rounded-b-xl border-t border-gray-200 bg-gray-50 p-4 sm:p-6">
+            {/* <div className="rounded-b-xl border-t border-gray-200 bg-gray-50 p-4 sm:p-6">
               <p className="text-center text-xs text-gray-600 sm:text-sm">
                 برای ساخت قالب جدید،
                 <a
@@ -261,7 +261,7 @@ export function ThemeSelector({ className = '' }: ThemeSelectorProps) {
                 </a>
                 را مطالعه کنید.
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
       )}
