@@ -1,19 +1,18 @@
 'use client';
-import React, { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { FormCard, FormField, Input } from '@/components/ui/form-components';
+import { CVData } from '@/types/theme';
 import {
-  Plus,
-  Trash2,
-  GraduationCap,
-  Calendar,
-  MapPin,
-  Building,
   Award,
   BookOpen,
-  Star,
+  Building,
+  Calendar,
+  GraduationCap,
+  MapPin,
+  Plus,
+  Trash2,
 } from 'lucide-react';
-import { CVData } from '@/types/theme';
-import { FormField, FormCard, Input, Textarea } from '@/components/ui/form-components';
-import { Button } from '@/components/ui/button';
+import { useState } from 'react';
 
 interface EducationEditorProps {
   education: CVData['education'];
