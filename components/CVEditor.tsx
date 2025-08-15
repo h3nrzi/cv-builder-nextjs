@@ -1,11 +1,14 @@
+import { Award, Briefcase, Download, Edit3, Eye, RefreshCw, Save, Upload, GraduationCap, FolderOpen } from 'lucide-react';
 import React, { useState } from 'react';
-import { Edit3, Eye, Save, Download, Upload, RefreshCw } from 'lucide-react';
-import { CVData } from '../types/theme';
 import { useCVData } from '../hooks/useCVData';
 import { PersonalInfoEditor } from './editors/PersonalInfoEditor';
+import { SkillsEditor } from './editors/SkillsEditor';
+import { ExperienceEditor } from './editors/ExperienceEditor';
+import { EducationEditor } from './editors/EducationEditor';
+import { ProjectsEditor } from './editors/ProjectsEditor';
+import { LoadingSpinner } from './LoadingSpinner';
 import { ThemedCV } from './ThemedCV';
 import { Button } from './ui/button';
-import { LoadingSpinner } from './LoadingSpinner';
 
 interface CVEditorProps {
   className?: string;
@@ -58,11 +61,10 @@ export function CVEditor({ className = '' }: CVEditorProps) {
 
   const sectionTabs = [
     { id: 'personal', label: 'اطلاعات شخصی', icon: Edit3 },
-    // We'll add more sections later
-    // { id: 'skills', label: 'مهارت‌ها', icon: Award },
-    // { id: 'experience', label: 'تجربه کاری', icon: Briefcase },
-    // { id: 'education', label: 'تحصیلات', icon: GraduationCap },
-    // { id: 'projects', label: 'پروژه‌ها', icon: FolderOpen }
+    { id: 'skills', label: 'مهارت‌ها', icon: Award },
+    { id: 'experience', label: 'تجربه کاری', icon: Briefcase },
+    { id: 'education', label: 'تحصیلات', icon: GraduationCap },
+    { id: 'projects', label: 'پروژه‌ها', icon: FolderOpen }
   ];
 
   if (isLoading) {
@@ -208,7 +210,30 @@ export function CVEditor({ className = '' }: CVEditorProps) {
                   onUpdateSummary={updateSummary}
                 />
               )}
-              {/* We'll add other sections here later */}
+              {activeSection === 'skills' && (
+                <SkillsEditor
+                  skills={cvData.skills}
+                  onUpdateSkills={updateSkills}
+                />
+              )}
+              {activeSection === 'experience' && (
+                <ExperienceEditor
+                  experience={cvData.experience}
+                  onUpdateExperience={updateExperience}
+                />
+              )}
+              {activeSection === 'education' && (
+                <EducationEditor
+                  education={cvData.education}
+                  onUpdateEducation={updateEducation}
+                />
+              )}
+              {activeSection === 'projects' && (
+                <ProjectsEditor
+                  projects={cvData.projects}
+                  onUpdateProjects={updateProjects}
+                />
+              )}
             </div>
           ) : (
             <div className="p-4">
