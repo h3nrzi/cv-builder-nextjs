@@ -6,7 +6,7 @@ export const glassmorphismTheme: Theme = {
     name: 'شیشه ای مات',
     description: 'قالب مدرن با افکت شیشه مات و پس‌زمینه های پررنگ',
     author: 'حسین رضایی',
-    version: '1.0.0',
+    version: '1.1.0',
     tags: ['شیشه ای', 'مدرن', 'شیشه', 'محو', 'مد'],
   },
   colors: {

@@ -4,8 +4,8 @@ export const nordicMinimalTheme: Theme = {
   config: {
     id: 'nordic-minimal',
     name: 'نوردیک مینیمال',
-    description: 'قالب تمیز الهامگرفته از اسکاندیناوی با رنگهای ملایم و تایپوگرافی عالی',
-    author: 'CV Builder Pro',
+    description: 'قالب تمیز الهام گرفته از اسکاندیناوی با رنگهای ملایم و تایپوگرافی عالی',
+    author: 'حسین رضایی',
     version: '1.0.0',
     tags: ['نوردیک', 'مینیمال', 'تمیز', 'اسکاندیناوی', 'تایپوگرافی'],
   },
