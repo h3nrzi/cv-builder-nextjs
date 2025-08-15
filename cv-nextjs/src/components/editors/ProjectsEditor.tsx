@@ -1,6 +1,16 @@
 'use client';
 import React, { useState } from 'react';
-import { Plus, Trash2, FolderOpen, Calendar, Link, Github, Code, ExternalLink, Hash } from 'lucide-react';
+import {
+  Plus,
+  Trash2,
+  FolderOpen,
+  Calendar,
+  Link,
+  Github,
+  Code,
+  ExternalLink,
+  Hash,
+} from 'lucide-react';
 import { CVData } from '@/types/theme';
 import { FormField, FormCard, Input, Textarea } from '@/components/ui/form-components';
 import { Button } from '@/components/ui/button';
@@ -21,7 +31,7 @@ export function ProjectsEditor({ projects, onUpdateProjects }: ProjectsEditorPro
       url: '',
       github: '',
       startDate: '',
-      endDate: ''
+      endDate: '',
     };
     onUpdateProjects([...projects, newProject]);
     // Auto-expand the new item
@@ -42,7 +52,7 @@ export function ProjectsEditor({ projects, onUpdateProjects }: ProjectsEditorPro
     const newExpanded = new Set(
       Array.from(expandedItems)
         .filter(i => i !== index)
-        .map(i => i > index ? i - 1 : i)
+        .map(i => (i > index ? i - 1 : i))
     );
     setExpandedItems(newExpanded);
   };
@@ -89,20 +99,17 @@ export function ProjectsEditor({ projects, onUpdateProjects }: ProjectsEditorPro
 
   return (
     <div className="space-y-6">
-      <FormCard 
-        title="پروژه‌ها" 
+      <FormCard
+        title="پروژه‌ها"
         description="پروژه‌های شخصی و حرفه‌ای خود را به ترتیب اهمیت یا تاریخ وارد کنید"
       >
         <div className="space-y-6">
           {projects.map((project, index) => {
             const isExpanded = expandedItems.has(index);
             const status = getProjectStatus(project.startDate, project.endDate);
-            
+
             return (
-              <div
-                key={index}
-                className="rounded-lg border border-gray-200 bg-white shadow-sm"
-              >
+              <div key={index} className="rounded-lg border border-gray-200 bg-white shadow-sm">
                 {/* Header */}
                 <div
                   className="flex cursor-pointer items-center justify-between p-4 hover:bg-gray-50"
@@ -117,36 +124,38 @@ export function ProjectsEditor({ projects, onUpdateProjects }: ProjectsEditorPro
                       <p className="text-sm text-gray-500" dir="rtl">
                         {project.technologies && project.technologies.length > 0 && (
                           <>
-                            {project.technologies.filter(tech => tech).slice(0, 3).join(', ')}
+                            {project.technologies
+                              .filter(tech => tech)
+                              .slice(0, 3)
+                              .join(', ')}
                             {project.technologies.filter(tech => tech).length > 3 && ' و ...'}
                           </>
                         )}
                         {project.startDate && (
                           <span className="mr-2">
-                            {project.startDate} {project.endDate ? `- ${project.endDate}` : '- اکنون'}
+                            {project.startDate}{' '}
+                            {project.endDate ? `- ${project.endDate}` : '- اکنون'}
                           </span>
                         )}
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center gap-2">
                     {status && (
-                      <span className={`rounded-full px-2 py-1 text-xs font-medium ${status.color}`}>
+                      <span
+                        className={`rounded-full px-2 py-1 text-xs font-medium ${status.color}`}
+                      >
                         {status.label}
                       </span>
                     )}
-                    {project.url && (
-                      <Link className="h-4 w-4 text-gray-400" />
-                    )}
-                    {project.github && (
-                      <Github className="h-4 w-4 text-gray-400" />
-                    )}
+                    {project.url && <Link className="h-4 w-4 text-gray-400" />}
+                    {project.github && <Github className="h-4 w-4 text-gray-400" />}
                     <Button
                       variant="ghost"
                       size="sm"
                       className="text-red-600 hover:bg-red-50"
-                      onClick={(e) => {
+                      onClick={e => {
                         e.stopPropagation();
                         deleteProject(index);
                       }}
@@ -167,7 +176,7 @@ export function ProjectsEditor({ projects, onUpdateProjects }: ProjectsEditorPro
                             <FolderOpen className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
                             <Input
                               value={project.name}
-                              onChange={(e) => updateProject(index, 'name', e.target.value)}
+                              onChange={e => updateProject(index, 'name', e.target.value)}
                               placeholder="مثل: فروشگاه آنلاین، وب‌سایت شخصی"
                               className="pr-10"
                               dir="rtl"
@@ -182,7 +191,7 @@ export function ProjectsEditor({ projects, onUpdateProjects }: ProjectsEditorPro
                               <Input
                                 type="month"
                                 value={project.startDate || ''}
-                                onChange={(e) => updateProject(index, 'startDate', e.target.value)}
+                                onChange={e => updateProject(index, 'startDate', e.target.value)}
                                 className="pr-10"
                               />
                             </div>
@@ -194,7 +203,7 @@ export function ProjectsEditor({ projects, onUpdateProjects }: ProjectsEditorPro
                               <Input
                                 type="month"
                                 value={project.endDate || ''}
-                                onChange={(e) => updateProject(index, 'endDate', e.target.value)}
+                                onChange={e => updateProject(index, 'endDate', e.target.value)}
                                 placeholder="اکنون"
                                 className="pr-10"
                               />
@@ -204,10 +213,19 @@ export function ProjectsEditor({ projects, onUpdateProjects }: ProjectsEditorPro
                                 type="checkbox"
                                 id={`current-project-${index}`}
                                 checked={!project.endDate}
-                                onChange={(e) => updateProject(index, 'endDate', e.target.checked ? '' : getCurrentDate())}
+                                onChange={e =>
+                                  updateProject(
+                                    index,
+                                    'endDate',
+                                    e.target.checked ? '' : getCurrentDate()
+                                  )
+                                }
                                 className="h-3 w-3 text-blue-600"
                               />
-                              <label htmlFor={`current-project-${index}`} className="text-xs text-gray-600">
+                              <label
+                                htmlFor={`current-project-${index}`}
+                                className="text-xs text-gray-600"
+                              >
                                 هم‌اکنون در حال کار روی این پروژه هستم
                               </label>
                             </div>
@@ -219,7 +237,7 @@ export function ProjectsEditor({ projects, onUpdateProjects }: ProjectsEditorPro
                             <ExternalLink className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
                             <Input
                               value={project.url || ''}
-                              onChange={(e) => updateProject(index, 'url', e.target.value)}
+                              onChange={e => updateProject(index, 'url', e.target.value)}
                               placeholder="https://your-project.com"
                               className="pr-10"
                             />
@@ -231,7 +249,7 @@ export function ProjectsEditor({ projects, onUpdateProjects }: ProjectsEditorPro
                             <Github className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
                             <Input
                               value={project.github || ''}
-                              onChange={(e) => updateProject(index, 'github', e.target.value)}
+                              onChange={e => updateProject(index, 'github', e.target.value)}
                               placeholder="https://github.com/username/project"
                               className="pr-10"
                             />
@@ -243,7 +261,7 @@ export function ProjectsEditor({ projects, onUpdateProjects }: ProjectsEditorPro
                       <FormField label="توضیحات پروژه" required>
                         <Textarea
                           value={project.description}
-                          onChange={(e) => updateProject(index, 'description', e.target.value)}
+                          onChange={e => updateProject(index, 'description', e.target.value)}
                           placeholder="توضیح مختصری از پروژه، اهداف آن و نقش شما در توسعه..."
                           className="min-h-24"
                           dir="rtl"
@@ -273,7 +291,7 @@ export function ProjectsEditor({ projects, onUpdateProjects }: ProjectsEditorPro
                               <Hash className="h-4 w-4 text-blue-500" />
                               <Input
                                 value={tech}
-                                onChange={(e) => updateTechnology(index, techIndex, e.target.value)}
+                                onChange={e => updateTechnology(index, techIndex, e.target.value)}
                                 placeholder="React"
                                 className="flex-1"
                               />
@@ -288,7 +306,8 @@ export function ProjectsEditor({ projects, onUpdateProjects }: ProjectsEditorPro
                             </div>
                           ))}
                         </div>
-                        {(!project.technologies || project.technologies.filter(tech => tech).length === 0) && (
+                        {(!project.technologies ||
+                          project.technologies.filter(tech => tech).length === 0) && (
                           <div className="py-4 text-center text-gray-500">
                             <Code className="mx-auto mb-2 h-6 w-6" />
                             <p className="text-sm">هنوز تکنولوژی‌ای اضافه نشده است</p>
@@ -299,7 +318,9 @@ export function ProjectsEditor({ projects, onUpdateProjects }: ProjectsEditorPro
                       {/* Preview Links */}
                       {(project.url || project.github) && (
                         <div className="rounded-lg bg-gray-50 p-3">
-                          <h4 className="mb-2 text-sm font-medium text-gray-700">لینک‌های پیش‌نمایش:</h4>
+                          <h4 className="mb-2 text-sm font-medium text-gray-700">
+                            لینک‌های پیش‌نمایش:
+                          </h4>
                           <div className="flex flex-wrap gap-2">
                             {project.url && (
                               <a
@@ -338,7 +359,7 @@ export function ProjectsEditor({ projects, onUpdateProjects }: ProjectsEditorPro
             <Button
               onClick={addProject}
               variant="outline"
-              className="border-dashed border-2 border-blue-300 text-blue-600 hover:bg-blue-50"
+              className="border-2 border-dashed border-blue-300 text-blue-600 hover:bg-blue-50"
             >
               <Plus className="mr-2 h-4 w-4" />
               پروژه جدید اضافه کنید

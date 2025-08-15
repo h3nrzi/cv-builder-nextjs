@@ -39,9 +39,7 @@ export class ErrorBoundary extends Component<Props, State> {
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-red-100">
                 <AlertTriangle className="h-6 w-6 text-red-600" />
               </div>
-              <h2 className="mb-2 text-lg font-semibold text-gray-900">
-                خطایی رخ داده است
-              </h2>
+              <h2 className="mb-2 text-lg font-semibold text-gray-900">خطایی رخ داده است</h2>
               <p className="mb-4 text-sm text-gray-600" dir="rtl">
                 متأسفانه مشکلی در نمایش صفحه پیش آمده است. لطفاً صفحه را تازه‌سازی کنید.
               </p>

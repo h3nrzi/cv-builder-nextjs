@@ -16,16 +16,14 @@ export function SkillsEditor({ skills, onUpdateSkills }: SkillsEditorProps) {
   const addSkillCategory = () => {
     const newCategory = {
       category: 'دسته‌بندی جدید',
-      items: []
+      items: [],
     };
     onUpdateSkills([...skills, newCategory]);
   };
 
   const updateCategoryName = (categoryIndex: number, newName: string) => {
     const updatedSkills = skills.map((category, index) =>
-      index === categoryIndex 
-        ? { ...category, category: newName }
-        : category
+      index === categoryIndex ? { ...category, category: newName } : category
     );
     onUpdateSkills(updatedSkills);
   };
@@ -40,23 +38,26 @@ export function SkillsEditor({ skills, onUpdateSkills }: SkillsEditorProps) {
       index === categoryIndex
         ? {
             ...category,
-            items: [...category.items, { name: 'مهارت جدید', level: 3 }]
+            items: [...category.items, { name: 'مهارت جدید', level: 3 }],
           }
         : category
     );
     onUpdateSkills(updatedSkills);
   };
 
-  const updateSkill = (categoryIndex: number, skillIndex: number, field: 'name' | 'level', value: string | number) => {
+  const updateSkill = (
+    categoryIndex: number,
+    skillIndex: number,
+    field: 'name' | 'level',
+    value: string | number
+  ) => {
     const updatedSkills = skills.map((category, catIndex) =>
       catIndex === categoryIndex
         ? {
             ...category,
             items: category.items.map((skill, skillIdx) =>
-              skillIdx === skillIndex
-                ? { ...skill, [field]: value }
-                : skill
-            )
+              skillIdx === skillIndex ? { ...skill, [field]: value } : skill
+            ),
           }
         : category
     );
@@ -68,7 +69,7 @@ export function SkillsEditor({ skills, onUpdateSkills }: SkillsEditorProps) {
       catIndex === categoryIndex
         ? {
             ...category,
-            items: category.items.filter((_, skillIdx) => skillIdx !== skillIndex)
+            items: category.items.filter((_, skillIdx) => skillIdx !== skillIndex),
           }
         : category
     );
@@ -104,9 +105,9 @@ export function SkillsEditor({ skills, onUpdateSkills }: SkillsEditorProps) {
     const labels = {
       1: 'مبتدی',
       2: 'متوسط',
-      3: 'خوب', 
+      3: 'خوب',
       4: 'عالی',
-      5: 'حرفه‌ای'
+      5: 'حرفه‌ای',
     };
     return labels[level as keyof typeof labels];
   };
@@ -120,14 +121,14 @@ export function SkillsEditor({ skills, onUpdateSkills }: SkillsEditorProps) {
 
   return (
     <div className="space-y-6">
-      <FormCard 
-        title="مهارت‌های فنی" 
+      <FormCard
+        title="مهارت‌های فنی"
         description="مهارت‌های خود را در دسته‌بندی‌های مختلف سازماندهی کنید"
       >
         <div className="space-y-6">
           {skills.map((category, categoryIndex) => {
             const CategoryIcon = getCategoryIcon(category.category);
-            
+
             return (
               <div
                 key={categoryIndex}
@@ -135,38 +136,38 @@ export function SkillsEditor({ skills, onUpdateSkills }: SkillsEditorProps) {
                   draggedCategory === categoryIndex ? 'opacity-50' : ''
                 }`}
                 draggable
-                onDragStart={(e) => handleDragStart(e, categoryIndex)}
+                onDragStart={e => handleDragStart(e, categoryIndex)}
                 onDragOver={handleDragOver}
-                onDrop={(e) => handleDrop(e, categoryIndex)}
+                onDrop={e => handleDrop(e, categoryIndex)}
               >
                 {/* Category Header */}
                 <div className="mb-4 flex items-center gap-3">
                   <div className="cursor-move text-gray-400">
                     <GripVertical className="h-5 w-5" />
                   </div>
-                  
+
                   <CategoryIcon className="h-5 w-5 text-blue-600" />
-                  
+
                   <div className="flex-1">
                     <Input
                       value={category.category}
-                      onChange={(e) => updateCategoryName(categoryIndex, e.target.value)}
+                      onChange={e => updateCategoryName(categoryIndex, e.target.value)}
                       className="font-medium"
                       placeholder="نام دسته‌بندی"
                       dir="rtl"
                     />
                   </div>
-                  
+
                   <Button
                     onClick={() => addSkillToCategory(categoryIndex)}
                     variant="outline"
                     size="sm"
                     className="text-green-600 hover:bg-green-50"
                   >
-                    <Plus className="h-4 w-4 mr-1" />
+                    <Plus className="mr-1 h-4 w-4" />
                     مهارت
                   </Button>
-                  
+
                   <Button
                     onClick={() => deleteCategory(categoryIndex)}
                     variant="outline"
@@ -201,7 +202,9 @@ export function SkillsEditor({ skills, onUpdateSkills }: SkillsEditorProps) {
                         <div className="mb-3 flex items-center gap-2">
                           <Input
                             value={skill.name}
-                            onChange={(e) => updateSkill(categoryIndex, skillIndex, 'name', e.target.value)}
+                            onChange={e =>
+                              updateSkill(categoryIndex, skillIndex, 'name', e.target.value)
+                            }
                             className="flex-1 text-sm font-medium"
                             placeholder="نام مهارت"
                             dir="rtl"
@@ -215,7 +218,7 @@ export function SkillsEditor({ skills, onUpdateSkills }: SkillsEditorProps) {
                             <Trash2 className="h-3 w-3" />
                           </Button>
                         </div>
-                        
+
                         <div className="space-y-2">
                           <div className="flex justify-between text-xs">
                             <span className="text-gray-600">سطح مهارت</span>
@@ -225,7 +228,14 @@ export function SkillsEditor({ skills, onUpdateSkills }: SkillsEditorProps) {
                           </div>
                           <Range
                             value={skill.level}
-                            onChange={(e) => updateSkill(categoryIndex, skillIndex, 'level', parseInt(e.target.value))}
+                            onChange={e =>
+                              updateSkill(
+                                categoryIndex,
+                                skillIndex,
+                                'level',
+                                parseInt(e.target.value)
+                              )
+                            }
                             className="w-full"
                           />
                         </div>
@@ -242,7 +252,7 @@ export function SkillsEditor({ skills, onUpdateSkills }: SkillsEditorProps) {
             <Button
               onClick={addSkillCategory}
               variant="outline"
-              className="border-dashed border-2 border-blue-300 text-blue-600 hover:bg-blue-50"
+              className="border-2 border-dashed border-blue-300 text-blue-600 hover:bg-blue-50"
             >
               <Plus className="mr-2 h-4 w-4" />
               دسته‌بندی جدید اضافه کنید

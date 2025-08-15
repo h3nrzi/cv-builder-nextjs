@@ -1,6 +1,16 @@
 'use client';
 import React, { useState } from 'react';
-import { Plus, Trash2, GraduationCap, Calendar, MapPin, Building, Award, BookOpen, Star } from 'lucide-react';
+import {
+  Plus,
+  Trash2,
+  GraduationCap,
+  Calendar,
+  MapPin,
+  Building,
+  Award,
+  BookOpen,
+  Star,
+} from 'lucide-react';
 import { CVData } from '@/types/theme';
 import { FormField, FormCard, Input, Textarea } from '@/components/ui/form-components';
 import { Button } from '@/components/ui/button';
@@ -21,7 +31,7 @@ export function EducationEditor({ education, onUpdateEducation }: EducationEdito
       startDate: '',
       endDate: '',
       gpa: '',
-      achievements: ['']
+      achievements: [''],
     };
     onUpdateEducation([...education, newEducation]);
     // Auto-expand the new item
@@ -42,7 +52,7 @@ export function EducationEditor({ education, onUpdateEducation }: EducationEdito
     const newExpanded = new Set(
       Array.from(expandedItems)
         .filter(i => i !== index)
-        .map(i => i > index ? i - 1 : i)
+        .map(i => (i > index ? i - 1 : i))
     );
     setExpandedItems(newExpanded);
   };
@@ -83,16 +93,19 @@ export function EducationEditor({ education, onUpdateEducation }: EducationEdito
 
   const getEducationLevel = (degree: string) => {
     const degreeText = degree.toLowerCase();
-    if (degreeText.includes('دکتر') || degreeText.includes('phd')) return { icon: GraduationCap, color: 'text-purple-600' };
-    if (degreeText.includes('ارشد') || degreeText.includes('master')) return { icon: BookOpen, color: 'text-blue-600' };
-    if (degreeText.includes('کارشناسی') || degreeText.includes('bachelor')) return { icon: Award, color: 'text-green-600' };
+    if (degreeText.includes('دکتر') || degreeText.includes('phd'))
+      return { icon: GraduationCap, color: 'text-purple-600' };
+    if (degreeText.includes('ارشد') || degreeText.includes('master'))
+      return { icon: BookOpen, color: 'text-blue-600' };
+    if (degreeText.includes('کارشناسی') || degreeText.includes('bachelor'))
+      return { icon: Award, color: 'text-green-600' };
     return { icon: GraduationCap, color: 'text-gray-600' };
   };
 
   return (
     <div className="space-y-6">
-      <FormCard 
-        title="تحصیلات" 
+      <FormCard
+        title="تحصیلات"
         description="سوابق تحصیلی خود را به ترتیب زمانی (جدیدترین ابتدا) وارد کنید"
       >
         <div className="space-y-6">
@@ -100,12 +113,9 @@ export function EducationEditor({ education, onUpdateEducation }: EducationEdito
             const isExpanded = expandedItems.has(index);
             const { icon: DegreeIcon, color: degreeColor } = getEducationLevel(edu.degree);
             const isCurrentlyStudying = !edu.endDate;
-            
+
             return (
-              <div
-                key={index}
-                className="rounded-lg border border-gray-200 bg-white shadow-sm"
-              >
+              <div key={index} className="rounded-lg border border-gray-200 bg-white shadow-sm">
                 {/* Header */}
                 <div
                   className="flex cursor-pointer items-center justify-between p-4 hover:bg-gray-50"
@@ -124,7 +134,7 @@ export function EducationEditor({ education, onUpdateEducation }: EducationEdito
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center gap-2">
                     {isCurrentlyStudying && (
                       <span className="rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700">
@@ -135,7 +145,7 @@ export function EducationEditor({ education, onUpdateEducation }: EducationEdito
                       variant="ghost"
                       size="sm"
                       className="text-red-600 hover:bg-red-50"
-                      onClick={(e) => {
+                      onClick={e => {
                         e.stopPropagation();
                         deleteEducation(index);
                       }}
@@ -156,7 +166,7 @@ export function EducationEditor({ education, onUpdateEducation }: EducationEdito
                             <GraduationCap className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
                             <Input
                               value={edu.degree}
-                              onChange={(e) => updateEducation(index, 'degree', e.target.value)}
+                              onChange={e => updateEducation(index, 'degree', e.target.value)}
                               placeholder="مثل: کارشناسی مهندسی کامپیوتر"
                               className="pr-10"
                               dir="rtl"
@@ -169,7 +179,7 @@ export function EducationEditor({ education, onUpdateEducation }: EducationEdito
                             <Building className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
                             <Input
                               value={edu.school}
-                              onChange={(e) => updateEducation(index, 'school', e.target.value)}
+                              onChange={e => updateEducation(index, 'school', e.target.value)}
                               placeholder="دانشگاه تهران"
                               className="pr-10"
                               dir="rtl"
@@ -182,7 +192,7 @@ export function EducationEditor({ education, onUpdateEducation }: EducationEdito
                             <MapPin className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
                             <Input
                               value={edu.location}
-                              onChange={(e) => updateEducation(index, 'location', e.target.value)}
+                              onChange={e => updateEducation(index, 'location', e.target.value)}
                               placeholder="تهران، ایران"
                               className="pr-10"
                               dir="rtl"
@@ -195,7 +205,7 @@ export function EducationEditor({ education, onUpdateEducation }: EducationEdito
                             <Star className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
                             <Input
                               value={edu.gpa || ''}
-                              onChange={(e) => updateEducation(index, 'gpa', e.target.value)}
+                              onChange={e => updateEducation(index, 'gpa', e.target.value)}
                               placeholder="18.5/20 یا 3.8/4"
                               className="pr-10"
                             />
@@ -209,7 +219,7 @@ export function EducationEditor({ education, onUpdateEducation }: EducationEdito
                               <Input
                                 type="month"
                                 value={edu.startDate}
-                                onChange={(e) => updateEducation(index, 'startDate', e.target.value)}
+                                onChange={e => updateEducation(index, 'startDate', e.target.value)}
                                 className="pr-10"
                               />
                             </div>
@@ -221,7 +231,7 @@ export function EducationEditor({ education, onUpdateEducation }: EducationEdito
                               <Input
                                 type="month"
                                 value={edu.endDate || ''}
-                                onChange={(e) => updateEducation(index, 'endDate', e.target.value)}
+                                onChange={e => updateEducation(index, 'endDate', e.target.value)}
                                 placeholder="اکنون"
                                 className="pr-10"
                               />
@@ -231,10 +241,19 @@ export function EducationEditor({ education, onUpdateEducation }: EducationEdito
                                 type="checkbox"
                                 id={`current-study-${index}`}
                                 checked={!edu.endDate}
-                                onChange={(e) => updateEducation(index, 'endDate', e.target.checked ? '' : getCurrentDate())}
+                                onChange={e =>
+                                  updateEducation(
+                                    index,
+                                    'endDate',
+                                    e.target.checked ? '' : getCurrentDate()
+                                  )
+                                }
                                 className="h-3 w-3 text-blue-600"
                               />
-                              <label htmlFor={`current-study-${index}`} className="text-xs text-gray-600">
+                              <label
+                                htmlFor={`current-study-${index}`}
+                                className="text-xs text-gray-600"
+                              >
                                 هم‌اکنون در حال تحصیل هستم
                               </label>
                             </div>
@@ -262,7 +281,7 @@ export function EducationEditor({ education, onUpdateEducation }: EducationEdito
                               <Award className="h-4 w-4 text-yellow-500" />
                               <Input
                                 value={achievement}
-                                onChange={(e) => updateAchievement(index, achIndex, e.target.value)}
+                                onChange={e => updateAchievement(index, achIndex, e.target.value)}
                                 placeholder="مثل: رتبه برتر کلاس، عضویت در انجمن علمی"
                                 className="flex-1"
                                 dir="rtl"
@@ -297,7 +316,7 @@ export function EducationEditor({ education, onUpdateEducation }: EducationEdito
             <Button
               onClick={addEducation}
               variant="outline"
-              className="border-dashed border-2 border-blue-300 text-blue-600 hover:bg-blue-50"
+              className="border-2 border-dashed border-blue-300 text-blue-600 hover:bg-blue-50"
             >
               <Plus className="mr-2 h-4 w-4" />
               تحصیلات جدید اضافه کنید

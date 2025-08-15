@@ -14,7 +14,7 @@ export function LanguagesEditor({ languages = [], onUpdateLanguages }: Languages
   const addLanguage = () => {
     const newLanguage = {
       name: '',
-      level: 'متوسط'
+      level: 'متوسط',
     };
     onUpdateLanguages([...languages, newLanguage]);
   };
@@ -36,7 +36,7 @@ export function LanguagesEditor({ languages = [], onUpdateLanguages }: Languages
     { value: 'پیشرفته', label: 'پیشرفته' },
     { value: 'متوسط به بالا', label: 'متوسط به بالا' },
     { value: 'متوسط', label: 'متوسط' },
-    { value: 'مقدماتی', label: 'مقدماتی' }
+    { value: 'مقدماتی', label: 'مقدماتی' },
   ];
 
   const getLanguageIcon = (languageName: string) => {
@@ -55,27 +55,30 @@ export function LanguagesEditor({ languages = [], onUpdateLanguages }: Languages
 
   const getProficiencyColor = (level: string) => {
     switch (level) {
-      case 'زبان مادری': return 'bg-green-100 text-green-800 border-green-200';
-      case 'پیشرفته': return 'bg-blue-100 text-blue-800 border-blue-200';
-      case 'متوسط به بالا': return 'bg-indigo-100 text-indigo-800 border-indigo-200';
-      case 'متوسط': return 'bg-yellow-100 text-yellow-800 border-yellow-200';
-      case 'مقدماتی': return 'bg-gray-100 text-gray-800 border-gray-200';
-      default: return 'bg-gray-100 text-gray-800 border-gray-200';
+      case 'زبان مادری':
+        return 'bg-green-100 text-green-800 border-green-200';
+      case 'پیشرفته':
+        return 'bg-blue-100 text-blue-800 border-blue-200';
+      case 'متوسط به بالا':
+        return 'bg-indigo-100 text-indigo-800 border-indigo-200';
+      case 'متوسط':
+        return 'bg-yellow-100 text-yellow-800 border-yellow-200';
+      case 'مقدماتی':
+        return 'bg-gray-100 text-gray-800 border-gray-200';
+      default:
+        return 'bg-gray-100 text-gray-800 border-gray-200';
     }
   };
 
   return (
     <div className="space-y-6">
-      <FormCard 
-        title="زبان‌ها" 
+      <FormCard
+        title="زبان‌ها"
         description="زبان‌هایی که می‌دانید و سطح مهارت خود در آن‌ها را مشخص کنید"
       >
         <div className="space-y-4">
           {languages.map((language, index) => (
-            <div
-              key={index}
-              className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm"
-            >
+            <div key={index} className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
               <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
                 <div className="md:col-span-2">
                   <FormField label="نام زبان" required>
@@ -85,7 +88,7 @@ export function LanguagesEditor({ languages = [], onUpdateLanguages }: Languages
                       </div>
                       <Input
                         value={language.name}
-                        onChange={(e) => updateLanguage(index, 'name', e.target.value)}
+                        onChange={e => updateLanguage(index, 'name', e.target.value)}
                         placeholder="مثل: انگلیسی، فرانسوی، آلمانی"
                         className="pl-12"
                         dir="rtl"
@@ -99,10 +102,10 @@ export function LanguagesEditor({ languages = [], onUpdateLanguages }: Languages
                     <FormField label="سطح مهارت" required>
                       <Select
                         value={language.level}
-                        onChange={(e) => updateLanguage(index, 'level', e.target.value)}
+                        onChange={e => updateLanguage(index, 'level', e.target.value)}
                         dir="rtl"
                       >
-                        {proficiencyLevels.map((level) => (
+                        {proficiencyLevels.map(level => (
                           <option key={level.value} value={level.value}>
                             {level.label}
                           </option>
@@ -110,7 +113,7 @@ export function LanguagesEditor({ languages = [], onUpdateLanguages }: Languages
                       </Select>
                     </FormField>
                   </div>
-                  
+
                   <div className="flex items-end">
                     <Button
                       onClick={() => deleteLanguage(index)}
@@ -125,8 +128,10 @@ export function LanguagesEditor({ languages = [], onUpdateLanguages }: Languages
               </div>
 
               {/* Proficiency Badge */}
-              <div className="mt-3 flex justify-between items-center">
-                <span className={`inline-flex items-center gap-1 rounded-full border px-2 py-1 text-xs font-medium ${getProficiencyColor(language.level)}`}>
+              <div className="mt-3 flex items-center justify-between">
+                <span
+                  className={`inline-flex items-center gap-1 rounded-full border px-2 py-1 text-xs font-medium ${getProficiencyColor(language.level)}`}
+                >
                   <Globe className="h-3 w-3" />
                   {language.level}
                 </span>
@@ -142,9 +147,7 @@ export function LanguagesEditor({ languages = [], onUpdateLanguages }: Languages
             <div className="py-12 text-center text-gray-500">
               <Languages className="mx-auto mb-4 h-12 w-12 text-gray-300" />
               <h3 className="mb-2 text-sm font-medium text-gray-900">هنوز زبانی اضافه نشده است</h3>
-              <p className="text-sm text-gray-500">
-                زبان‌هایی که بلد هستید را اضافه کنید
-              </p>
+              <p className="text-sm text-gray-500">زبان‌هایی که بلد هستید را اضافه کنید</p>
             </div>
           )}
 
@@ -153,7 +156,7 @@ export function LanguagesEditor({ languages = [], onUpdateLanguages }: Languages
             <Button
               onClick={addLanguage}
               variant="outline"
-              className="border-dashed border-2 border-blue-300 text-blue-600 hover:bg-blue-50"
+              className="border-2 border-dashed border-blue-300 text-blue-600 hover:bg-blue-50"
             >
               <Plus className="mr-2 h-4 w-4" />
               زبان جدید اضافه کنید

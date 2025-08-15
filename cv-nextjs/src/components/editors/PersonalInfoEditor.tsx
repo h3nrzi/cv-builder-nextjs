@@ -12,11 +12,11 @@ interface PersonalInfoEditorProps {
   onUpdateSummary: (summary: string) => void;
 }
 
-export function PersonalInfoEditor({ 
-  personalInfo, 
-  summary, 
-  onUpdatePersonalInfo, 
-  onUpdateSummary 
+export function PersonalInfoEditor({
+  personalInfo,
+  summary,
+  onUpdatePersonalInfo,
+  onUpdateSummary,
 }: PersonalInfoEditorProps) {
   const [imageUrl, setImageUrl] = useState(personalInfo.profileImage || '');
   const [imageError, setImageError] = useState(false);
@@ -37,7 +37,7 @@ export function PersonalInfoEditor({
       // For demo purposes, we'll convert to base64
       // In a real app, you'd upload to a cloud service
       const reader = new FileReader();
-      reader.onload = (e) => {
+      reader.onload = e => {
         const result = e.target?.result as string;
         handleImageChange(result);
       };
@@ -48,17 +48,14 @@ export function PersonalInfoEditor({
   return (
     <div className="space-y-6">
       {/* Basic Information */}
-      <FormCard 
-        title="اطلاعات شخصی" 
-        description="اطلاعات پایه و تماس خود را وارد کنید"
-      >
+      <FormCard title="اطلاعات شخصی" description="اطلاعات پایه و تماس خود را وارد کنید">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <FormField label="نام و نام خانوادگی" required>
             <div className="relative">
               <User className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
               <Input
                 value={personalInfo.name}
-                onChange={(e) => onUpdatePersonalInfo({ name: e.target.value })}
+                onChange={e => onUpdatePersonalInfo({ name: e.target.value })}
                 placeholder="نام کامل خود را وارد کنید"
                 className="pr-10"
                 dir="rtl"
@@ -69,7 +66,7 @@ export function PersonalInfoEditor({
           <FormField label="عنوان شغلی" required>
             <Input
               value={personalInfo.title}
-              onChange={(e) => onUpdatePersonalInfo({ title: e.target.value })}
+              onChange={e => onUpdatePersonalInfo({ title: e.target.value })}
               placeholder="مثل: توسعه‌دهنده فرانت‌اند"
               dir="rtl"
             />
@@ -81,7 +78,7 @@ export function PersonalInfoEditor({
               <Input
                 type="email"
                 value={personalInfo.email}
-                onChange={(e) => onUpdatePersonalInfo({ email: e.target.value })}
+                onChange={e => onUpdatePersonalInfo({ email: e.target.value })}
                 placeholder="your.email@example.com"
                 className="pr-10"
               />
@@ -94,7 +91,7 @@ export function PersonalInfoEditor({
               <Input
                 type="tel"
                 value={personalInfo.phone}
-                onChange={(e) => onUpdatePersonalInfo({ phone: e.target.value })}
+                onChange={e => onUpdatePersonalInfo({ phone: e.target.value })}
                 placeholder="+98 912 345 6789"
                 className="pr-10"
               />
@@ -106,7 +103,7 @@ export function PersonalInfoEditor({
               <MapPin className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
               <Input
                 value={personalInfo.location}
-                onChange={(e) => onUpdatePersonalInfo({ location: e.target.value })}
+                onChange={e => onUpdatePersonalInfo({ location: e.target.value })}
                 placeholder="تهران، ایران"
                 className="pr-10"
                 dir="rtl"
@@ -119,7 +116,7 @@ export function PersonalInfoEditor({
               <Globe className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
               <Input
                 value={personalInfo.website || ''}
-                onChange={(e) => onUpdatePersonalInfo({ website: e.target.value })}
+                onChange={e => onUpdatePersonalInfo({ website: e.target.value })}
                 placeholder="yoursite.com"
                 className="pr-10"
               />
@@ -131,7 +128,7 @@ export function PersonalInfoEditor({
               <Github className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
               <Input
                 value={personalInfo.github || ''}
-                onChange={(e) => onUpdatePersonalInfo({ github: e.target.value })}
+                onChange={e => onUpdatePersonalInfo({ github: e.target.value })}
                 placeholder="github.com/username"
                 className="pr-10"
               />
@@ -143,7 +140,7 @@ export function PersonalInfoEditor({
               <Linkedin className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
               <Input
                 value={personalInfo.linkedin || ''}
-                onChange={(e) => onUpdatePersonalInfo({ linkedin: e.target.value })}
+                onChange={e => onUpdatePersonalInfo({ linkedin: e.target.value })}
                 placeholder="linkedin.com/in/username"
                 className="pr-10"
               />
@@ -153,8 +150,8 @@ export function PersonalInfoEditor({
       </FormCard>
 
       {/* Profile Image */}
-      <FormCard 
-        title="تصویر پروفایل" 
+      <FormCard
+        title="تصویر پروفایل"
         description="تصویر پروفایل خود را آپلود کنید یا لینک آن را وارد کنید"
       >
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -164,7 +161,7 @@ export function PersonalInfoEditor({
                 <Camera className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
                 <Input
                   value={imageUrl}
-                  onChange={(e) => handleImageChange(e.target.value)}
+                  onChange={e => handleImageChange(e.target.value)}
                   placeholder="https://example.com/your-photo.jpg"
                   className="pr-10"
                 />
@@ -186,9 +183,7 @@ export function PersonalInfoEditor({
                   </div>
                 </Button>
               </label>
-              <p className="mt-2 text-xs text-gray-500">
-                فرمت‌های JPG، PNG، GIF تا حجم 5 مگابایت
-              </p>
+              <p className="mt-2 text-xs text-gray-500">فرمت‌های JPG، PNG، GIF تا حجم 5 مگابایت</p>
             </div>
           </div>
 
@@ -215,14 +210,14 @@ export function PersonalInfoEditor({
       </FormCard>
 
       {/* Summary */}
-      <FormCard 
-        title="خلاصه‌ای از خود" 
+      <FormCard
+        title="خلاصه‌ای از خود"
         description="توضیح مختصری از تجربیات و مهارت‌های خود بنویسید"
       >
         <FormField label="خلاصه" required>
           <Textarea
             value={summary}
-            onChange={(e) => onUpdateSummary(e.target.value)}
+            onChange={e => onUpdateSummary(e.target.value)}
             placeholder="من یک توسعه‌دهنده با ۵ سال تجربه در زمینه..."
             className="min-h-32"
             dir="rtl"

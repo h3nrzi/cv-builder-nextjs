@@ -30,7 +30,7 @@ export function ThemeSelector({ className = '' }: ThemeSelectorProps) {
 
   const handleThemeSelect = async (themeId: string) => {
     setIsTransitioning(true);
-    
+
     // Add a small delay for smooth transition
     setTimeout(() => {
       setTheme(themeId);
@@ -84,13 +84,15 @@ export function ThemeSelector({ className = '' }: ThemeSelectorProps) {
 
       {/* Theme Selector Modal */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-2 animate-in fade-in duration-200 sm:p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-2 duration-200 animate-in fade-in sm:p-4">
           <div className="flex max-h-[95vh] w-full max-w-4xl flex-col rounded-xl bg-white shadow-2xl sm:max-h-[90vh]">
             {/* Header */}
             <div className="flex items-center justify-between border-b border-gray-200 p-4 sm:p-6">
               <div>
                 <h2 className="text-lg font-semibold text-gray-900 sm:text-xl">انتخاب قالب</h2>
-                <p className="mt-1 text-xs text-gray-600 sm:text-sm">قالب مورد نظر خود را انتخاب کنید</p>
+                <p className="mt-1 text-xs text-gray-600 sm:text-sm">
+                  قالب مورد نظر خود را انتخاب کنید
+                </p>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
@@ -131,7 +133,7 @@ export function ThemeSelector({ className = '' }: ThemeSelectorProps) {
 
             {/* Themes Grid */}
             <div className="flex-1 overflow-y-auto p-4 sm:p-6">
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
                 {filteredThemes.map(theme => (
                   <div
                     key={theme.config.id}

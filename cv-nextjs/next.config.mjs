@@ -18,10 +18,10 @@ const nextConfig = {
       },
     ];
   },
-  
+
   // Optimize for CV builder use case
   poweredByHeader: false,
-  
+
   webpack: (config, { isServer }) => {
     // Optimize for PDF generation and large bundle handling
     if (!isServer) {
@@ -32,7 +32,7 @@ const nextConfig = {
         os: false,
       };
     }
-    
+
     return config;
   },
 };

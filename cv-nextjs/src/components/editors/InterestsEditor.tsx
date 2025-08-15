@@ -27,9 +27,7 @@ export function InterestsEditor({ interests = [], onUpdateInterests }: Interests
   };
 
   const updateInterest = (index: number, value: string) => {
-    const updatedInterests = interests.map((interest, i) =>
-      i === index ? value : interest
-    );
+    const updatedInterests = interests.map((interest, i) => (i === index ? value : interest));
     onUpdateInterests(updatedInterests);
   };
 
@@ -42,10 +40,29 @@ export function InterestsEditor({ interests = [], onUpdateInterests }: Interests
 
   // Suggested interests in Persian
   const suggestedInterests = [
-    'برنامه‌نویسی', 'یادگیری ماشین', 'هوش مصنوعی', 'طراحی UI/UX', 'عکاسی',
-    'مطالعه', 'ورزش', 'سفر', 'موسیقی', 'نقاشی', 'آشپزی', 'باغبانی',
-    'شنا', 'دوچرخه‌سواری', 'کوهنوردی', 'بازی‌های ویدیویی', 'فیلم',
-    'نوشتن', 'وبلاگ‌نویسی', 'خوانندگی', 'رقص', 'یوگا', 'مدیتیشن'
+    'برنامه‌نویسی',
+    'یادگیری ماشین',
+    'هوش مصنوعی',
+    'طراحی UI/UX',
+    'عکاسی',
+    'مطالعه',
+    'ورزش',
+    'سفر',
+    'موسیقی',
+    'نقاشی',
+    'آشپزی',
+    'باغبانی',
+    'شنا',
+    'دوچرخه‌سواری',
+    'کوهنوردی',
+    'بازی‌های ویدیویی',
+    'فیلم',
+    'نوشتن',
+    'وبلاگ‌نویسی',
+    'خوانندگی',
+    'رقص',
+    'یوگا',
+    'مدیتیشن',
   ];
 
   const getRandomSuggestions = () => {
@@ -79,8 +96,8 @@ export function InterestsEditor({ interests = [], onUpdateInterests }: Interests
 
   return (
     <div className="space-y-6">
-      <FormCard 
-        title="علایق و سرگرمی‌ها" 
+      <FormCard
+        title="علایق و سرگرمی‌ها"
         description="علایق شخصی و حرفه‌ای خود را که نشان‌دهنده شخصیت شما است، اضافه کنید"
       >
         <div className="space-y-6">
@@ -117,7 +134,7 @@ export function InterestsEditor({ interests = [], onUpdateInterests }: Interests
               <div className="flex gap-2">
                 <Input
                   value={newInterest}
-                  onChange={(e) => setNewInterest(e.target.value)}
+                  onChange={e => setNewInterest(e.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder="مثل: عکاسی، مطالعه، برنامه‌نویسی..."
                   className="flex-1"
@@ -137,7 +154,7 @@ export function InterestsEditor({ interests = [], onUpdateInterests }: Interests
 
           {/* Suggested Interests */}
           <div>
-            <h4 className="mb-3 text-sm font-medium text-gray-700 flex items-center gap-2">
+            <h4 className="mb-3 flex items-center gap-2 text-sm font-medium text-gray-700">
               <Sparkles className="h-4 w-4 text-yellow-500" />
               پیشنهادهای محبوب:
             </h4>
@@ -151,7 +168,7 @@ export function InterestsEditor({ interests = [], onUpdateInterests }: Interests
                 >
                   <span className="text-base">{getInterestEmoji(suggestion)}</span>
                   {suggestion}
-                  <Plus className="h-3 w-3 ml-1" />
+                  <Plus className="ml-1 h-3 w-3" />
                 </button>
               ))}
             </div>
@@ -161,7 +178,9 @@ export function InterestsEditor({ interests = [], onUpdateInterests }: Interests
           {interests.length === 0 && (
             <div className="py-12 text-center text-gray-500">
               <Heart className="mx-auto mb-4 h-12 w-12 text-gray-300" />
-              <h3 className="mb-2 text-sm font-medium text-gray-900">هنوز علاقه‌ای اضافه نشده است</h3>
+              <h3 className="mb-2 text-sm font-medium text-gray-900">
+                هنوز علاقه‌ای اضافه نشده است
+              </h3>
               <p className="text-sm text-gray-500">
                 علایق خود را اضافه کنید تا شخصیت‌تان بهتر نمایش داده شود
               </p>
@@ -191,8 +210,11 @@ export function InterestsEditor({ interests = [], onUpdateInterests }: Interests
                   </span>
                 </div>
                 <div className="text-gray-500">
-                  {interests.length < 5 ? 'می‌توانید بیشتر اضافه کنید' : 
-                   interests.length > 10 ? 'تعداد خوبی دارید' : 'تعداد مناسبی است'}
+                  {interests.length < 5
+                    ? 'می‌توانید بیشتر اضافه کنید'
+                    : interests.length > 10
+                      ? 'تعداد خوبی دارید'
+                      : 'تعداد مناسبی است'}
                 </div>
               </div>
             </div>

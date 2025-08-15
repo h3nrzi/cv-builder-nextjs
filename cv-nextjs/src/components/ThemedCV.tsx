@@ -482,7 +482,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
                 <div>
                   <SectionTitle title="زبان‌ها" />
                   <div
-                    className="cv-section-card p-6 rounded-lg"
+                    className="cv-section-card rounded-lg p-6"
                     style={{
                       padding: theme.layout.cardPadding,
                       borderRadius: theme.borderRadius.lg,
@@ -493,7 +493,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
                   >
                     <div className="space-y-3">
                       {data.languages.map((lang, index) => (
-                        <div key={index} className="flex justify-between items-center">
+                        <div key={index} className="flex items-center justify-between">
                           <span
                             style={{
                               fontSize: theme.typography.fontSize.sm,
@@ -504,7 +504,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
                             {lang.name}
                           </span>
                           <span
-                            className="px-2 py-1 rounded text-xs"
+                            className="rounded px-2 py-1 text-xs"
                             style={{
                               fontSize: theme.typography.fontSize.xs,
                               color: colors.accent,
@@ -527,7 +527,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
                 <div>
                   <SectionTitle title="علایق" />
                   <div
-                    className="cv-section-card p-6 rounded-lg"
+                    className="cv-section-card rounded-lg p-6"
                     style={{
                       padding: theme.layout.cardPadding,
                       borderRadius: theme.borderRadius.lg,
@@ -540,7 +540,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
                       {data.interests.map((interest, index) => (
                         <span
                           key={index}
-                          className="px-3 py-2 text-sm rounded-full transition-colors hover:opacity-80"
+                          className="rounded-full px-3 py-2 text-sm transition-colors hover:opacity-80"
                           style={{
                             backgroundColor: colors.muted,
                             color: colors.mutedForeground,

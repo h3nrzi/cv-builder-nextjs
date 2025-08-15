@@ -22,7 +22,7 @@ export function ExperienceEditor({ experience, onUpdateExperience }: ExperienceE
       endDate: '',
       description: '',
       achievements: [''],
-      technologies: ['']
+      technologies: [''],
     };
     onUpdateExperience([...experience, newExperience]);
     // Auto-expand the new item
@@ -43,7 +43,7 @@ export function ExperienceEditor({ experience, onUpdateExperience }: ExperienceE
     const newExpanded = new Set(
       Array.from(expandedItems)
         .filter(i => i !== index)
-        .map(i => i > index ? i - 1 : i)
+        .map(i => (i > index ? i - 1 : i))
     );
     setExpandedItems(newExpanded);
   };
@@ -103,20 +103,17 @@ export function ExperienceEditor({ experience, onUpdateExperience }: ExperienceE
 
   return (
     <div className="space-y-6">
-      <FormCard 
-        title="تجربه کاری" 
+      <FormCard
+        title="تجربه کاری"
         description="سابقه کاری خود را به ترتیب زمانی (جدیدترین ابتدا) وارد کنید"
       >
         <div className="space-y-6">
           {experience.map((exp, index) => {
             const isExpanded = expandedItems.has(index);
             const isCurrentJob = !exp.endDate;
-            
+
             return (
-              <div
-                key={index}
-                className="rounded-lg border border-gray-200 bg-white shadow-sm"
-              >
+              <div key={index} className="rounded-lg border border-gray-200 bg-white shadow-sm">
                 {/* Header */}
                 <div
                   className="flex cursor-pointer items-center justify-between p-4 hover:bg-gray-50"
@@ -134,7 +131,7 @@ export function ExperienceEditor({ experience, onUpdateExperience }: ExperienceE
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center gap-2">
                     {isCurrentJob && (
                       <span className="rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-700">
@@ -145,7 +142,7 @@ export function ExperienceEditor({ experience, onUpdateExperience }: ExperienceE
                       variant="ghost"
                       size="sm"
                       className="text-red-600 hover:bg-red-50"
-                      onClick={(e) => {
+                      onClick={e => {
                         e.stopPropagation();
                         deleteExperience(index);
                       }}
@@ -166,7 +163,7 @@ export function ExperienceEditor({ experience, onUpdateExperience }: ExperienceE
                             <Briefcase className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
                             <Input
                               value={exp.title}
-                              onChange={(e) => updateExperience(index, 'title', e.target.value)}
+                              onChange={e => updateExperience(index, 'title', e.target.value)}
                               placeholder="مثل: توسعه‌دهنده فرانت‌اند"
                               className="pr-10"
                               dir="rtl"
@@ -179,7 +176,7 @@ export function ExperienceEditor({ experience, onUpdateExperience }: ExperienceE
                             <Building className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
                             <Input
                               value={exp.company}
-                              onChange={(e) => updateExperience(index, 'company', e.target.value)}
+                              onChange={e => updateExperience(index, 'company', e.target.value)}
                               placeholder="نام شرکت یا سازمان"
                               className="pr-10"
                               dir="rtl"
@@ -192,7 +189,7 @@ export function ExperienceEditor({ experience, onUpdateExperience }: ExperienceE
                             <MapPin className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
                             <Input
                               value={exp.location}
-                              onChange={(e) => updateExperience(index, 'location', e.target.value)}
+                              onChange={e => updateExperience(index, 'location', e.target.value)}
                               placeholder="تهران، ایران"
                               className="pr-10"
                               dir="rtl"
@@ -207,7 +204,7 @@ export function ExperienceEditor({ experience, onUpdateExperience }: ExperienceE
                               <Input
                                 type="month"
                                 value={exp.startDate}
-                                onChange={(e) => updateExperience(index, 'startDate', e.target.value)}
+                                onChange={e => updateExperience(index, 'startDate', e.target.value)}
                                 className="pr-10"
                               />
                             </div>
@@ -219,7 +216,7 @@ export function ExperienceEditor({ experience, onUpdateExperience }: ExperienceE
                               <Input
                                 type="month"
                                 value={exp.endDate || ''}
-                                onChange={(e) => updateExperience(index, 'endDate', e.target.value)}
+                                onChange={e => updateExperience(index, 'endDate', e.target.value)}
                                 placeholder="اکنون"
                                 className="pr-10"
                               />
@@ -229,10 +226,19 @@ export function ExperienceEditor({ experience, onUpdateExperience }: ExperienceE
                                 type="checkbox"
                                 id={`current-job-${index}`}
                                 checked={!exp.endDate}
-                                onChange={(e) => updateExperience(index, 'endDate', e.target.checked ? '' : getCurrentDate())}
+                                onChange={e =>
+                                  updateExperience(
+                                    index,
+                                    'endDate',
+                                    e.target.checked ? '' : getCurrentDate()
+                                  )
+                                }
                                 className="h-3 w-3 text-blue-600"
                               />
-                              <label htmlFor={`current-job-${index}`} className="text-xs text-gray-600">
+                              <label
+                                htmlFor={`current-job-${index}`}
+                                className="text-xs text-gray-600"
+                              >
                                 هم‌اکنون در این شغل مشغولم
                               </label>
                             </div>
@@ -244,7 +250,7 @@ export function ExperienceEditor({ experience, onUpdateExperience }: ExperienceE
                       <FormField label="شرح وظایف" required>
                         <Textarea
                           value={exp.description}
-                          onChange={(e) => updateExperience(index, 'description', e.target.value)}
+                          onChange={e => updateExperience(index, 'description', e.target.value)}
                           placeholder="شرح مختصری از وظایف و مسئولیت‌های خود در این شغل..."
                           className="min-h-20"
                           dir="rtl"
@@ -271,7 +277,7 @@ export function ExperienceEditor({ experience, onUpdateExperience }: ExperienceE
                               <Award className="h-4 w-4 text-orange-500" />
                               <Input
                                 value={achievement}
-                                onChange={(e) => updateAchievement(index, achIndex, e.target.value)}
+                                onChange={e => updateAchievement(index, achIndex, e.target.value)}
                                 placeholder="مثل: افزایش ۳۰٪ کارایی سیستم"
                                 className="flex-1"
                                 dir="rtl"
@@ -309,7 +315,7 @@ export function ExperienceEditor({ experience, onUpdateExperience }: ExperienceE
                               <Hash className="h-4 w-4 text-blue-500" />
                               <Input
                                 value={tech}
-                                onChange={(e) => updateTechnology(index, techIndex, e.target.value)}
+                                onChange={e => updateTechnology(index, techIndex, e.target.value)}
                                 placeholder="React"
                                 className="flex-1"
                               />
@@ -337,7 +343,7 @@ export function ExperienceEditor({ experience, onUpdateExperience }: ExperienceE
             <Button
               onClick={addExperience}
               variant="outline"
-              className="border-dashed border-2 border-blue-300 text-blue-600 hover:bg-blue-50"
+              className="border-2 border-dashed border-blue-300 text-blue-600 hover:bg-blue-50"
             >
               <Plus className="mr-2 h-4 w-4" />
               تجربه کاری جدید اضافه کنید
