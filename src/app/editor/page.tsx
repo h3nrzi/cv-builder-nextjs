@@ -9,6 +9,7 @@ import { ProjectsEditor } from '@/components/editors/ProjectsEditor';
 import { SkillsEditor } from '@/components/editors/SkillsEditor';
 import { LoadingSpinner } from '@/components/LoadingSpinner';
 import { ThemedCV } from '@/components/ThemedCV';
+import { PrintGuideNotification } from '@/components/PrintGuideNotification';
 import { useCVData } from '@/hooks/useCVData';
 import { Award, Briefcase, Edit3, FolderOpen, GraduationCap, Heart, Languages } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
@@ -99,6 +100,7 @@ export default function EditorPage() {
 
   return (
     <div className={`min-h-screen bg-gray-50`}>
+      <PrintGuideNotification />
       {/* Header */}
       <CVHeader
         mode={mode}

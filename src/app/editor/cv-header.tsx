@@ -87,12 +87,12 @@ export function CVHeader({
           <ThemeSelector />
 
           {/* Action Buttons */}
-          <div className="flex items-center gap-1 sm:gap-2">
+          <div className="sm flex items-center gap-1 sm:gap-2">
             <Button
               onClick={() => window.print()}
               variant="outline"
               size="sm"
-              className="px-2 py-1 text-xs sm:px-3 sm:py-2 sm:text-sm"
+              className="hidden px-2 py-1 text-xs sm:px-3 sm:py-2 sm:text-sm md:flex"
             >
               <Printer className="mr-1 h-3 w-3 sm:mr-2 sm:h-4 sm:w-4" />
               <span className="hidden sm:inline">PDF</span>
