@@ -1,4 +1,4 @@
-import { Award, Briefcase, Download, Edit3, Eye, RefreshCw, Save, Upload, GraduationCap, FolderOpen } from 'lucide-react';
+import { Award, Briefcase, Download, Edit3, Eye, RefreshCw, Save, Upload, GraduationCap, FolderOpen, Languages, Heart } from 'lucide-react';
 import React, { useState } from 'react';
 import { useCVData } from '../hooks/useCVData';
 import { PersonalInfoEditor } from './editors/PersonalInfoEditor';
@@ -6,6 +6,8 @@ import { SkillsEditor } from './editors/SkillsEditor';
 import { ExperienceEditor } from './editors/ExperienceEditor';
 import { EducationEditor } from './editors/EducationEditor';
 import { ProjectsEditor } from './editors/ProjectsEditor';
+import { LanguagesEditor } from './editors/LanguagesEditor';
+import { InterestsEditor } from './editors/InterestsEditor';
 import { LoadingSpinner } from './LoadingSpinner';
 import { ThemedCV } from './ThemedCV';
 import { Button } from './ui/button';
@@ -15,7 +17,7 @@ interface CVEditorProps {
 }
 
 type EditorMode = 'edit' | 'preview';
-type EditorSection = 'personal' | 'skills' | 'experience' | 'education' | 'projects';
+type EditorSection = 'personal' | 'skills' | 'experience' | 'education' | 'projects' | 'languages' | 'interests';
 
 export function CVEditor({ className = '' }: CVEditorProps) {
   const {
@@ -29,6 +31,8 @@ export function CVEditor({ className = '' }: CVEditorProps) {
     updateExperience,
     updateEducation,
     updateProjects,
+    updateLanguages,
+    updateInterests,
     exportData,
     importData,
     saveToLocalStorage
@@ -64,7 +68,9 @@ export function CVEditor({ className = '' }: CVEditorProps) {
     { id: 'skills', label: 'مهارت‌ها', icon: Award },
     { id: 'experience', label: 'تجربه کاری', icon: Briefcase },
     { id: 'education', label: 'تحصیلات', icon: GraduationCap },
-    { id: 'projects', label: 'پروژه‌ها', icon: FolderOpen }
+    { id: 'projects', label: 'پروژه‌ها', icon: FolderOpen },
+    { id: 'languages', label: 'زبان‌ها', icon: Languages },
+    { id: 'interests', label: 'علایق', icon: Heart }
   ];
 
   if (isLoading) {
@@ -277,6 +283,18 @@ export function CVEditor({ className = '' }: CVEditorProps) {
                 <ProjectsEditor
                   projects={cvData.projects}
                   onUpdateProjects={updateProjects}
+                />
+              )}
+              {activeSection === 'languages' && (
+                <LanguagesEditor
+                  languages={cvData.languages}
+                  onUpdateLanguages={updateLanguages}
+                />
+              )}
+              {activeSection === 'interests' && (
+                <InterestsEditor
+                  interests={cvData.interests}
+                  onUpdateInterests={updateInterests}
                 />
               )}
             </div>
