@@ -3,6 +3,7 @@ import { Github, Globe, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
 import React from 'react';
 import { useThemeStyles } from '@/hooks/useTheme';
 import { CVData } from '@/types/theme';
+import { FooterBranding } from '@/components/FooterBranding';
 
 interface ThemedCVProps {
   data: CVData;
@@ -572,6 +573,8 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
             </div>
           </section>
         )}
+        
+        <FooterBranding />
       </div>
     </div>
   );
