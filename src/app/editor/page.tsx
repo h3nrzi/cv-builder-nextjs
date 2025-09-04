@@ -82,12 +82,12 @@ export default function EditorPage() {
 
   const sectionTabs = [
     { id: 'personal', label: 'اطلاعات شخصی', icon: Edit3 },
-    { id: 'skills', label: 'مهارت‌ها', icon: Award },
-    { id: 'experience', label: 'تجربه کاری', icon: Briefcase },
-    { id: 'projects', label: 'پروژه‌ها', icon: FolderOpen },
     { id: 'education', label: 'تحصیلات', icon: GraduationCap },
     { id: 'languages', label: 'زبان‌ها', icon: Languages },
     { id: 'interests', label: 'علایق', icon: Heart },
+    { id: 'skills', label: 'مهارت‌ها', icon: Award },
+    { id: 'experience', label: 'تجربه کاری', icon: Briefcase },
+    { id: 'projects', label: 'پروژه‌ها', icon: FolderOpen },
   ];
 
   if (isLoading) {

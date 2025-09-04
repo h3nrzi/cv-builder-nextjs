@@ -119,8 +119,176 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
           </div>
         </section>
 
+        {/* Education Section */}
+        <section
+          className="page-break-avoid"
+          style={{ marginBottom: theme.layout.sectionSpacing }}
+        >
+          <SectionTitle title="تحصیلات" />
+          <div className="space-y-4">
+            {data.education.map((edu, index) => (
+              <div
+                key={index}
+                className="cv-section-card rounded-lg p-6"
+                style={{
+                  padding: theme.layout.cardPadding,
+                  borderRadius: theme.borderRadius.lg,
+                  backgroundColor: colors.card,
+                  boxShadow: theme.shadows.sm,
+                }}
+              >
+                <div className="flex flex-col items-start justify-between gap-2 md:flex-row">
+                  <div>
+                    <h3
+                      className="cv-text-emphasis"
+                      style={{
+                        fontSize: theme.typography.fontSize.lg,
+                        fontWeight: theme.typography.fontWeight.semibold,
+                        color: colors.primary,
+                      }}
+                    >
+                      {edu.degree}
+                    </h3>
+                    <p
+                      style={{
+                        fontSize: theme.typography.fontSize.base,
+                        fontWeight: theme.typography.fontWeight.medium,
+                        color: colors.accent,
+                      }}
+                    >
+                      {edu.school}
+                    </p>
+                    <p
+                      style={{
+                        fontSize: theme.typography.fontSize.sm,
+                        color: colors.mutedForeground,
+                      }}
+                    >
+                      {edu.location}
+                    </p>
+                  </div>
+                  <div className="text-left">
+                    <div
+                      className="mb-1 rounded-full px-3 py-1 text-sm"
+                      style={{
+                        backgroundColor: colors.muted,
+                        color: colors.mutedForeground,
+                        borderRadius: theme.borderRadius.full,
+                      }}
+                    >
+                      {edu.startDate} - {edu.endDate}
+                    </div>
+                    {/* {edu.gpa && (
+                      <p
+                        style={{
+                          fontSize: theme.typography.fontSize.sm,
+                          fontWeight: theme.typography.fontWeight.medium,
+                          color: colors.accent,
+                        }}
+                      >
+                        معدل: {edu.gpa}
+                      </p>
+                    )} */}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Additional Sections */}
+        {(data.languages || data.interests) && (
+          <section
+            className="page-break-avoid"
+            style={{ marginBottom: theme.layout.sectionSpacing }}
+          >
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              {/* Languages */}
+              {data.languages && (
+                <div>
+                  <SectionTitle title="زبان‌ها" />
+                  <div
+                    className="cv-section-card rounded-lg p-6"
+                    style={{
+                      padding: theme.layout.cardPadding,
+                      borderRadius: theme.borderRadius.lg,
+                      backgroundColor: colors.card,
+                      color: colors.cardForeground,
+                      boxShadow: theme.shadows.sm,
+                    }}
+                  >
+                    <div className="space-y-3">
+                      {data.languages.map((lang, index) => (
+                        <div key={index} className="flex items-center justify-between">
+                          <span
+                            style={{
+                              fontSize: theme.typography.fontSize.sm,
+                              fontWeight: theme.typography.fontWeight.medium,
+                              color: colors.cardForeground,
+                            }}
+                          >
+                            {lang.name}
+                          </span>
+                          <span
+                            className="rounded px-2 py-1 text-xs"
+                            style={{
+                              fontSize: theme.typography.fontSize.xs,
+                              color: colors.accent,
+                              backgroundColor: colors.accent + '20',
+                              borderRadius: theme.borderRadius.sm,
+                              fontWeight: theme.typography.fontWeight.medium,
+                            }}
+                          >
+                            {lang.level}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Interests */}
+              {data.interests && (
+                <div>
+                  <SectionTitle title="علایق" />
+                  <div
+                    className="cv-section-card rounded-lg p-6"
+                    style={{
+                      padding: theme.layout.cardPadding,
+                      borderRadius: theme.borderRadius.lg,
+                      backgroundColor: colors.card,
+                      color: colors.cardForeground,
+                      boxShadow: theme.shadows.sm,
+                    }}
+                  >
+                    <div className="flex flex-wrap gap-2">
+                      {data.interests.map((interest, index) => (
+                        <span
+                          key={index}
+                          className="rounded-full px-3 py-2 text-sm transition-colors hover:opacity-80"
+                          style={{
+                            backgroundColor: colors.muted,
+                            color: colors.mutedForeground,
+                            borderRadius: theme.borderRadius.full,
+                            fontSize: theme.typography.fontSize.sm,
+                            fontWeight: theme.typography.fontWeight.normal,
+                            border: `1px solid ${colors.border}`,
+                          }}
+                        >
+                          {interest}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </section>
+        )}
+
         {/* Skills Section */}
-        <section className="page-break-avoid" style={{ marginBottom: theme.layout.sectionSpacing }}>
+        <section className="page-break-before page-break-avoid" style={{ marginBottom: theme.layout.sectionSpacing }}>
           <SectionTitle title="مهارت‌ها" />
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {data.skills.map((skillGroup, index) => (
@@ -405,175 +573,6 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
             ))}
           </div>
         </section>
-
-        {/* Education Section */}
-        <section
-          className="page-break-before page-break-avoid"
-          style={{ marginBottom: theme.layout.sectionSpacing }}
-        >
-          <SectionTitle title="تحصیلات" />
-          <div className="space-y-4">
-            {data.education.map((edu, index) => (
-              <div
-                key={index}
-                className="cv-section-card rounded-lg p-6"
-                style={{
-                  padding: theme.layout.cardPadding,
-                  borderRadius: theme.borderRadius.lg,
-                  backgroundColor: colors.card,
-                  boxShadow: theme.shadows.sm,
-                }}
-              >
-                <div className="flex flex-col items-start justify-between gap-2 md:flex-row">
-                  <div>
-                    <h3
-                      className="cv-text-emphasis"
-                      style={{
-                        fontSize: theme.typography.fontSize.lg,
-                        fontWeight: theme.typography.fontWeight.semibold,
-                        color: colors.primary,
-                      }}
-                    >
-                      {edu.degree}
-                    </h3>
-                    <p
-                      style={{
-                        fontSize: theme.typography.fontSize.base,
-                        fontWeight: theme.typography.fontWeight.medium,
-                        color: colors.accent,
-                      }}
-                    >
-                      {edu.school}
-                    </p>
-                    <p
-                      style={{
-                        fontSize: theme.typography.fontSize.sm,
-                        color: colors.mutedForeground,
-                      }}
-                    >
-                      {edu.location}
-                    </p>
-                  </div>
-                  <div className="text-left">
-                    <div
-                      className="mb-1 rounded-full px-3 py-1 text-sm"
-                      style={{
-                        backgroundColor: colors.muted,
-                        color: colors.mutedForeground,
-                        borderRadius: theme.borderRadius.full,
-                      }}
-                    >
-                      {edu.startDate} - {edu.endDate}
-                    </div>
-                    {/* {edu.gpa && (
-                      <p
-                        style={{
-                          fontSize: theme.typography.fontSize.sm,
-                          fontWeight: theme.typography.fontWeight.medium,
-                          color: colors.accent,
-                        }}
-                      >
-                        معدل: {edu.gpa}
-                      </p>
-                    )} */}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Additional Sections */}
-        {(data.languages || data.interests) && (
-          <section
-            className="page-break-avoid"
-            style={{ marginBottom: theme.layout.sectionSpacing }}
-          >
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              {/* Languages */}
-              {data.languages && (
-                <div>
-                  <SectionTitle title="زبان‌ها" />
-                  <div
-                    className="cv-section-card rounded-lg p-6"
-                    style={{
-                      padding: theme.layout.cardPadding,
-                      borderRadius: theme.borderRadius.lg,
-                      backgroundColor: colors.card,
-                      color: colors.cardForeground,
-                      boxShadow: theme.shadows.sm,
-                    }}
-                  >
-                    <div className="space-y-3">
-                      {data.languages.map((lang, index) => (
-                        <div key={index} className="flex items-center justify-between">
-                          <span
-                            style={{
-                              fontSize: theme.typography.fontSize.sm,
-                              fontWeight: theme.typography.fontWeight.medium,
-                              color: colors.cardForeground,
-                            }}
-                          >
-                            {lang.name}
-                          </span>
-                          <span
-                            className="rounded px-2 py-1 text-xs"
-                            style={{
-                              fontSize: theme.typography.fontSize.xs,
-                              color: colors.accent,
-                              backgroundColor: colors.accent + '20',
-                              borderRadius: theme.borderRadius.sm,
-                              fontWeight: theme.typography.fontWeight.medium,
-                            }}
-                          >
-                            {lang.level}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Interests */}
-              {data.interests && (
-                <div>
-                  <SectionTitle title="علایق" />
-                  <div
-                    className="cv-section-card rounded-lg p-6"
-                    style={{
-                      padding: theme.layout.cardPadding,
-                      borderRadius: theme.borderRadius.lg,
-                      backgroundColor: colors.card,
-                      color: colors.cardForeground,
-                      boxShadow: theme.shadows.sm,
-                    }}
-                  >
-                    <div className="flex flex-wrap gap-2">
-                      {data.interests.map((interest, index) => (
-                        <span
-                          key={index}
-                          className="rounded-full px-3 py-2 text-sm transition-colors hover:opacity-80"
-                          style={{
-                            backgroundColor: colors.muted,
-                            color: colors.mutedForeground,
-                            borderRadius: theme.borderRadius.full,
-                            fontSize: theme.typography.fontSize.sm,
-                            fontWeight: theme.typography.fontWeight.normal,
-                            border: `1px solid ${colors.border}`,
-                          }}
-                        >
-                          {interest}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-          </section>
-        )}
-
         <FooterBranding />
       </div>
     </div>
