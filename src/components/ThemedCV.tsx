@@ -104,7 +104,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
 
         {/* Summary Section */}
         <section className="page-break-avoid" style={{ marginBottom: theme.layout.sectionSpacing }}>
-          <SectionTitle title="خلاصه" />
+          {/* <SectionTitle title="خلاصه" /> */}
           <div
             className="cv-section-card rounded-lg p-6"
             style={{
@@ -120,10 +120,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
         </section>
 
         {/* Education Section */}
-        <section
-          className="page-break-avoid"
-          style={{ marginBottom: theme.layout.sectionSpacing }}
-        >
+        <section className="page-break-avoid" style={{ marginBottom: theme.layout.sectionSpacing }}>
           <SectionTitle title="تحصیلات" />
           <div className="space-y-4">
             {data.education.map((edu, index) => (
@@ -176,8 +173,22 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
                         borderRadius: theme.borderRadius.full,
                       }}
                     >
-                      {edu.startDate} - {edu.endDate}
+                      {edu.startDate} / {edu.endDate || 'اکنون'}
                     </div>
+                    {!edu.endDate && (
+                      <div
+                        className="rounded-full px-2 py-1 text-center text-xs"
+                        style={{
+                          backgroundColor: colors.accent + '20',
+                          color: colors.accent,
+                          borderRadius: theme.borderRadius.full,
+                          fontSize: theme.typography.fontSize.xs,
+                          fontWeight: theme.typography.fontWeight.medium,
+                        }}
+                      >
+                        در حال تحصیل
+                      </div>
+                    )}
                     {/* {edu.gpa && (
                       <p
                         style={{
@@ -202,7 +213,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
             className="page-break-avoid"
             style={{ marginBottom: theme.layout.sectionSpacing }}
           >
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-6">
               {/* Languages */}
               {data.languages && (
                 <div>
@@ -288,7 +299,10 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
         )}
 
         {/* Skills Section */}
-        <section className="page-break-before page-break-avoid" style={{ marginBottom: theme.layout.sectionSpacing }}>
+        <section
+          className="page-break-before page-break-avoid"
+          style={{ marginBottom: theme.layout.sectionSpacing }}
+        >
           <SectionTitle title="مهارت‌ها" />
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {data.skills.map((skillGroup, index) => (
@@ -573,7 +587,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
             ))}
           </div>
         </section>
-        <FooterBranding />
+        {/* <FooterBranding /> */}
       </div>
     </div>
   );

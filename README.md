@@ -9,7 +9,7 @@
 
 **Professional CV/Resume Builder with Multiple Themes**
 
-*Built with Next.js, React, TypeScript, and Tailwind CSS*
+_Built with Next.js, React, TypeScript, and Tailwind CSS_
 
 [🌟 Live Demo](#) • [📖 Documentation](#features) • [🎨 Themes](#themes) • [🤝 Contributing](#contributing)
 
@@ -20,18 +20,21 @@
 ## ✨ Features
 
 ### 🎨 **Multiple Professional Themes**
+
 - **7 Beautiful Themes**: Modern, Minimal, Glassmorphism, Cyberpunk, Nordic, Ocean Breeze, Sunset Gradient
 - **Real-time Preview**: See changes instantly as you edit
 - **Responsive Design**: Perfect on desktop, tablet, and mobile
 - **Print Optimized**: Professional PDF output ready for printing
 
 ### 🌍 **Persian/Farsi Support**
+
 - **RTL Layout**: Full right-to-left text support
 - **Persian Fonts**: Beautiful SF Arabic font family included
 - **Bilingual Interface**: Persian UI with English fallbacks
 - **Cultural Adaptation**: CV formats optimized for Persian-speaking regions
 
 ### 🛠️ **Advanced Editor**
+
 - **Drag & Drop**: Intuitive section reordering
 - **Real-time Editing**: Live preview while typing
 - **Auto-save**: Never lose your progress
@@ -39,6 +42,7 @@
 - **Form Validation**: Ensure data integrity
 
 ### 📱 **Modern Tech Stack**
+
 - **Next.js 15**: Latest React framework with App Router
 - **TypeScript**: Type-safe development
 - **Tailwind CSS**: Utility-first styling
@@ -50,6 +54,7 @@
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - Node.js 18.0.0 or higher
 - npm 9.0.0 or higher
 
@@ -85,32 +90,35 @@ npm start
 
 ## 🎨 Themes
 
-| Theme | Description | Best For |
-|-------|-------------|----------|
+| Theme                   | Description                                  | Best For                 |
+| ----------------------- | -------------------------------------------- | ------------------------ |
 | **Modern Professional** | Clean gradient design with subtle animations | General professional use |
-| **Minimal** | Ultra-clean, typography-focused layout | Creative professionals |
-| **Glassmorphism** | Modern glass-effect design | Tech industry |
-| **Cyberpunk** | Futuristic neon-inspired theme | Creative/Gaming industry |
-| **Nordic Minimal** | Scandinavian-inspired clean design | Design professionals |
-| **Ocean Breeze** | Calming blue gradient theme | Healthcare/Education |
-| **Sunset Gradient** | Warm gradient with elegant typography | Marketing/Sales |
+| **Minimal**             | Ultra-clean, typography-focused layout       | Creative professionals   |
+| **Glassmorphism**       | Modern glass-effect design                   | Tech industry            |
+| **Cyberpunk**           | Futuristic neon-inspired theme               | Creative/Gaming industry |
+| **Nordic Minimal**      | Scandinavian-inspired clean design           | Design professionals     |
+| **Ocean Breeze**        | Calming blue gradient theme                  | Healthcare/Education     |
+| **Sunset Gradient**     | Warm gradient with elegant typography        | Marketing/Sales          |
 
 ---
 
 ## 📋 CV Sections
 
 ### Personal Information
+
 - Full name and professional title
 - Contact details (phone, email, location)
 - Social links (LinkedIn, GitHub, website)
 - Professional profile photo
 
 ### Professional Summary
+
 - Compelling personal statement
 - Career highlights
 - Key value propositions
 
 ### Work Experience
+
 - Job titles and companies
 - Employment dates and locations
 - Detailed descriptions
@@ -118,24 +126,28 @@ npm start
 - Technologies used
 
 ### Skills
+
 - Categorized skill groups
 - Proficiency levels (1-5 scale)
 - Visual progress bars
 - Technical and soft skills
 
 ### Projects
+
 - Project names and descriptions
 - Technologies used
 - Live demo and source code links
 - Project highlights
 
 ### Education
+
 - Degrees and institutions
 - Graduation dates
 - Locations
 - Academic achievements
 
 ### Additional Sections
+
 - Languages with proficiency levels
 - Interests and hobbies
 - Certifications
@@ -198,11 +210,13 @@ NEXT_PUBLIC_SENTRY_DSN=your-sentry-dsn
 ## 🎯 Usage Guide
 
 ### 1. **Getting Started**
+
 - Visit the homepage and click "شروع کنید" (Get Started)
 - Choose from sample data or start fresh
 - Select your preferred theme
 
 ### 2. **Editing Your CV**
+
 - Fill in personal information
 - Add work experience with detailed descriptions
 - Organize skills by categories
@@ -210,12 +224,14 @@ NEXT_PUBLIC_SENTRY_DSN=your-sentry-dsn
 - Add education background
 
 ### 3. **Customization**
+
 - Switch between themes in real-time
 - Adjust section order by dragging
 - Use keyboard shortcuts for efficiency
 - Preview changes instantly
 
 ### 4. **Export Options**
+
 - **Print**: Use browser's print function (Ctrl/Cmd + P)
 - **PDF**: Print to PDF for digital sharing
 - **Share**: Copy URL to share online version
@@ -266,6 +282,7 @@ export const myTheme: Theme = {
 We welcome contributions! Here's how you can help:
 
 ### Ways to Contribute
+
 - 🐛 **Bug Reports**: Found a bug? Open an issue
 - 💡 **Feature Requests**: Have an idea? We'd love to hear it
 - 🎨 **New Themes**: Create beautiful new CV themes
@@ -311,21 +328,23 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- 📧 **Email**: your-email@example.com
-- 🐛 **Issues**: [GitHub Issues](https://github.com/your-username/cv-builder-nextjs/issues)
-- 💬 **Discussions**: [GitHub Discussions](https://github.com/your-username/cv-builder-nextjs/discussions)
+- 📧 **Email**: rezaeig22@gmail.com
+- 🐛 **Issues**: [GitHub Issues](https://github.com/h3nrzi/cv-builder-nextjs/issues)
+- 💬 **Discussions**: [GitHub Discussions](https://h3nrzi/your-username/cv-builder-nextjs/discussions)
 
 ---
 
 ## 🗺️ Roadmap
 
 ### Version 3.2.0 (Coming Soon)
+
 - [ ] User authentication and cloud storage
 - [ ] Collaborative editing
 - [ ] Advanced PDF customization
 - [ ] Mobile app (React Native)
 
 ### Version 3.3.0 (Future)
+
 - [ ] AI-powered content suggestions
 - [ ] Integration with job boards
 - [ ] Advanced analytics
@@ -337,6 +356,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Made with ❤️ by [Hossein Rezaei](https://github.com/h3nrzi)**
 
-*If this project helped you, please consider giving it a ⭐*
+_If this project helped you, please consider giving it a ⭐_
 
 </div>
