@@ -127,7 +127,6 @@ export const defaultTheme: Theme = {
     
     .cv-skill-progress {
       background: linear-gradient(90deg, #2563eb, #7c3aed);
-      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
     }
     
     .cv-header-accent {

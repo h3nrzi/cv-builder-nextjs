@@ -565,7 +565,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="cv-link"
+                      className="cv-link underline underline-offset-4"
                       style={{ color: colors.accent }}
                     >
                       مشاهده پروژه
@@ -576,7 +576,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="cv-link"
+                      className="cv-link underline underline-offset-4"
                       style={{ color: colors.accent }}
                     >
                       کد منبع
@@ -618,7 +618,7 @@ function ContactItem({ icon: Icon, text, href }: ContactItemProps) {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="cv-link"
+        className="cv-link underline underline-offset-4"
         style={{ color: colors.cardForeground }}
       >
         {content}
