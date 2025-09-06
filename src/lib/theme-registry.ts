@@ -1,9 +1,10 @@
-import { defaultTheme } from '../themes/default';
-import { minimalTheme } from '../themes/minimal';
+import { newTheme } from '@/themes/new';
 import { cyberpunkTheme } from '../themes/cyberpunk';
-import { oceanBreezeTheme } from '../themes/ocean-breeze';
-import { nordicMinimalTheme } from '../themes/nordic-minimal';
+import { defaultTheme } from '../themes/default';
 import { glassmorphismTheme } from '../themes/glassmorphism';
+import { minimalTheme } from '../themes/minimal';
+import { nordicMinimalTheme } from '../themes/nordic-minimal';
+import { oceanBreezeTheme } from '../themes/ocean-breeze';
 import { Theme } from '../types/theme';
 
 class ThemeRegistry {
@@ -13,6 +14,7 @@ class ThemeRegistry {
   constructor() {
     // Register default themes
     this.registerTheme(defaultTheme);
+    this.registerTheme(newTheme);
     this.registerTheme(minimalTheme);
     this.registerTheme(cyberpunkTheme);
     this.registerTheme(oceanBreezeTheme);

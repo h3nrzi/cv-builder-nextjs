@@ -1,7 +1,7 @@
 'use client';
 
+import { ArrowRight, Download, Palette, Zap } from 'lucide-react';
 import Link from 'next/link';
-import { ArrowRight, FileText, Palette, Download, Zap, Star, Users } from 'lucide-react';
 
 export default function HomePage() {
   return (

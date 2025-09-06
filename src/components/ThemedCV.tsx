@@ -302,6 +302,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
         <section
           className="page-break-before page-break-avoid"
           style={{ marginBottom: theme.layout.sectionSpacing }}
+          dir="ltr"
         >
           <SectionTitle title="مهارت‌ها" />
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -510,7 +511,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
           style={{ marginBottom: theme.layout.sectionSpacing }}
         >
           <SectionTitle title="پروژه‌های برجسته" />
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
             {data.projects.map((project, index) => (
               <div
                 key={index}
@@ -587,7 +588,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
             ))}
           </div>
         </section>
-        {/* <FooterBranding /> */}
+        <FooterBranding />
       </div>
     </div>
   );
@@ -641,6 +642,7 @@ function SectionTitle({ title }: { title: string }) {
         color: colors.primary,
         marginBottom: theme.spacing.lg,
       }}
+      dir="rtl"
     >
       {title}
     </h2>
