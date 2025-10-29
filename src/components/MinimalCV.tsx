@@ -246,7 +246,7 @@ export function MinimalCV({ data }: MinimalCVProps) {
                       {skillGroup.category}
                     </h3>
                     <div className="space-y-0.5">
-                      {skillGroup.items.slice(0, 4).map((skill, skillIndex) => (
+                      {skillGroup.items.slice(0, 6).map((skill, skillIndex) => (
                         <div key={skillIndex} className="flex items-center justify-between">
                           <span className="text-xs text-gray-500 print:text-black">
                             {'○'.repeat(5 - skill.level)}
