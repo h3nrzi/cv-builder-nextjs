@@ -11,8 +11,6 @@
 
 _Built with Next.js, React, TypeScript, and Tailwind CSS_
 
-[🌟 Live Demo](#) • [📖 Documentation](#features) • [🎨 Themes](#themes) • [🤝 Contributing](#contributing)
-
 </div>
 
 ---
@@ -102,20 +100,20 @@ npm start
 
 ### Themes
 
-| Theme                   | Description                                  | Best For                 |
-| ----------------------- | -------------------------------------------- | ------------------------ |
-| **Modern Professional** | Clean design with professional styling      | General professional use |
-| **Minimal**             | Ultra-clean, typography-focused layout       | Creative professionals   |
-| **Glassmorphism**       | Modern glass-effect design with white base  | Tech industry            |
-| **Cyberpunk**           | Futuristic neon-inspired theme on white     | Creative/Gaming industry |
-| **Nordic Minimal**      | Scandinavian-inspired clean design          | Design professionals     |
-| **Ocean Breeze**        | Calming blue accents on white background    | Healthcare/Education     |
-| **Sunset Gradient**     | Warm accents with elegant typography        | Marketing/Sales          |
+| Theme                   | Description                                | Best For                 |
+| ----------------------- | ------------------------------------------ | ------------------------ |
+| **Modern Professional** | Clean design with professional styling     | General professional use |
+| **Minimal**             | Ultra-clean, typography-focused layout     | Creative professionals   |
+| **Glassmorphism**       | Modern glass-effect design with white base | Tech industry            |
+| **Cyberpunk**           | Futuristic neon-inspired theme on white    | Creative/Gaming industry |
+| **Nordic Minimal**      | Scandinavian-inspired clean design         | Design professionals     |
+| **Ocean Breeze**        | Calming blue accents on white background   | Healthcare/Education     |
+| **Sunset Gradient**     | Warm accents with elegant typography       | Marketing/Sales          |
 
 ### Layouts
 
-| Layout      | Description                           | Best For           |
-| ----------- | ------------------------------------- | ------------------ |
+| Layout       | Description                           | Best For           |
+| ------------ | ------------------------------------- | ------------------ |
 | **Standard** | Multi-page A4 layout with page breaks | Comprehensive CVs  |
 | **Minimal**  | Single-page A4 condensed layout       | Quick applications |
 
@@ -350,33 +348,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - 📧 **Email**: rezaeig22@gmail.com
 - 🐛 **Issues**: [GitHub Issues](https://github.com/h3nrzi/cv-builder-nextjs/issues)
-- 💬 **Discussions**: [GitHub Discussions](https://h3nrzi/your-username/cv-builder-nextjs/discussions)
-
----
-
-## 🗺️ Roadmap
-
-### Version 3.2.0 (Released) ✓
-
-- [x] A4 page structure with visual page breaks
-- [x] Consistent white backgrounds for all themes
-- [x] Enhanced minimal layout optimization
-- [x] Print-compatible progress indicators
-- [x] Professional footer branding
-
-### Version 3.3.0 (Coming Soon)
-
-- [ ] User authentication and cloud storage
-- [ ] Collaborative editing
-- [ ] Advanced PDF customization
-- [ ] Mobile app (React Native)
-
-### Version 3.4.0 (Future)
-
-- [ ] AI-powered content suggestions
-- [ ] Integration with job boards
-- [ ] Advanced analytics
-- [ ] Multi-language support expansion
 
 ---
 
