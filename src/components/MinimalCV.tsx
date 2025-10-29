@@ -9,17 +9,17 @@ interface MinimalCVProps {
 
 export function MinimalCV({ data }: MinimalCVProps) {
   return (
-    <div className="relative mx-auto flex h-[297mm] w-[210mm] flex-col overflow-hidden bg-white p-[10mm] text-xs leading-tight shadow-lg print:mx-0 print:my-0 print:h-[297mm] print:w-[210mm] print:p-[10mm] print:shadow-none">
+    <div className="relative mx-auto flex min-h-screen w-full max-w-4xl flex-col overflow-hidden bg-white p-4 text-xs leading-tight shadow-lg sm:h-[297mm] sm:w-[210mm] sm:p-[10mm] print:mx-0 print:my-0 print:h-[297mm] print:w-[210mm] print:p-[10mm] print:shadow-none">
       {/* Header */}
       <div className="mb-3 border-b-2 border-gray-800 pb-2">
-        <div className="flex items-start gap-4">
+        <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-start">
           {/* Name and Title */}
           <div className="flex-1">
             <h1 className="text-xl font-bold text-gray-800 print:text-lg">{data.personal.name}</h1>
             <p className="mb-2 text-sm text-gray-600 print:text-xs">{data.personal.title}</p>
 
             {/* Contact Info - Grid Layout */}
-            <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-gray-600">
+            <div className="grid grid-cols-1 gap-x-4 gap-y-1 text-xs text-gray-600 sm:grid-cols-2">
               {data.personal.email && (
                 <div className="flex items-center gap-1">
                   <Mail className="h-3 w-3 flex-shrink-0" />
@@ -104,9 +104,9 @@ export function MinimalCV({ data }: MinimalCVProps) {
         </div>
       </div>
 
-      <div className="grid flex-1 grid-cols-5 gap-4 overflow-hidden">
+      <div className="grid flex-1 grid-cols-1 gap-4 overflow-hidden sm:grid-cols-5">
         {/* Left Column */}
-        <div className="col-span-3 space-y-3 overflow-hidden">
+        <div className="col-span-1 space-y-3 overflow-hidden sm:col-span-3">
           {/* Summary */}
           {data.summary && (
             <section>
@@ -234,7 +234,7 @@ export function MinimalCV({ data }: MinimalCVProps) {
         </div>
 
         {/* Right Column */}
-        <div className="col-span-2 space-y-3 overflow-hidden">
+        <div className="col-span-1 space-y-3 overflow-hidden sm:col-span-2">
           {/* Skills */}
           {data.skills.length > 0 && (
             <section>

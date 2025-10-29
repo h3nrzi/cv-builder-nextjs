@@ -25,7 +25,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
     >
       {/* Page 1 */}
       <div
-        className="mx-auto w-[210mm] min-h-[297mm] bg-white shadow-lg print:shadow-none print:w-[210mm] print:min-h-[297mm] p-[15mm] print:p-[15mm] relative"
+        className="mx-auto w-full max-w-4xl min-h-screen bg-white shadow-lg print:shadow-none sm:w-[210mm] sm:min-h-[297mm] print:w-[210mm] print:min-h-[297mm] p-4 sm:p-[15mm] print:p-[15mm] relative"
         style={{
           fontFamily: theme.typography.fontFamily,
           color: colors.foreground,
@@ -36,7 +36,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
           className="cv-header-minimal page-break-avoid mb-8"
           style={{ marginBottom: theme.layout.sectionSpacing }}
         >
-          <div className="flex flex-col items-center gap-6 md:flex-row">
+          <div className="flex flex-col items-center gap-6 sm:flex-row">
             {data.personal.profileImage && (
               <div
                 className="h-32 w-32 overflow-hidden border-4 border-solid"
@@ -52,7 +52,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
                 />
               </div>
             )}
-            <div className="flex-1 text-center md:text-right">
+            <div className="flex-1 text-center sm:text-right">
               <h1
                 className="mb-2"
                 style={{
@@ -73,7 +73,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
               >
                 {data.personal.title}
               </h2>
-              <div className="grid grid-cols-1 gap-3 text-sm md:grid-cols-2">
+              <div className="grid grid-cols-1 gap-3 text-sm sm:grid-cols-2">
                 <ContactItem icon={Phone} text={data.personal.phone} />
                 <ContactItem icon={Mail} text={data.personal.email} />
                 <ContactItem icon={MapPin} text={data.personal.location} />
@@ -135,7 +135,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
                   boxShadow: theme.shadows.sm,
                 }}
               >
-                <div className="flex flex-col items-start justify-between gap-2 md:flex-row">
+                <div className="flex flex-col items-start justify-between gap-2 sm:flex-row">
                   <div>
                     <h3
                       className="cv-text-emphasis"
@@ -214,7 +214,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
             className="page-break-avoid"
             style={{ marginBottom: theme.layout.sectionSpacing }}
           >
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {/* Languages */}
               {data.languages && (
                 <div>
@@ -303,7 +303,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
       
       {/* Page 2 */}
       <div
-        className="mx-auto w-[210mm] min-h-[297mm] bg-white shadow-lg print:shadow-none print:w-[210mm] print:min-h-[297mm] p-[15mm] print:p-[15mm] relative mt-4 print:mt-0"
+        className="mx-auto w-full max-w-4xl min-h-screen bg-white shadow-lg print:shadow-none sm:w-[210mm] sm:min-h-[297mm] print:w-[210mm] print:min-h-[297mm] p-4 sm:p-[15mm] print:p-[15mm] relative mt-4 print:mt-0"
         style={{
           fontFamily: theme.typography.fontFamily,
           color: colors.foreground,
@@ -316,7 +316,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
           dir="ltr"
         >
           <SectionTitle title="مهارت‌ها" />
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {data.skills.map((skillGroup, index) => (
               <div
                 key={index}
@@ -520,7 +520,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
       
       {/* Page 3 */}
       <div
-        className="mx-auto w-[210mm] min-h-[297mm] bg-white shadow-lg print:shadow-none print:w-[210mm] print:min-h-[297mm] p-[15mm] print:p-[15mm] relative mt-4 print:mt-0"
+        className="mx-auto w-full max-w-4xl min-h-screen bg-white shadow-lg print:shadow-none sm:w-[210mm] sm:min-h-[297mm] print:w-[210mm] print:min-h-[297mm] p-4 sm:p-[15mm] print:p-[15mm] relative mt-4 print:mt-0"
         style={{
           fontFamily: theme.typography.fontFamily,
           color: colors.foreground,
@@ -532,7 +532,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
           style={{ marginBottom: theme.layout.sectionSpacing }}
         >
           <SectionTitle title="پروژه‌های برجسته" />
-          <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {data.projects.map((project, index) => (
               <div
                 key={index}

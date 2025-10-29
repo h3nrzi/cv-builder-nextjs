@@ -121,7 +121,7 @@ function EditorPageContent() {
       <div className="flex flex-1">
         {/* Desktop Sidebar - Only in edit mode */}
         {mode === 'edit' && (
-          <div className="hidden w-64 border-r border-gray-200 bg-white shadow-sm sm:block">
+          <div className="hidden w-64 border-r border-gray-200 bg-white shadow-sm lg:block">
             <div className="p-4">
               <h3 className="mb-3 text-sm font-semibold text-gray-900">بخش‌های رزومه</h3>
               <nav className="space-y-1">
@@ -151,9 +151,9 @@ function EditorPageContent() {
         {/* Main Content */}
         <div className="flex-1">
           {mode === 'edit' ? (
-            <div className="mx-auto max-w-4xl p-4 sm:p-6">
+            <div className="mx-auto max-w-4xl p-2 sm:p-4 lg:p-6">
               {/* Mobile Navigation */}
-              <div className="mb-5 rounded-lg border border-gray-200 bg-white p-1 shadow-sm sm:hidden">
+              <div className="mb-5 rounded-lg border border-gray-200 bg-white p-1 shadow-sm lg:hidden">
                 <div className="px-4 py-2">
                   <select
                     value={activeSection}
@@ -202,7 +202,7 @@ function EditorPageContent() {
             </div>
           ) : (
             <>
-              <div className="p-4 print:p-0">
+              <div className="p-2 sm:p-4 print:p-0">
                 {layout === 'minimal' ? <MinimalCV data={cvData} /> : <ThemedCV data={cvData} />}
               </div>
             </>
