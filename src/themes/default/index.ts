@@ -3,7 +3,7 @@ import { Theme } from '../../types/theme';
 export const defaultTheme: Theme = {
   config: {
     id: 'modern-professional',
-    name: 'مدرن',
+    name: 'آبی کلاسیک',
     description: 'قالب مدرن و شیک با گرادیان‌های ظریف',
     author: 'حسین رضایی',
     version: '1.1.0',

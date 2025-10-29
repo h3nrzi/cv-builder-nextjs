@@ -3,26 +3,26 @@ import { Theme } from '../../types/theme';
 export const glassmorphismTheme: Theme = {
   config: {
     id: 'glassmorphism',
-    name: 'شیشه ای مات',
+    name: 'بنفش شیشه ای',
     description: 'قالب مدرن با افکت شیشه مات و پس‌زمینه های پررنگ',
     author: 'حسین رضایی',
     version: '1.1.0',
     tags: ['شیشه ای', 'مدرن', 'شیشه', 'محو', 'مد'],
   },
   colors: {
-    primary: '#ffffff',
+    primary: '#667eea',
     secondary: '#764ba2',
     accent: '#f093fb',
     background: '#ffffff',
     foreground: '#1e293b',
-    muted: 'rgba(255, 255, 255, 0.1)',
-    mutedForeground: 'rgba(255, 255, 255, 0.7)',
-    border: 'rgba(255, 255, 255, 0.2)',
+    muted: '#f8fafc',
+    mutedForeground: '#64748b',
+    border: 'rgba(102, 126, 234, 0.2)',
     card: '#ffffff',
     cardForeground: '#1e293b',
-    destructive: '#ff6b6b',
+    destructive: '#ef4444',
     destructiveForeground: '#ffffff',
-    ring: '#f093fb',
+    ring: '#667eea',
   },
   typography: {
     fontFamily: '"SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif',
@@ -109,24 +109,24 @@ export const glassmorphismTheme: Theme = {
       right: 0;
       bottom: 0;
       background: 
-        radial-gradient(circle at 20% 80%, rgba(240, 147, 251, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(102, 126, 234, 0.3) 0%, transparent 50%);
+        radial-gradient(circle at 20% 80%, rgba(102, 126, 234, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(240, 147, 251, 0.05) 0%, transparent 50%);
       pointer-events: none;
     }
     
     .cv-section-card {
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(102, 126, 234, 0.2);
+      box-shadow: 0 8px 32px rgba(102, 126, 234, 0.1);
       transition: all 0.3s ease;
-      color: #ffffff;
+      color: #1e293b;
     }
     
     .cv-section-card:hover {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.98);
       transform: translateY(-2px);
-      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 12px 48px rgba(102, 126, 234, 0.15);
     }
     
     .cv-skill-progress {
@@ -135,15 +135,15 @@ export const glassmorphismTheme: Theme = {
     }
     
     .cv-glass-button {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(102, 126, 234, 0.1);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      color: white;
+      border: 1px solid rgba(102, 126, 234, 0.3);
+      color: #1e293b;
       transition: all 0.3s ease;
     }
     
     .cv-glass-button:hover {
-      background: rgba(255, 255, 255, 0.3);
+      background: rgba(102, 126, 234, 0.2);
       transform: translateY(-1px);
     }
     

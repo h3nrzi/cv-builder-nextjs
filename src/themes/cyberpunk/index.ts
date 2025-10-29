@@ -2,30 +2,30 @@ import { Theme } from '../../types/theme';
 
 export const cyberpunkTheme: Theme = {
   config: {
-    id: 'cyberpunk-neon',
-    name: 'سایبرپانک نئون',
-    description: 'قالب سایبرپانک با استایل نئون و زیبایی تاریک',
+    id: 'cyberpunk-professional',
+    name: 'آبی فوتوریستیک',
+    description: 'قالب مدرن با الهام از تکنولوژی و رنگهای آبی-بنفش',
     author: 'حسین رضایی',
-    version: '1.0.0',
-    tags: ['سایبرپانک', 'نئون', 'تاریک', 'مدرن'],
+    version: '2.0.0',
+    tags: ['تکنولوژی', 'مدرن', 'حرفهای', 'آبی'],
   },
   colors: {
-    primary: '#00ff88',
-    secondary: '#ff0080',
-    accent: '#00d4ff',
+    primary: '#3b82f6',
+    secondary: '#8b5cf6',
+    accent: '#06b6d4',
     background: '#ffffff',
     foreground: '#1e293b',
-    muted: '#1a1a2e',
-    mutedForeground: '#888888',
-    border: '#333366',
+    muted: '#f8fafc',
+    mutedForeground: '#64748b',
+    border: 'rgba(59, 130, 246, 0.2)',
     card: '#ffffff',
     cardForeground: '#1e293b',
-    destructive: '#ff0040',
+    destructive: '#ef4444',
     destructiveForeground: '#ffffff',
-    ring: '#00ff88',
+    ring: '#3b82f6',
   },
   typography: {
-    fontFamily: '"JetBrains Mono", "Fira Code", monospace',
+    fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
     fontSize: {
       xs: '0.75rem',
       sm: '0.875rem',
@@ -68,12 +68,12 @@ export const cyberpunkTheme: Theme = {
     full: '9999px',
   },
   shadows: {
-    sm: '0 0 5px rgba(0, 255, 136, 0.3)',
-    md: '0 0 10px rgba(0, 255, 136, 0.4)',
-    lg: '0 0 20px rgba(0, 255, 136, 0.5)',
-    xl: '0 0 30px rgba(0, 255, 136, 0.6)',
-    '2xl': '0 0 40px rgba(0, 255, 136, 0.7)',
-    inner: 'inset 0 0 10px rgba(0, 255, 136, 0.2)',
+    sm: '0 2px 4px rgba(59, 130, 246, 0.1)',
+    md: '0 4px 8px rgba(59, 130, 246, 0.15)',
+    lg: '0 8px 16px rgba(59, 130, 246, 0.2)',
+    xl: '0 16px 32px rgba(59, 130, 246, 0.25)',
+    '2xl': '0 24px 48px rgba(59, 130, 246, 0.3)',
+    inner: 'inset 0 2px 4px rgba(59, 130, 246, 0.1)',
   },
   layout: {
     maxWidth: '1200px',
@@ -97,18 +97,99 @@ export const cyberpunkTheme: Theme = {
   customCSS: `
     .cv-gradient-bg {
       background: #ffffff;
+      position: relative;
+    }
+    
+    .cv-gradient-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+      pointer-events: none;
     }
     
     .cv-section-card {
-      background: rgba(22, 33, 62, 0.8);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(0, 255, 136, 0.3);
-      box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cv-section-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, #3b82f6, #8b5cf6);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .cv-section-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
+      border-color: rgba(59, 130, 246, 0.3);
+    }
+    
+    .cv-section-card:hover::before {
+      opacity: 1;
     }
     
     .cv-skill-progress {
-      background: linear-gradient(90deg, #00ff88, #00d4ff);
-      box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
+      box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+    }
+    
+    .cv-section-title {
+      position: relative;
+      color: #1e293b;
+      font-weight: 600;
+    }
+    
+    .cv-section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+      border-radius: 2px;
+    }
+    
+    .cv-tech-button {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+    }
+    
+    .cv-tech-button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4);
+    }
+    
+    @keyframes tech-pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    
+    .cv-tech-accent {
+      animation: tech-pulse 2s ease-in-out infinite;
     }
   `,
 };
