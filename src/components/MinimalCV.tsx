@@ -78,9 +78,9 @@ export function MinimalCV({ data }: MinimalCVProps) {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-4 flex-1 overflow-hidden">
+      <div className="grid grid-cols-5 gap-4 flex-1 overflow-hidden">
         {/* Left Column */}
-        <div className="col-span-2 space-y-3 overflow-hidden">
+        <div className="col-span-3 space-y-3 overflow-hidden">
           {/* Summary */}
           {data.summary && (
             <section>
@@ -145,7 +145,7 @@ export function MinimalCV({ data }: MinimalCVProps) {
         </div>
 
         {/* Right Column */}
-        <div className="space-y-3 overflow-hidden">
+        <div className="col-span-2 space-y-3 overflow-hidden">
           {/* Skills */}
           {data.skills.length > 0 && (
             <section>
