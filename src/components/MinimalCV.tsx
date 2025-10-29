@@ -9,55 +9,78 @@ interface MinimalCVProps {
 
 export function MinimalCV({ data }: MinimalCVProps) {
   return (
-    <div className="mx-auto max-w-4xl bg-white p-4 text-xs leading-tight print:p-3 print:text-xs">
+    <div className="mx-auto bg-white shadow-lg print:shadow-none w-[210mm] h-[297mm] print:w-[210mm] print:h-[297mm] p-[15mm] print:p-[15mm] text-xs leading-tight overflow-hidden flex flex-col print:mx-0 print:my-0">
       {/* Header */}
       <div className="mb-3 border-b-2 border-gray-800 pb-2">
-        <h1 className="text-xl font-bold text-gray-800 print:text-lg">{data.personal.name}</h1>
-        <p className="text-sm text-gray-600 print:text-xs">{data.personal.title}</p>
-        
-        <div className="mt-1 flex flex-wrap gap-2 text-xs text-gray-600">
-          {data.personal.email && (
-            <div className="flex items-center gap-1">
-              <Mail className="h-3 w-3" />
-              <span>{data.personal.email}</span>
+        <div className="flex items-start gap-4">
+          {/* Name and Title */}
+          <div className="flex-1">
+            <h1 className="text-xl font-bold text-gray-800 print:text-lg">{data.personal.name}</h1>
+            <p className="text-sm text-gray-600 print:text-xs mb-2">{data.personal.title}</p>
+            
+            {/* Contact Info - Grid Layout */}
+            <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-gray-600">
+              {data.personal.email && (
+                <div className="flex items-center gap-1">
+                  <Mail className="h-3 w-3 flex-shrink-0" />
+                  <span className="truncate">{data.personal.email}</span>
+                </div>
+              )}
+              {data.personal.phone && (
+                <div className="flex items-center gap-1">
+                  <Phone className="h-3 w-3 flex-shrink-0" />
+                  <span>{data.personal.phone}</span>
+                </div>
+              )}
+              {data.personal.location && (
+                <div className="flex items-center gap-1">
+                  <MapPin className="h-3 w-3 flex-shrink-0" />
+                  <span className="truncate">{data.personal.location}</span>
+                </div>
+              )}
+              {data.personal.website && (
+                <div className="flex items-center gap-1">
+                  <Globe className="h-3 w-3 flex-shrink-0" />
+                  <span className="truncate">{data.personal.website}</span>
+                </div>
+              )}
+              {data.personal.github && (
+                <div className="flex items-center gap-1">
+                  <Github className="h-3 w-3 flex-shrink-0" />
+                  <span className="truncate">{data.personal.github}</span>
+                </div>
+              )}
+              {data.personal.linkedin && (
+                <div className="flex items-center gap-1">
+                  <Linkedin className="h-3 w-3 flex-shrink-0" />
+                  <span className="truncate">{data.personal.linkedin}</span>
+                </div>
+              )}
             </div>
-          )}
-          {data.personal.phone && (
-            <div className="flex items-center gap-1">
-              <Phone className="h-3 w-3" />
-              <span>{data.personal.phone}</span>
-            </div>
-          )}
-          {data.personal.location && (
-            <div className="flex items-center gap-1">
-              <MapPin className="h-3 w-3" />
-              <span>{data.personal.location}</span>
-            </div>
-          )}
-          {data.personal.website && (
-            <div className="flex items-center gap-1">
-              <Globe className="h-3 w-3" />
-              <span>{data.personal.website}</span>
-            </div>
-          )}
-          {data.personal.github && (
-            <div className="flex items-center gap-1">
-              <Github className="h-3 w-3" />
-              <span>{data.personal.github}</span>
-            </div>
-          )}
-          {data.personal.linkedin && (
-            <div className="flex items-center gap-1">
-              <Linkedin className="h-3 w-3" />
-              <span>{data.personal.linkedin}</span>
-            </div>
-          )}
+          </div>
+          
+          {/* Profile Photo */}
+          <div className="flex-shrink-0">
+            {data.personal.profileImage ? (
+              <img
+                src={data.personal.profileImage}
+                alt={data.personal.name}
+                className="h-24 w-24 rounded-full object-cover border-2 border-gray-300"
+              />
+            ) : (
+              <div className="h-24 w-24 rounded-full bg-gray-200 border-2 border-gray-300 flex items-center justify-center">
+                <span className="text-gray-500 text-2xl font-semibold">
+                  {data.personal.name.charAt(0).toUpperCase()}
+                </span>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-3 gap-4 flex-1 overflow-hidden">
         {/* Left Column */}
-        <div className="col-span-2 space-y-2">
+        <div className="col-span-2 space-y-3 overflow-hidden">
           {/* Summary */}
           {data.summary && (
             <section>
@@ -122,7 +145,7 @@ export function MinimalCV({ data }: MinimalCVProps) {
         </div>
 
         {/* Right Column */}
-        <div className="space-y-2">
+        <div className="space-y-3 overflow-hidden">
           {/* Skills */}
           {data.skills.length > 0 && (
             <section>

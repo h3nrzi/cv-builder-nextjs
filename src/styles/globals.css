@@ -273,4 +273,16 @@ html {
     page-break-inside: avoid;
     break-inside: avoid;
   }
+
+  /* Minimal CV print optimization */
+  .minimal-cv {
+    margin: 0 !important;
+    box-shadow: none !important;
+    display: block !important;
+  }
+
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 }

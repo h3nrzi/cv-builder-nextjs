@@ -202,7 +202,7 @@ function EditorPageContent() {
             </div>
           ) : (
             <>
-              <div className="p-4">
+              <div className="p-4 print:p-0">
                 {layout === 'minimal' ? <MinimalCV data={cvData} /> : <ThemedCV data={cvData} />}
               </div>
             </>
