@@ -3,7 +3,7 @@
 <div align="center">
 
 ![CV Builder](https://img.shields.io/badge/CV%20Builder-Next.js-blue?style=for-the-badge&logo=next.js)
-![Version](https://img.shields.io/badge/version-3.1.0-green?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-3.2.0-green?style=for-the-badge)
 ![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)
 ![Persian Support](https://img.shields.io/badge/Persian%2FFarsi-Supported-orange?style=for-the-badge)
 
@@ -22,10 +22,11 @@ _Built with Next.js, React, TypeScript, and Tailwind CSS_
 ### 🎨 **Multiple Professional Themes**
 
 - **7 Beautiful Themes**: Modern, Minimal, Glassmorphism, Cyberpunk, Nordic, Ocean Breeze, Sunset Gradient
-- **Multiple Layouts**: Standard multi-page layout and Minimal single-page layout
+- **Multiple Layouts**: Standard multi-page A4 layout and Minimal single-page layout
+- **A4 Page Structure**: Clear page breaks for perfect PDF printing
 - **Real-time Preview**: See changes instantly as you edit
 - **Responsive Design**: Perfect on desktop, tablet, and mobile
-- **Print Optimized**: Professional PDF output ready for printing
+- **Print Optimized**: Professional PDF output with A4 dimensions (210mm × 297mm)
 
 ### 🌍 **Persian/Farsi Support**
 
@@ -49,6 +50,14 @@ _Built with Next.js, React, TypeScript, and Tailwind CSS_
 - **Tailwind CSS**: Utility-first styling
 - **Radix UI**: Accessible component primitives
 - **Lucide Icons**: Beautiful icon library
+
+### 🎆 **Latest Features (v3.2.0)**
+
+- **A4 Page Structure**: Clear visual page breaks for perfect PDF printing
+- **Consistent White Backgrounds**: All themes now use white backgrounds for PDF compatibility
+- **Enhanced Minimal Layout**: Optimized single-page A4 layout with better space utilization
+- **Improved Skill Progress Indicators**: Unicode-based progress bars for print compatibility
+- **Professional Footer Signature**: Subtle branding in all layouts
 
 ---
 
@@ -95,20 +104,20 @@ npm start
 
 | Theme                   | Description                                  | Best For                 |
 | ----------------------- | -------------------------------------------- | ------------------------ |
-| **Modern Professional** | Clean gradient design with subtle animations | General professional use |
+| **Modern Professional** | Clean design with professional styling      | General professional use |
 | **Minimal**             | Ultra-clean, typography-focused layout       | Creative professionals   |
-| **Glassmorphism**       | Modern glass-effect design                   | Tech industry            |
-| **Cyberpunk**           | Futuristic neon-inspired theme               | Creative/Gaming industry |
-| **Nordic Minimal**      | Scandinavian-inspired clean design           | Design professionals     |
-| **Ocean Breeze**        | Calming blue gradient theme                  | Healthcare/Education     |
-| **Sunset Gradient**     | Warm gradient with elegant typography        | Marketing/Sales          |
+| **Glassmorphism**       | Modern glass-effect design with white base  | Tech industry            |
+| **Cyberpunk**           | Futuristic neon-inspired theme on white     | Creative/Gaming industry |
+| **Nordic Minimal**      | Scandinavian-inspired clean design          | Design professionals     |
+| **Ocean Breeze**        | Calming blue accents on white background    | Healthcare/Education     |
+| **Sunset Gradient**     | Warm accents with elegant typography        | Marketing/Sales          |
 
 ### Layouts
 
-| Layout      | Description                    | Best For           |
-| ----------- | ------------------------------ | ------------------ |
-| **Standard** | Multi-page detailed layout     | Comprehensive CVs  |
-| **Minimal**  | Single-page condensed layout   | Quick applications |
+| Layout      | Description                           | Best For           |
+| ----------- | ------------------------------------- | ------------------ |
+| **Standard** | Multi-page A4 layout with page breaks | Comprehensive CVs  |
+| **Minimal**  | Single-page A4 condensed layout       | Quick applications |
 
 ---
 
@@ -243,7 +252,8 @@ NEXT_PUBLIC_SENTRY_DSN=your-sentry-dsn
 ### 4. **Export Options**
 
 - **Print**: Use browser's print function (Ctrl/Cmd + P)
-- **PDF**: Print to PDF for digital sharing
+- **PDF**: Print to PDF with perfect A4 dimensions (210mm × 297mm)
+- **Page Preview**: See exactly how your CV will look when printed
 - **Share**: Copy URL to share online version
 
 ---
@@ -346,14 +356,22 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🗺️ Roadmap
 
-### Version 3.2.0 (Coming Soon)
+### Version 3.2.0 (Released) ✓
+
+- [x] A4 page structure with visual page breaks
+- [x] Consistent white backgrounds for all themes
+- [x] Enhanced minimal layout optimization
+- [x] Print-compatible progress indicators
+- [x] Professional footer branding
+
+### Version 3.3.0 (Coming Soon)
 
 - [ ] User authentication and cloud storage
 - [ ] Collaborative editing
 - [ ] Advanced PDF customization
 - [ ] Mobile app (React Native)
 
-### Version 3.3.0 (Future)
+### Version 3.4.0 (Future)
 
 - [ ] AI-powered content suggestions
 - [ ] Integration with job boards
