@@ -285,4 +285,10 @@ html {
     margin: 0 !important;
     padding: 0 !important;
   }
+
+  /* Progress bar print optimization */
+  .minimal-cv div[class*="h-1 w-1"] {
+    display: inline-block !important;
+    vertical-align: middle !important;
+  }
 }
