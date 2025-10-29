@@ -126,7 +126,7 @@ export const newTheme: Theme = {
     }
     
     .cv-skill-progress {
-      background: #06b6d4;
+      background: #0f172a;
     }
     
     .cv-header-accent {

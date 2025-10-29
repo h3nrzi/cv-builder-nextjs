@@ -146,8 +146,7 @@ export const cyberpunkTheme: Theme = {
     }
     
     .cv-skill-progress {
-      background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
-      box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+      background: #3b82f6;
     }
     
     .cv-section-title {

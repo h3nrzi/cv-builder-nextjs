@@ -130,8 +130,7 @@ export const glassmorphismTheme: Theme = {
     }
     
     .cv-skill-progress {
-      background: linear-gradient(90deg, #f093fb, #f5576c);
-      box-shadow: 0 4px 16px rgba(240, 147, 251, 0.4);
+      background: #667eea;
     }
     
     .cv-glass-button {
