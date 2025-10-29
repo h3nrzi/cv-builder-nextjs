@@ -9,21 +9,26 @@ interface MinimalCVProps {
 
 export function MinimalCV({ data }: MinimalCVProps) {
   return (
-    <div className="mx-auto bg-white shadow-lg print:shadow-none w-[210mm] h-[297mm] print:w-[210mm] print:h-[297mm] p-[10mm] print:p-[10mm] text-xs leading-tight overflow-hidden flex flex-col print:mx-0 print:my-0">
+    <div className="mx-auto flex h-[297mm] w-[210mm] flex-col overflow-hidden bg-white p-[10mm] text-xs leading-tight shadow-lg print:mx-0 print:my-0 print:h-[297mm] print:w-[210mm] print:p-[10mm] print:shadow-none">
       {/* Header */}
       <div className="mb-3 border-b-2 border-gray-800 pb-2">
         <div className="flex items-start gap-4">
           {/* Name and Title */}
           <div className="flex-1">
             <h1 className="text-xl font-bold text-gray-800 print:text-lg">{data.personal.name}</h1>
-            <p className="text-sm text-gray-600 print:text-xs mb-2">{data.personal.title}</p>
-            
+            <p className="mb-2 text-sm text-gray-600 print:text-xs">{data.personal.title}</p>
+
             {/* Contact Info - Grid Layout */}
             <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-gray-600">
               {data.personal.email && (
                 <div className="flex items-center gap-1">
                   <Mail className="h-3 w-3 flex-shrink-0" />
-                  <span className="truncate">{data.personal.email}</span>
+                  <a
+                    href={`mailto:${data.personal.email}`}
+                    className="truncate text-gray-600 hover:text-blue-600 hover:underline"
+                  >
+                    {data.personal.email}
+                  </a>
                 </div>
               )}
               {data.personal.phone && (
@@ -41,35 +46,56 @@ export function MinimalCV({ data }: MinimalCVProps) {
               {data.personal.website && (
                 <div className="flex items-center gap-1">
                   <Globe className="h-3 w-3 flex-shrink-0" />
-                  <span className="truncate">{data.personal.website}</span>
+                  <a
+                    href={data.personal.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="truncate text-gray-600 hover:text-blue-600 hover:underline"
+                  >
+                    {data.personal.website}
+                  </a>
                 </div>
               )}
               {data.personal.github && (
                 <div className="flex items-center gap-1">
                   <Github className="h-3 w-3 flex-shrink-0" />
-                  <span className="truncate">{data.personal.github}</span>
+                  <a
+                    href={data.personal.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="truncate text-gray-600 hover:text-blue-600 hover:underline"
+                  >
+                    {data.personal.github}
+                  </a>
                 </div>
               )}
               {data.personal.linkedin && (
                 <div className="flex items-center gap-1">
                   <Linkedin className="h-3 w-3 flex-shrink-0" />
-                  <span className="truncate">{data.personal.linkedin}</span>
+                  <a
+                    href={data.personal.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="truncate text-gray-600 hover:text-blue-600 hover:underline"
+                  >
+                    {data.personal.linkedin}
+                  </a>
                 </div>
               )}
             </div>
           </div>
-          
+
           {/* Profile Photo */}
           <div className="flex-shrink-0">
             {data.personal.profileImage ? (
               <img
                 src={data.personal.profileImage}
                 alt={data.personal.name}
-                className="h-24 w-24 rounded-full object-cover border-2 border-gray-300"
+                className="h-24 w-24 rounded-full border-2 border-gray-300 object-cover"
               />
             ) : (
-              <div className="h-24 w-24 rounded-full bg-gray-200 border-2 border-gray-300 flex items-center justify-center">
-                <span className="text-gray-500 text-2xl font-semibold">
+              <div className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-gray-300 bg-gray-200">
+                <span className="text-2xl font-semibold text-gray-500">
                   {data.personal.name.charAt(0).toUpperCase()}
                 </span>
               </div>
@@ -78,41 +104,50 @@ export function MinimalCV({ data }: MinimalCVProps) {
         </div>
       </div>
 
-      <div className="grid grid-cols-5 gap-4 flex-1 overflow-hidden">
+      <div className="grid flex-1 grid-cols-5 gap-4 overflow-hidden">
         {/* Left Column */}
         <div className="col-span-3 space-y-3 overflow-hidden">
           {/* Summary */}
           {data.summary && (
             <section>
-              <h2 className="mb-2 text-base font-bold text-slate-900 border-b border-slate-300 pb-1">خلاصه</h2>
-              <p className="text-slate-700 leading-relaxed text-xs">{data.summary}</p>
+              <h2 className="mb-2 text-base font-bold text-slate-900">خلاصه</h2>
+              <p className="text-xs leading-relaxed text-slate-700">{data.summary}</p>
             </section>
           )}
 
           {/* Experience */}
           {data.experience.length > 0 && (
             <section>
-              <h2 className="mb-2 text-base font-bold text-slate-900 border-b border-slate-300 pb-1">تجربه کاری</h2>
+              <h2 className="mb-2 border-b border-slate-300 pb-1 text-base font-bold text-slate-900">
+                تجربه کاری
+              </h2>
               <div className="space-y-1">
                 {data.experience.slice(0, 3).map((exp, index) => (
                   <div key={index}>
-                    <div className="flex justify-between items-start">
+                    <div className="flex items-start justify-between">
                       <div>
                         <h3 className="text-xs font-semibold text-slate-900">{exp.title}</h3>
-                        <p className="text-xs text-blue-700">{exp.company} • {exp.location}</p>
+                        <p className="text-xs text-blue-700">
+                          {exp.company} • {exp.location}
+                        </p>
                       </div>
-                      <span className="text-xs text-slate-500 whitespace-nowrap font-medium">
+                      <span className="whitespace-nowrap text-xs font-medium text-slate-500">
                         {exp.startDate} - {exp.endDate || 'اکنون'}
                       </span>
                     </div>
-                    <p className="mt-1 text-slate-600 text-xs leading-relaxed">
-                      {exp.description.length > 300 ? `${exp.description.slice(0, 300)}...` : exp.description}
+                    <p className="mt-1 text-xs leading-relaxed text-slate-600">
+                      {exp.description.length > 300
+                        ? `${exp.description.slice(0, 300)}...`
+                        : exp.description}
                     </p>
                     {exp.achievements && exp.achievements.length > 0 && (
                       <ul className="mt-1 space-y-0.5">
                         {exp.achievements.slice(0, 3).map((achievement, achIndex) => (
-                          <li key={achIndex} className="text-xs text-gray-600 flex items-start gap-1">
-                            <span className="text-emerald-600 mt-0.5">•</span>
+                          <li
+                            key={achIndex}
+                            className="flex items-start gap-1 text-xs text-gray-600"
+                          >
+                            <span className="mt-0.5 text-emerald-600">•</span>
                             <span className="text-slate-600">{achievement}</span>
                           </li>
                         ))}
@@ -121,7 +156,10 @@ export function MinimalCV({ data }: MinimalCVProps) {
                     {exp.technologies && exp.technologies.length > 0 && (
                       <div className="mt-1 flex flex-wrap gap-1">
                         {exp.technologies.slice(0, 6).map((tech, techIndex) => (
-                          <span key={techIndex} className="rounded bg-blue-50 border border-blue-200 px-1.5 py-0.5 text-xs text-blue-700 font-medium">
+                          <span
+                            key={techIndex}
+                            className="rounded bg-gray-100 px-1 py-0.5 text-xs text-gray-700"
+                          >
                             {tech}
                           </span>
                         ))}
@@ -136,33 +174,54 @@ export function MinimalCV({ data }: MinimalCVProps) {
           {/* Projects */}
           {data.projects.length > 0 && (
             <section>
-              <h2 className="mb-2 text-base font-bold text-slate-900 border-b border-slate-300 pb-1">پروژهها</h2>
-              <div className="space-y-1">
+              <h2 className="mb-2 border-b border-slate-300 pb-1 text-base font-bold text-slate-900">
+                پروژهها
+              </h2>
+              <div className="space-y-2">
                 {data.projects.map((project, index) => (
-                  <div key={index}>
+                  <div key={index} className="mb-2">
                     <h3 className="text-xs font-bold text-slate-900">{project.name}</h3>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      {project.description.length > 200 ? `${project.description.slice(0, 200)}...` : project.description}
+                    <p className="text-xs leading-relaxed text-slate-600">
+                      {project.description.length > 200
+                        ? `${project.description.slice(0, 200)}...`
+                        : project.description}
                     </p>
                     {(project.url || project.github) && (
-                      <div className="mt-0.5 flex gap-2 text-xs">
+                      <div className="mt-0.5 flex flex-col gap-1 text-xs">
                         {project.url && (
-                          <span className="text-emerald-600 flex items-center gap-1 font-medium">
-                            <Globe className="h-2.5 w-2.5" />
-                            Demo
-                          </span>
+                          <div className="flex items-center gap-1">
+                            <Globe className="h-2.5 w-2.5 text-blue-600" />
+                            <a
+                              href={project.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="font-medium text-blue-600 hover:underline"
+                            >
+                              {project.url}
+                            </a>
+                          </div>
                         )}
                         {project.github && (
-                          <span className="text-slate-600 flex items-center gap-1 font-medium">
-                            <Github className="h-2.5 w-2.5" />
-                            GitHub
-                          </span>
+                          <div className="flex items-center gap-1">
+                            <Github className="h-2.5 w-2.5 text-blue-600" />
+                            <a
+                              href={project.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="font-medium text-blue-600 hover:underline"
+                            >
+                              {project.github}
+                            </a>
+                          </div>
                         )}
                       </div>
                     )}
                     <div className="mt-0.5 flex flex-wrap gap-1">
                       {project.technologies.slice(0, 5).map((tech, techIndex) => (
-                        <span key={techIndex} className="rounded bg-purple-50 border border-purple-200 px-1.5 py-0.5 text-xs text-purple-700 font-medium">
+                        <span
+                          key={techIndex}
+                          className="rounded bg-gray-100 px-1 py-0.5 text-xs text-gray-700"
+                        >
                           {tech}
                         </span>
                       ))}
@@ -179,18 +238,21 @@ export function MinimalCV({ data }: MinimalCVProps) {
           {/* Skills */}
           {data.skills.length > 0 && (
             <section>
-              <h2 className="mb-2 text-base font-bold text-slate-900 border-b border-slate-300 pb-1">مهارتها</h2>
+              <h2 className="mb-2 text-base font-bold text-slate-900">مهارتها</h2>
               <div className="space-y-1">
                 {data.skills.map((skillGroup, index) => (
                   <div key={index}>
-                    <h3 className="text-xs font-bold text-indigo-800 text-left mb-1">{skillGroup.category}</h3>
+                    <h3 className="mb-1 text-left text-xs font-bold text-indigo-800">
+                      {skillGroup.category}
+                    </h3>
                     <div className="space-y-0.5">
                       {skillGroup.items.slice(0, 4).map((skill, skillIndex) => (
-                        <div key={skillIndex} className="flex justify-between items-center">
-                          <span className="text-xs text-indigo-600 print:text-black">
-                            {'●'.repeat(skill.level)}{'○'.repeat(5 - skill.level)}
+                        <div key={skillIndex} className="flex items-center justify-between">
+                          <span className="text-xs text-gray-500 print:text-black">
+                            {'○'.repeat(5 - skill.level)}
+                            {'●'.repeat(skill.level)}
                           </span>
-                          <span className="text-xs text-slate-700 font-medium">{skill.name}</span>
+                          <span className="text-xs font-medium text-slate-700">{skill.name}</span>
                         </div>
                       ))}
                     </div>
@@ -203,13 +265,19 @@ export function MinimalCV({ data }: MinimalCVProps) {
           {/* Education */}
           {data.education.length > 0 && (
             <section>
-              <h2 className="mb-2 text-base font-bold text-slate-900 border-b border-slate-300 pb-1">تحصیلات</h2>
+              <h2 className="mb-2 border-b border-slate-300 pb-1 text-base font-bold text-slate-900">
+                تحصیلات
+              </h2>
               <div className="space-y-1">
                 {data.education.map((edu, index) => (
                   <div key={index}>
-                    <h3 className="text-xs font-semibold text-slate-900">{edu.degree}</h3>
+                    <div className="flex items-start justify-between">
+                      <h3 className="text-xs font-semibold text-slate-900">{edu.degree}</h3>
+                      <span className="whitespace-nowrap text-xs font-medium text-slate-500">
+                        {edu.startDate} - {edu.endDate}
+                      </span>
+                    </div>
                     <p className="text-xs text-blue-700">{edu.school}</p>
-                    <p className="text-xs text-slate-500 font-medium">{edu.startDate} - {edu.endDate}</p>
                   </div>
                 ))}
               </div>
@@ -219,12 +287,14 @@ export function MinimalCV({ data }: MinimalCVProps) {
           {/* Languages */}
           {data.languages && data.languages.length > 0 && (
             <section>
-              <h2 className="mb-2 text-base font-bold text-slate-900 border-b border-slate-300 pb-1">زبانها</h2>
+              <h2 className="mb-2 border-b border-slate-300 pb-1 text-base font-bold text-slate-900">
+                زبانها
+              </h2>
               <div className="space-y-0.5">
                 {data.languages.map((lang, index) => (
                   <div key={index} className="flex justify-between">
-                    <span className="text-xs text-slate-700 font-medium">{lang.name}</span>
-                    <span className="text-xs text-emerald-600 font-semibold">{lang.level}</span>
+                    <span className="text-xs font-medium text-slate-700">{lang.name}</span>
+                    <span className="text-xs font-semibold text-emerald-600">{lang.level}</span>
                   </div>
                 ))}
               </div>
@@ -234,10 +304,15 @@ export function MinimalCV({ data }: MinimalCVProps) {
           {/* Interests */}
           {data.interests && data.interests.length > 0 && (
             <section>
-              <h2 className="mb-2 text-base font-bold text-slate-900 border-b border-slate-300 pb-1">علایق</h2>
+              <h2 className="mb-2 border-b border-slate-300 pb-1 text-base font-bold text-slate-900">
+                علایق
+              </h2>
               <div className="flex flex-wrap gap-1">
                 {data.interests.slice(0, 6).map((interest, index) => (
-                  <span key={index} className="rounded bg-amber-50 border border-amber-200 px-1.5 py-0.5 text-xs text-amber-700 font-medium">
+                  <span
+                    key={index}
+                    className="rounded bg-gray-100 px-1 py-0.5 text-xs text-gray-700"
+                  >
                     {interest}
                   </span>
                 ))}
