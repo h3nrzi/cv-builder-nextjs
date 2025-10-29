@@ -10,8 +10,7 @@ export const sampleCVData: CVData = {
     website: 'johnsmith.dev',
     linkedin: 'linkedin.com/in/john-smith',
     github: 'github.com/johnsmith',
-    profileImage:
-      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face',
+    profileImage: 'https://avatar.iran.liara.run/public/boy?username=johnsmith',
   },
   summary:
     'توسعه‌دهنده فول استک با بیش از ۶ سال تجربه در ساخت اپلیکیشن‌های وب مقیاس‌پذیر. متخصص در React، Node.js و TypeScript. علاقه‌مند به کد تمیز، روش‌های توسعه مدرن و ارائه تجربه کاربری استثنایی.',
@@ -50,7 +49,8 @@ export const sampleCVData: CVData = {
       company: 'شرکت راه‌حل‌های تکنولوژی',
       location: 'سان فرانسیسکو، کالیفرنیا',
       startDate: '۲۰۲۲',
-      description: 'رهبری توسعه اپلیکیشن‌های وب مقیاس‌پذیر برای مشتریان سازمانی در بخش‌های فین‌تک و تجارت الکترونیک',
+      description:
+        'رهبری توسعه اپلیکیشن‌های وب مقیاس‌پذیر برای مشتریان سازمانی در بخش‌های فین‌تک و تجارت الکترونیک',
       achievements: [
         'بهبود ۴۵٪ عملکرد اپلیکیشن از طریق بهینه‌سازی کد و استراتژی‌های کش',
         'پیاده‌سازی سیستم احراز هویت امن با استفاده از JWT و OAuth 2.0',
@@ -103,7 +103,6 @@ export const sampleCVData: CVData = {
       location: 'برکلی، کالیفرنیا',
       startDate: '۲۰۱۶',
       endDate: '۲۰۲۰',
-
     },
   ],
   certifications: [
