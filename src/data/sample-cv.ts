@@ -10,7 +10,7 @@ export const sampleCVData: CVData = {
     website: 'alimohammadi.dev',
     linkedin: 'linkedin.com/in/ali-mohammadi',
     github: 'github.com/alimohammadi',
-    profileImage: 'https://avatar.iran.liara.run/public/boy?username=alimohammadi',
+    profileImage: '/boy.png',
   },
   summary:
     'توسعه دهنده فول استک با بیش از ۶ سال تجربه در ساخت اپلیکیشن های وب مقیاس پذیر. متخصص در React، Node.js، TypeScript و معماری میکروسرویس. علاقه مند به کد تمیز، DevOps و ایجاد راه حلهای نوآورانه.',

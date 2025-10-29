@@ -15,7 +15,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
 
   return (
     <div
-      className={`cv-gradient-bg min-h-screen ${className}`}
+      className={`cv-gradient-bg ${className}`}
       style={{
         fontFamily: theme.typography.fontFamily,
         color: colors.foreground,
@@ -23,11 +23,12 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
       }}
       dir="rtl"
     >
+      {/* Page 1 */}
       <div
-        className="mx-auto px-4 py-8"
+        className="mx-auto w-[210mm] min-h-[297mm] bg-white shadow-lg print:shadow-none print:w-[210mm] print:min-h-[297mm] p-[15mm] print:p-[15mm] relative"
         style={{
-          maxWidth: theme.layout.maxWidth,
-          padding: theme.layout.containerPadding,
+          fontFamily: theme.typography.fontFamily,
+          color: colors.foreground,
         }}
       >
         {/* Header Section */}
@@ -213,22 +214,22 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
             className="page-break-avoid"
             style={{ marginBottom: theme.layout.sectionSpacing }}
           >
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               {/* Languages */}
               {data.languages && (
                 <div>
                   <SectionTitle title="زبان‌ها" />
                   <div
-                    className="cv-section-card rounded-lg p-6"
+                    className="cv-section-card rounded-lg p-4"
                     style={{
-                      padding: theme.layout.cardPadding,
+                      padding: '1rem',
                       borderRadius: theme.borderRadius.lg,
                       backgroundColor: colors.card,
                       color: colors.cardForeground,
                       boxShadow: theme.shadows.sm,
                     }}
                   >
-                    <div className="space-y-3">
+                    <div className="space-y-2">
                       {data.languages.map((lang, index) => (
                         <div key={index} className="flex items-center justify-between">
                           <span
@@ -264,9 +265,9 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
                 <div>
                   <SectionTitle title="علایق" />
                   <div
-                    className="cv-section-card rounded-lg p-6"
+                    className="cv-section-card rounded-lg p-4"
                     style={{
-                      padding: theme.layout.cardPadding,
+                      padding: '1rem',
                       borderRadius: theme.borderRadius.lg,
                       backgroundColor: colors.card,
                       color: colors.cardForeground,
@@ -277,12 +278,12 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
                       {data.interests.map((interest, index) => (
                         <span
                           key={index}
-                          className="rounded-full px-3 py-2 text-sm transition-colors hover:opacity-80"
+                          className="rounded-full px-2 py-1 text-xs transition-colors hover:opacity-80"
                           style={{
                             backgroundColor: colors.muted,
                             color: colors.mutedForeground,
                             borderRadius: theme.borderRadius.full,
-                            fontSize: theme.typography.fontSize.sm,
+                            fontSize: theme.typography.fontSize.xs,
                             fontWeight: theme.typography.fontWeight.normal,
                             border: `1px solid ${colors.border}`,
                           }}
@@ -298,9 +299,19 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
           </section>
         )}
 
+      </div>
+      
+      {/* Page 2 */}
+      <div
+        className="mx-auto w-[210mm] min-h-[297mm] bg-white shadow-lg print:shadow-none print:w-[210mm] print:min-h-[297mm] p-[15mm] print:p-[15mm] relative mt-4 print:mt-0"
+        style={{
+          fontFamily: theme.typography.fontFamily,
+          color: colors.foreground,
+        }}
+      >
         {/* Skills Section */}
         <section
-          className="page-break-before page-break-avoid"
+          className="page-break-avoid"
           style={{ marginBottom: theme.layout.sectionSpacing }}
           dir="ltr"
         >
@@ -374,7 +385,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
 
         {/* Experience Section */}
         <section
-          className="page-break-before page-break-avoid"
+          className="page-break-avoid"
           style={{ marginBottom: theme.layout.sectionSpacing }}
         >
           <SectionTitle title="تجربه کاری" />
@@ -505,9 +516,19 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
           </div>
         </section>
 
+      </div>
+      
+      {/* Page 3 */}
+      <div
+        className="mx-auto w-[210mm] min-h-[297mm] bg-white shadow-lg print:shadow-none print:w-[210mm] print:min-h-[297mm] p-[15mm] print:p-[15mm] relative mt-4 print:mt-0"
+        style={{
+          fontFamily: theme.typography.fontFamily,
+          color: colors.foreground,
+        }}
+      >
         {/* Projects Section */}
         <section
-          className="page-break-before page-break-avoid"
+          className="page-break-avoid"
           style={{ marginBottom: theme.layout.sectionSpacing }}
         >
           <SectionTitle title="پروژه‌های برجسته" />
