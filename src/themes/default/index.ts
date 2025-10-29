@@ -13,7 +13,7 @@ export const defaultTheme: Theme = {
     primary: '#2563eb',
     secondary: '#f1f5f9',
     accent: '#7c3aed',
-    background: '#fafbfc',
+    background: '#ffffff',
     foreground: '#1e293b',
     muted: '#f8fafc',
     mutedForeground: '#64748b',
@@ -96,7 +96,7 @@ export const defaultTheme: Theme = {
   },
   customCSS: `
     .cv-gradient-bg {
-      background: linear-gradient(135deg, #fafbfc 0%, #f1f5f9 30%, #e2e8f0 100%);
+      background: #ffffff;
       position: relative;
     }
     

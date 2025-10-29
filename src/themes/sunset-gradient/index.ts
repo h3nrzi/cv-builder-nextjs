@@ -13,7 +13,7 @@ export const sunsetGradientTheme: Theme = {
     primary: '#f97316',
     secondary: '#ec4899',
     accent: '#8b5cf6',
-    background: '#fef7ed',
+    background: '#ffffff',
     foreground: '#1c1917',
     muted: '#fed7aa',
     mutedForeground: '#78716c',
@@ -96,7 +96,7 @@ export const sunsetGradientTheme: Theme = {
   },
   customCSS: `
     .cv-gradient-bg {
-      background: linear-gradient(135deg, #fef7ed 0%, #fed7aa 30%, #fb923c 70%, #ea580c 100%);
+      background: #ffffff;
     }
     
     .cv-section-card {

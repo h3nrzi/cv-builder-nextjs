@@ -13,13 +13,13 @@ export const cyberpunkTheme: Theme = {
     primary: '#00ff88',
     secondary: '#ff0080',
     accent: '#00d4ff',
-    background: '#0a0a0f',
-    foreground: '#e0e0e0',
+    background: '#ffffff',
+    foreground: '#1e293b',
     muted: '#1a1a2e',
     mutedForeground: '#888888',
     border: '#333366',
-    card: '#16213e',
-    cardForeground: '#e0e0e0',
+    card: '#ffffff',
+    cardForeground: '#1e293b',
     destructive: '#ff0040',
     destructiveForeground: '#ffffff',
     ring: '#00ff88',
@@ -96,7 +96,7 @@ export const cyberpunkTheme: Theme = {
   },
   customCSS: `
     .cv-gradient-bg {
-      background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+      background: #ffffff;
     }
     
     .cv-section-card {

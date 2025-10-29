@@ -13,7 +13,7 @@ export const oceanBreezeTheme: Theme = {
     primary: '#0ea5e9',
     secondary: '#06b6d4',
     accent: '#3b82f6',
-    background: '#f0f9ff',
+    background: '#ffffff',
     foreground: '#0f172a',
     muted: '#e0f2fe',
     mutedForeground: '#475569',
@@ -96,7 +96,7 @@ export const oceanBreezeTheme: Theme = {
   },
   customCSS: `
     .cv-gradient-bg {
-      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%);
+      background: #ffffff;
     }
     
     .cv-section-card {

@@ -13,13 +13,13 @@ export const glassmorphismTheme: Theme = {
     primary: '#ffffff',
     secondary: '#764ba2',
     accent: '#f093fb',
-    background: '#667eea',
-    foreground: '#ffffff',
+    background: '#ffffff',
+    foreground: '#1e293b',
     muted: 'rgba(255, 255, 255, 0.1)',
     mutedForeground: 'rgba(255, 255, 255, 0.7)',
     border: 'rgba(255, 255, 255, 0.2)',
-    card: 'rgba(255, 255, 255, 0.1)',
-    cardForeground: '#ffffff',
+    card: '#ffffff',
+    cardForeground: '#1e293b',
     destructive: '#ff6b6b',
     destructiveForeground: '#ffffff',
     ring: '#f093fb',
@@ -96,7 +96,7 @@ export const glassmorphismTheme: Theme = {
   },
   customCSS: `
     .cv-gradient-bg {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: #ffffff;
       position: relative;
       overflow: hidden;
     }

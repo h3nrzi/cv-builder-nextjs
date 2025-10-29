@@ -13,7 +13,7 @@ export const nordicMinimalTheme: Theme = {
     primary: '#2e3440',
     secondary: '#5e81ac',
     accent: '#88c0d0',
-    background: '#eceff4',
+    background: '#ffffff',
     foreground: '#2e3440',
     muted: '#e5e9f0',
     mutedForeground: '#4c566a',
@@ -96,7 +96,7 @@ export const nordicMinimalTheme: Theme = {
   },
   customCSS: `
     .cv-gradient-bg {
-      background: linear-gradient(180deg, #eceff4 0%, #e5e9f0 100%);
+      background: #ffffff;
     }
     
     .cv-section-card {
