@@ -9,7 +9,7 @@ interface MinimalCVProps {
 
 export function MinimalCV({ data }: MinimalCVProps) {
   return (
-    <div className="mx-auto flex h-[297mm] w-[210mm] flex-col overflow-hidden bg-white p-[10mm] text-xs leading-tight shadow-lg print:mx-0 print:my-0 print:h-[297mm] print:w-[210mm] print:p-[10mm] print:shadow-none">
+    <div className="relative mx-auto flex h-[297mm] w-[210mm] flex-col overflow-hidden bg-white p-[10mm] text-xs leading-tight shadow-lg print:mx-0 print:my-0 print:h-[297mm] print:w-[210mm] print:p-[10mm] print:shadow-none">
       {/* Header */}
       <div className="mb-3 border-b-2 border-gray-800 pb-2">
         <div className="flex items-start gap-4">
@@ -320,6 +320,21 @@ export function MinimalCV({ data }: MinimalCVProps) {
             </section>
           )}
         </div>
+      </div>
+      
+      {/* Footer */}
+      <div className="absolute bottom-2 left-2">
+        <p className="text-[8px] text-gray-400">
+          Made with ❤️ by{' '}
+          <a 
+            href="https://github.com/h3nrzi" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-gray-500 hover:text-blue-600"
+          >
+            Hossein Rezaei
+          </a>
+        </p>
       </div>
     </div>
   );

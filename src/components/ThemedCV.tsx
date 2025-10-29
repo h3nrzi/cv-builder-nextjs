@@ -588,7 +588,22 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
             ))}
           </div>
         </section>
-        <FooterBranding />
+        {/* Footer */}
+        <div className="relative">
+          <div className="absolute bottom-2 left-2">
+            <p className="text-[8px] text-gray-400">
+              Made with ❤️ by{' '}
+              <a 
+                href="https://github.com/h3nrzi" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-500 hover:text-blue-600"
+              >
+                Hossein Rezaei
+              </a>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
