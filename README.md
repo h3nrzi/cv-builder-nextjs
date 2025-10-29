@@ -22,6 +22,7 @@ _Built with Next.js, React, TypeScript, and Tailwind CSS_
 ### 🎨 **Multiple Professional Themes**
 
 - **7 Beautiful Themes**: Modern, Minimal, Glassmorphism, Cyberpunk, Nordic, Ocean Breeze, Sunset Gradient
+- **Multiple Layouts**: Standard multi-page layout and Minimal single-page layout
 - **Real-time Preview**: See changes instantly as you edit
 - **Responsive Design**: Perfect on desktop, tablet, and mobile
 - **Print Optimized**: Professional PDF output ready for printing
@@ -90,6 +91,8 @@ npm start
 
 ## 🎨 Themes
 
+### Themes
+
 | Theme                   | Description                                  | Best For                 |
 | ----------------------- | -------------------------------------------- | ------------------------ |
 | **Modern Professional** | Clean gradient design with subtle animations | General professional use |
@@ -99,6 +102,13 @@ npm start
 | **Nordic Minimal**      | Scandinavian-inspired clean design           | Design professionals     |
 | **Ocean Breeze**        | Calming blue gradient theme                  | Healthcare/Education     |
 | **Sunset Gradient**     | Warm gradient with elegant typography        | Marketing/Sales          |
+
+### Layouts
+
+| Layout      | Description                    | Best For           |
+| ----------- | ------------------------------ | ------------------ |
+| **Standard** | Multi-page detailed layout     | Comprehensive CVs  |
+| **Minimal**  | Single-page condensed layout   | Quick applications |
 
 ---
 

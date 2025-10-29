@@ -112,6 +112,8 @@ export interface Theme {
   customCSS?: string; // Additional CSS for complex customizations
 }
 
+export type CVLayout = 'standard' | 'minimal';
+
 export interface CVData {
   personal: {
     name: string;

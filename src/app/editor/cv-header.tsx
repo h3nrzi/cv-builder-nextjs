@@ -1,8 +1,9 @@
 'use client';
 
 import { Button } from '../../components/ui/button';
-import { Edit3, Eye, RefreshCw, Save, Printer, Download, Upload } from 'lucide-react';
+import { Edit3, Eye, RefreshCw, Save, Printer, Download, Upload, FileText, Minimize2 } from 'lucide-react';
 import { ThemeSelector } from '../../components/ThemeSelector';
+import { CVLayout } from '../../types/theme';
 
 type EditorMode = 'edit' | 'preview';
 
@@ -14,6 +15,8 @@ interface CVHeaderProps {
   handleSave: () => void;
   exportData: () => void;
   handleFileImport: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  layout: CVLayout;
+  onLayoutChange: (layout: CVLayout) => void;
 }
 
 export function CVHeader({
@@ -24,6 +27,8 @@ export function CVHeader({
   handleSave,
   exportData,
   handleFileImport,
+  layout,
+  onLayoutChange,
 }: CVHeaderProps) {
   return (
     <div className="sticky top-0 z-40 border-b border-gray-200 bg-white shadow-sm print:hidden">
@@ -83,8 +88,42 @@ export function CVHeader({
 
         {/* Left Column: Actions and Save Status */}
         <div className="flex items-center justify-between sm:justify-end sm:gap-4">
+          {/* Layout Selector */}
+          <div className="flex rounded-lg bg-gray-100 p-1">
+            <button
+              onClick={() => {
+                if (layout !== 'standard') {
+                  window.location.href = '/editor?layout=standard';
+                }
+              }}
+              className={`flex items-center gap-1 rounded-md px-2 py-1.5 text-xs font-medium transition-colors sm:px-3 sm:py-2 sm:text-sm ${
+                layout === 'standard'
+                  ? 'bg-white text-gray-900 shadow-sm'
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              <FileText className="h-4 w-4" />
+              <span className="hidden sm:block">استاندارد</span>
+            </button>
+            <button
+              onClick={() => {
+                if (layout !== 'minimal') {
+                  window.location.href = '/editor?layout=minimal';
+                }
+              }}
+              className={`flex items-center gap-1 rounded-md px-2 py-1.5 text-xs font-medium transition-colors sm:px-3 sm:py-2 sm:text-sm ${
+                layout === 'minimal'
+                  ? 'bg-white text-gray-900 shadow-sm'
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              <Minimize2 className="h-4 w-4" />
+              <span className="hidden sm:block">مینیمال</span>
+            </button>
+          </div>
+
           {/* Theme Selector */}
-          <ThemeSelector />
+          {layout === 'standard' && <ThemeSelector />}
 
           {/* Action Buttons */}
           <div className="sm flex items-center gap-1 sm:gap-2">

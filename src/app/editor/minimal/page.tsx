@@ -1,34 +1,24 @@
 'use client';
+
 import { CVHeader } from '@/app/editor/cv-header';
-import { EducationEditor } from '@/components/editors/EducationEditor';
-import { ExperienceEditor } from '@/components/editors/ExperienceEditor';
-import { InterestsEditor } from '@/components/editors/InterestsEditor';
-import { LanguagesEditor } from '@/components/editors/LanguagesEditor';
 import { PersonalInfoEditor } from '@/components/editors/PersonalInfoEditor';
-import { ProjectsEditor } from '@/components/editors/ProjectsEditor';
 import { SkillsEditor } from '@/components/editors/SkillsEditor';
+import { ExperienceEditor } from '@/components/editors/ExperienceEditor';
+import { EducationEditor } from '@/components/editors/EducationEditor';
+import { ProjectsEditor } from '@/components/editors/ProjectsEditor';
+import { LanguagesEditor } from '@/components/editors/LanguagesEditor';
+import { InterestsEditor } from '@/components/editors/InterestsEditor';
 import { LoadingSpinner } from '@/components/LoadingSpinner';
-import { ThemedCV } from '@/components/ThemedCV';
 import { MinimalCV } from '@/components/MinimalCV';
 import { PrintGuideNotification } from '@/components/PrintGuideNotification';
 import { useCVData } from '@/hooks/useCVData';
-import { useLayout } from '@/hooks/useLayout';
-import { Award, Briefcase, Edit3, FolderOpen, GraduationCap, Heart, Languages } from 'lucide-react';
-import React, { useEffect, useState, Suspense } from 'react';
+import { Edit3, Award, Briefcase, GraduationCap, FolderOpen, Languages, Heart } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
 
 type EditorMode = 'edit' | 'preview';
-type EditorSection =
-  | 'personal'
-  | 'skills'
-  | 'experience'
-  | 'education'
-  | 'projects'
-  | 'languages'
-  | 'interests';
+type EditorSection = 'personal' | 'skills' | 'experience' | 'education' | 'projects' | 'languages' | 'interests';
 
-function EditorPageContent() {
-  const { layout, changeLayout } = useLayout();
-  
+export default function MinimalEditorPage() {
   const {
     cvData,
     isLoading,
@@ -50,7 +40,6 @@ function EditorPageContent() {
   const [activeSection, setActiveSection] = useState<EditorSection>('personal');
   const [isSaving, setIsSaving] = useState(false);
 
-  // Keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.ctrlKey && e.key === 'p') {
@@ -65,7 +54,7 @@ function EditorPageContent() {
 
   const handleSave = async () => {
     setIsSaving(true);
-    await new Promise(resolve => setTimeout(resolve, 500)); // Simulate save delay
+    await new Promise(resolve => setTimeout(resolve, 500));
     saveToLocalStorage();
     setIsSaving(false);
   };
@@ -75,10 +64,8 @@ function EditorPageContent() {
     if (file) {
       const success = await importData(file);
       if (success) {
-        // Show success message or toast
         console.log('Data imported successfully');
       } else {
-        // Show error message
         console.error('Failed to import data');
       }
     }
@@ -86,26 +73,26 @@ function EditorPageContent() {
 
   const sectionTabs = [
     { id: 'personal', label: 'اطلاعات شخصی', icon: Edit3 },
-    { id: 'education', label: 'تحصیلات', icon: GraduationCap },
-    { id: 'languages', label: 'زبان‌ها', icon: Languages },
-    { id: 'interests', label: 'علایق', icon: Heart },
-    { id: 'skills', label: 'مهارت‌ها', icon: Award },
+    { id: 'skills', label: 'مهارتها', icon: Award },
     { id: 'experience', label: 'تجربه کاری', icon: Briefcase },
-    { id: 'projects', label: 'پروژه‌ها', icon: FolderOpen },
+    { id: 'education', label: 'تحصیلات', icon: GraduationCap },
+    { id: 'projects', label: 'پروژهها', icon: FolderOpen },
+    { id: 'languages', label: 'زبانها', icon: Languages },
+    { id: 'interests', label: 'علایق', icon: Heart },
   ];
 
   if (isLoading) {
     return (
       <div className="flex min-h-screen items-center justify-center">
-        <LoadingSpinner size="lg" text="در حال بارگذاری داده‌های رزومه..." />
+        <LoadingSpinner size="lg" text="در حال بارگذاری دادههای رزومه..." />
       </div>
     );
   }
 
   return (
-    <div className={`min-h-screen bg-gray-50`}>
+    <div className="min-h-screen bg-gray-50">
       <PrintGuideNotification />
-      {/* Header */}
+      
       <CVHeader
         mode={mode}
         setMode={setMode}
@@ -114,16 +101,15 @@ function EditorPageContent() {
         handleSave={handleSave}
         exportData={exportData}
         handleFileImport={handleFileImport}
-        layout={layout}
-        onLayoutChange={changeLayout}
+        layout="minimal"
+        onLayoutChange={() => {}}
       />
 
       <div className="flex flex-1">
-        {/* Desktop Sidebar - Only in edit mode */}
         {mode === 'edit' && (
           <div className="hidden w-64 border-r border-gray-200 bg-white shadow-sm sm:block">
             <div className="p-4">
-              <h3 className="mb-3 text-sm font-semibold text-gray-900">بخش‌های رزومه</h3>
+              <h3 className="mb-3 text-sm font-semibold text-gray-900">بخشهای رزومه</h3>
               <nav className="space-y-1">
                 {sectionTabs.map(section => {
                   const Icon = section.icon;
@@ -148,11 +134,9 @@ function EditorPageContent() {
           </div>
         )}
 
-        {/* Main Content */}
         <div className="flex-1">
           {mode === 'edit' ? (
             <div className="mx-auto max-w-4xl p-4 sm:p-6">
-              {/* Mobile Navigation */}
               <div className="mb-5 rounded-lg border border-gray-200 bg-white p-1 shadow-sm sm:hidden">
                 <div className="px-4 py-2">
                   <select
@@ -201,26 +185,12 @@ function EditorPageContent() {
               )}
             </div>
           ) : (
-            <>
-              <div className="p-4">
-                {layout === 'minimal' ? (
-                  <MinimalCV data={cvData} />
-                ) : (
-                  <ThemedCV data={cvData} />
-                )}
-              </div>
-            </>
+            <div className="p-4">
+              <MinimalCV data={cvData} />
+            </div>
           )}
         </div>
       </div>
     </div>
-  );
-}
-
-export default function EditorPage() {
-  return (
-    <Suspense fallback={<div className="flex min-h-screen items-center justify-center"><div>Loading...</div></div>}>
-      <EditorPageContent />
-    </Suspense>
   );
 }
