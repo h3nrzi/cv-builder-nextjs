@@ -84,7 +84,7 @@ export function MinimalCV({ data }: MinimalCVProps) {
           {/* Summary */}
           {data.summary && (
             <section>
-              <h2 className="mb-1 text-sm font-semibold text-gray-800">خلاصه</h2>
+              <h2 className="mb-1 text-base font-semibold text-gray-800">خلاصه</h2>
               <p className="text-gray-700 leading-tight text-xs">{data.summary}</p>
             </section>
           )}
@@ -92,7 +92,7 @@ export function MinimalCV({ data }: MinimalCVProps) {
           {/* Experience */}
           {data.experience.length > 0 && (
             <section>
-              <h2 className="mb-1 text-sm font-semibold text-gray-800">تجربه کاری</h2>
+              <h2 className="mb-1 text-base font-semibold text-gray-800">تجربه کاری</h2>
               <div className="space-y-1">
                 {data.experience.slice(0, 3).map((exp, index) => (
                   <div key={index}>
@@ -124,7 +124,7 @@ export function MinimalCV({ data }: MinimalCVProps) {
           {/* Projects */}
           {data.projects.length > 0 && (
             <section>
-              <h2 className="mb-1 text-sm font-semibold text-gray-800">پروژهها</h2>
+              <h2 className="mb-1 text-base font-semibold text-gray-800">پروژهها</h2>
               <div className="space-y-1">
                 {data.projects.slice(0, 2).map((project, index) => (
                   <div key={index}>
@@ -149,7 +149,7 @@ export function MinimalCV({ data }: MinimalCVProps) {
           {/* Skills */}
           {data.skills.length > 0 && (
             <section>
-              <h2 className="mb-1 text-sm font-semibold text-gray-800">مهارتها</h2>
+              <h2 className="mb-1 text-base font-semibold text-gray-800">مهارتها</h2>
               <div className="space-y-1">
                 {data.skills.map((skillGroup, index) => (
                   <div key={index}>
@@ -173,7 +173,7 @@ export function MinimalCV({ data }: MinimalCVProps) {
           {/* Education */}
           {data.education.length > 0 && (
             <section>
-              <h2 className="mb-1 text-sm font-semibold text-gray-800">تحصیلات</h2>
+              <h2 className="mb-1 text-base font-semibold text-gray-800">تحصیلات</h2>
               <div className="space-y-1">
                 {data.education.map((edu, index) => (
                   <div key={index}>
@@ -189,7 +189,7 @@ export function MinimalCV({ data }: MinimalCVProps) {
           {/* Languages */}
           {data.languages && data.languages.length > 0 && (
             <section>
-              <h2 className="mb-1 text-sm font-semibold text-gray-800">زبانها</h2>
+              <h2 className="mb-1 text-base font-semibold text-gray-800">زبانها</h2>
               <div className="space-y-0.5">
                 {data.languages.map((lang, index) => (
                   <div key={index} className="flex justify-between">
@@ -204,7 +204,7 @@ export function MinimalCV({ data }: MinimalCVProps) {
           {/* Interests */}
           {data.interests && data.interests.length > 0 && (
             <section>
-              <h2 className="mb-1 text-sm font-semibold text-gray-800">علایق</h2>
+              <h2 className="mb-1 text-base font-semibold text-gray-800">علایق</h2>
               <div className="flex flex-wrap gap-1">
                 {data.interests.slice(0, 6).map((interest, index) => (
                   <span key={index} className="rounded bg-gray-100 px-1 py-0.5 text-xs text-gray-600">
