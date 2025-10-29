@@ -2,12 +2,7 @@
 
 import { ArrowRight, Download, Palette, Zap } from 'lucide-react';
 import Link from 'next/link';
-import { useState } from 'react';
-import { LayoutSelector } from '@/components/LayoutSelector';
-import { CVLayout } from '@/types/theme';
-
 export default function HomePage() {
-  const [selectedLayout, setSelectedLayout] = useState<CVLayout>('standard');
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
@@ -26,12 +21,9 @@ export default function HomePage() {
             <p className="mx-auto mb-8 max-w-2xl text-xl text-gray-200" dir="rtl">
               رزومه خود را با قالب‌های زیبا و مدرن بسازید. سریع، آسان و کاملاً رایگان
             </p>
-            <div className="mx-auto mb-8 max-w-4xl">
-              <LayoutSelector selectedLayout={selectedLayout} onLayoutChange={setSelectedLayout} />
-            </div>
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Link
-                href={`/editor?layout=${selectedLayout}`}
+                href="/editor"
                 className="group flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl"
               >
                 شروع کنید
