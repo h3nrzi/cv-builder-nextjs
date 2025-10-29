@@ -105,10 +105,22 @@ export function MinimalCV({ data }: MinimalCVProps) {
                         {exp.startDate} - {exp.endDate || 'اکنون'}
                       </span>
                     </div>
-                    <p className="mt-0.5 text-gray-700 text-xs leading-tight">{exp.description.slice(0, 100)}...</p>
+                    <p className="mt-0.5 text-gray-700 text-xs leading-tight">
+                      {exp.description.length > 300 ? `${exp.description.slice(0, 300)}...` : exp.description}
+                    </p>
+                    {exp.achievements && exp.achievements.length > 0 && (
+                      <ul className="mt-1 space-y-0.5">
+                        {exp.achievements.slice(0, 3).map((achievement, achIndex) => (
+                          <li key={achIndex} className="text-xs text-gray-600 flex items-start gap-1">
+                            <span className="text-gray-400 mt-0.5">•</span>
+                            <span>{achievement}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                     {exp.technologies && exp.technologies.length > 0 && (
-                      <div className="mt-0.5 flex flex-wrap gap-1">
-                        {exp.technologies.slice(0, 4).map((tech, techIndex) => (
+                      <div className="mt-1 flex flex-wrap gap-1">
+                        {exp.technologies.slice(0, 6).map((tech, techIndex) => (
                           <span key={techIndex} className="rounded bg-gray-100 px-1 py-0.5 text-xs text-gray-600">
                             {tech}
                           </span>
@@ -126,12 +138,30 @@ export function MinimalCV({ data }: MinimalCVProps) {
             <section>
               <h2 className="mb-1 text-base font-semibold text-gray-800">پروژهها</h2>
               <div className="space-y-1">
-                {data.projects.slice(0, 2).map((project, index) => (
+                {data.projects.map((project, index) => (
                   <div key={index}>
-                    <h3 className="text-xs font-medium text-gray-800">{project.name}</h3>
-                    <p className="text-xs text-gray-700 leading-tight">{project.description.slice(0, 80)}...</p>
+                    <h3 className="text-xs font-bold text-gray-800">{project.name}</h3>
+                    <p className="text-xs text-gray-700 leading-tight">
+                      {project.description.length > 200 ? `${project.description.slice(0, 200)}...` : project.description}
+                    </p>
+                    {(project.url || project.github) && (
+                      <div className="mt-0.5 flex gap-2 text-xs">
+                        {project.url && (
+                          <span className="text-blue-600 flex items-center gap-1">
+                            <Globe className="h-2.5 w-2.5" />
+                            Demo
+                          </span>
+                        )}
+                        {project.github && (
+                          <span className="text-gray-600 flex items-center gap-1">
+                            <Github className="h-2.5 w-2.5" />
+                            GitHub
+                          </span>
+                        )}
+                      </div>
+                    )}
                     <div className="mt-0.5 flex flex-wrap gap-1">
-                      {project.technologies.slice(0, 3).map((tech, techIndex) => (
+                      {project.technologies.slice(0, 5).map((tech, techIndex) => (
                         <span key={techIndex} className="rounded bg-gray-100 px-1 py-0.5 text-xs text-gray-600">
                           {tech}
                         </span>
