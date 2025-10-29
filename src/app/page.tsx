@@ -1,9 +1,8 @@
 'use client';
 
-import { ArrowRight, Download, Palette, Zap } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Download, Palette, Zap } from 'lucide-react';
 import Link from 'next/link';
 export default function HomePage() {
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
       {/* Hero Section */}
@@ -27,7 +26,7 @@ export default function HomePage() {
                 className="group flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl"
               >
                 شروع کنید
-                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                <ArrowLeft className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
           </div>
