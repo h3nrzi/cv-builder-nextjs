@@ -8,6 +8,7 @@ import { CVLayout } from '@/types/theme';
 
 export default function HomePage() {
   const [selectedLayout, setSelectedLayout] = useState<CVLayout>('standard');
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
       {/* Hero Section */}
@@ -25,11 +26,8 @@ export default function HomePage() {
             <p className="mx-auto mb-8 max-w-2xl text-xl text-gray-200" dir="rtl">
               رزومه خود را با قالب‌های زیبا و مدرن بسازید. سریع، آسان و کاملاً رایگان
             </p>
-            <div className="mx-auto max-w-4xl mb-8">
-              <LayoutSelector 
-                selectedLayout={selectedLayout} 
-                onLayoutChange={setSelectedLayout} 
-              />
+            <div className="mx-auto mb-8 max-w-4xl">
+              <LayoutSelector selectedLayout={selectedLayout} onLayoutChange={setSelectedLayout} />
             </div>
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Link
@@ -39,9 +37,6 @@ export default function HomePage() {
                 شروع کنید
                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
-              {/* <button className="rounded-full border-2 border-white/30 px-8 py-4 text-lg font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10">
-                نمونه‌ها را ببینید
-              </button> */}
             </div>
           </div>
         </div>

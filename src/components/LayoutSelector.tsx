@@ -15,22 +15,22 @@ export function LayoutSelector({ selectedLayout, onLayoutChange }: LayoutSelecto
       name: 'ساختار استاندارد',
       description: 'ساختار کامل با جزئیات بیشتر',
       icon: FileText,
-      features: ['چندین صفحه', 'جزئیات کامل', 'بخشهای متنوع']
+      features: ['چندین صفحه', 'جزئیات کامل', 'بخشهای متنوع'],
     },
     {
       id: 'minimal' as CVLayout,
       name: 'ساختار مینیمال',
       description: 'همه چیز در یک صفحه',
       icon: Minimize2,
-      features: ['یک صفحه', 'فشرده', 'مناسب پرینت']
-    }
+      features: ['یک صفحه', 'فشرده', 'مناسب پرینت'],
+    },
   ];
 
   return (
     <div className="mb-8 rounded-2xl bg-white/10 p-6 backdrop-blur-sm">
       <h2 className="mb-4 text-xl font-semibold text-white">انتخاب ساختار رزومه</h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        {layouts.map((layout) => {
+        {layouts.map(layout => {
           const Icon = layout.icon;
           return (
             <button
@@ -44,15 +44,21 @@ export function LayoutSelector({ selectedLayout, onLayoutChange }: LayoutSelecto
               dir="rtl"
             >
               <div className="flex items-start gap-4">
-                <div className={`rounded-lg p-3 ${
-                  selectedLayout === layout.id ? 'bg-cyan-500 text-white' : 'bg-white/20 text-white'
-                }`}>
+                <div
+                  className={`rounded-lg p-3 ${
+                    selectedLayout === layout.id
+                      ? 'bg-cyan-500 text-white'
+                      : 'bg-white/20 text-white'
+                  }`}
+                >
                   <Icon className="h-6 w-6" />
                 </div>
                 <div className="flex-1">
-                  <h3 className={`text-lg font-semibold ${
-                    selectedLayout === layout.id ? 'text-white' : 'text-white'
-                  }`}>
+                  <h3
+                    className={`text-lg font-semibold ${
+                      selectedLayout === layout.id ? 'text-white' : 'text-white'
+                    }`}
+                  >
                     {layout.name}
                   </h3>
                   <p className="mt-1 text-sm text-gray-200">{layout.description}</p>

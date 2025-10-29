@@ -28,7 +28,7 @@ type EditorSection =
 
 function EditorPageContent() {
   const { layout, changeLayout } = useLayout();
-  
+
   const {
     cvData,
     isLoading,
@@ -203,11 +203,7 @@ function EditorPageContent() {
           ) : (
             <>
               <div className="p-4">
-                {layout === 'minimal' ? (
-                  <MinimalCV data={cvData} />
-                ) : (
-                  <ThemedCV data={cvData} />
-                )}
+                {layout === 'minimal' ? <MinimalCV data={cvData} /> : <ThemedCV data={cvData} />}
               </div>
             </>
           )}
@@ -219,7 +215,13 @@ function EditorPageContent() {
 
 export default function EditorPage() {
   return (
-    <Suspense fallback={<div className="flex min-h-screen items-center justify-center"><div>Loading...</div></div>}>
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center">
+          <div>Loading...</div>
+        </div>
+      }
+    >
       <EditorPageContent />
     </Suspense>
   );

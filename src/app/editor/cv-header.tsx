@@ -91,11 +91,7 @@ export function CVHeader({
           {/* Layout Selector */}
           <div className="flex rounded-lg bg-gray-100 p-1">
             <button
-              onClick={() => {
-                if (layout !== 'standard') {
-                  window.location.href = '/editor?layout=standard';
-                }
-              }}
+              onClick={() => onLayoutChange('standard')}
               className={`flex items-center gap-1 rounded-md px-2 py-1.5 text-xs font-medium transition-colors sm:px-3 sm:py-2 sm:text-sm ${
                 layout === 'standard'
                   ? 'bg-white text-gray-900 shadow-sm'
@@ -106,11 +102,7 @@ export function CVHeader({
               <span className="hidden sm:block">استاندارد</span>
             </button>
             <button
-              onClick={() => {
-                if (layout !== 'minimal') {
-                  window.location.href = '/editor?layout=minimal';
-                }
-              }}
+              onClick={() => onLayoutChange('minimal')}
               className={`flex items-center gap-1 rounded-md px-2 py-1.5 text-xs font-medium transition-colors sm:px-3 sm:py-2 sm:text-sm ${
                 layout === 'minimal'
                   ? 'bg-white text-gray-900 shadow-sm'
