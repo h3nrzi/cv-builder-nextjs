@@ -274,7 +274,7 @@ export function MinimalCV({ data }: MinimalCVProps) {
                     <div className="flex items-start justify-between">
                       <h3 className="text-xs font-semibold text-slate-900">{edu.degree}</h3>
                       <span className="whitespace-nowrap text-xs font-medium text-slate-500">
-                        {edu.startDate} - {edu.endDate}
+                        {edu.startDate} - {edu.endDate || 'اکنون'}
                       </span>
                     </div>
                     <p className="text-xs text-blue-700">{edu.school}</p>
@@ -321,14 +321,14 @@ export function MinimalCV({ data }: MinimalCVProps) {
           )}
         </div>
       </div>
-      
+
       {/* Footer */}
       <div className="absolute bottom-2 left-2">
         <p className="text-[8px] text-gray-400">
           Made with ❤️ by{' '}
-          <a 
-            href="https://github.com/h3nrzi" 
-            target="_blank" 
+          <a
+            href="https://github.com/h3nrzi"
+            target="_blank"
             rel="noopener noreferrer"
             className="text-gray-500 hover:text-blue-600"
           >
