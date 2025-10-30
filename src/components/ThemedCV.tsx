@@ -4,6 +4,8 @@ import React from 'react';
 import { useThemeStyles } from '@/hooks/useTheme';
 import { CVData } from '@/types/theme';
 import { FooterBranding } from '@/components/FooterBranding';
+import Image from 'next/image';
+import Avatar from './ui/avatar';
 
 interface ThemedCVProps {
   data: CVData;
@@ -25,7 +27,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
     >
       {/* Page 1 */}
       <div
-        className="mx-auto w-full max-w-4xl min-h-screen bg-white shadow-lg print:shadow-none sm:w-[210mm] sm:min-h-[297mm] print:w-[210mm] print:min-h-[297mm] p-4 sm:p-[15mm] print:p-[15mm] relative"
+        className="relative mx-auto min-h-screen w-full max-w-4xl bg-white p-4 shadow-lg sm:min-h-[297mm] sm:w-[210mm] sm:p-[15mm] print:min-h-[297mm] print:w-[210mm] print:p-[15mm] print:shadow-none"
         style={{
           fontFamily: theme.typography.fontFamily,
           color: colors.foreground,
@@ -45,11 +47,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
                   borderColor: colors.primary,
                 }}
               >
-                <img
-                  src={data.personal.profileImage}
-                  alt={data.personal.name}
-                  className="h-full w-full object-cover"
-                />
+                <Avatar src={data.personal.profileImage} />
               </div>
             )}
             <div className="flex-1 text-center sm:text-right">
@@ -298,12 +296,11 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
             </div>
           </section>
         )}
-
       </div>
-      
+
       {/* Page 2 */}
       <div
-        className="mx-auto w-full max-w-4xl min-h-screen bg-white shadow-lg print:shadow-none sm:w-[210mm] sm:min-h-[297mm] print:w-[210mm] print:min-h-[297mm] p-4 sm:p-[15mm] print:p-[15mm] relative mt-4 print:mt-0"
+        className="relative mx-auto mt-4 min-h-screen w-full max-w-4xl bg-white p-4 shadow-lg sm:min-h-[297mm] sm:w-[210mm] sm:p-[15mm] print:mt-0 print:min-h-[297mm] print:w-[210mm] print:p-[15mm] print:shadow-none"
         style={{
           fontFamily: theme.typography.fontFamily,
           color: colors.foreground,
@@ -384,10 +381,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
         </section>
 
         {/* Experience Section */}
-        <section
-          className="page-break-avoid"
-          style={{ marginBottom: theme.layout.sectionSpacing }}
-        >
+        <section className="page-break-avoid" style={{ marginBottom: theme.layout.sectionSpacing }}>
           <SectionTitle title="تجربه کاری" />
           <div className="space-y-6">
             {data.experience.map((exp, index) => (
@@ -515,22 +509,18 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
             ))}
           </div>
         </section>
-
       </div>
-      
+
       {/* Page 3 */}
       <div
-        className="mx-auto w-full max-w-4xl min-h-screen bg-white shadow-lg print:shadow-none sm:w-[210mm] sm:min-h-[297mm] print:w-[210mm] print:min-h-[297mm] p-4 sm:p-[15mm] print:p-[15mm] relative mt-4 print:mt-0"
+        className="relative mx-auto mt-4 min-h-screen w-full max-w-4xl bg-white p-4 shadow-lg sm:min-h-[297mm] sm:w-[210mm] sm:p-[15mm] print:mt-0 print:min-h-[297mm] print:w-[210mm] print:p-[15mm] print:shadow-none"
         style={{
           fontFamily: theme.typography.fontFamily,
           color: colors.foreground,
         }}
       >
         {/* Projects Section */}
-        <section
-          className="page-break-avoid"
-          style={{ marginBottom: theme.layout.sectionSpacing }}
-        >
+        <section className="page-break-avoid" style={{ marginBottom: theme.layout.sectionSpacing }}>
           <SectionTitle title="پروژه‌های برجسته" />
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {data.projects.map((project, index) => (
@@ -614,9 +604,9 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
           <div className="absolute bottom-2 left-2">
             <p className="text-[8px] text-gray-400">
               Made with ❤️ by{' '}
-              <a 
-                href="https://github.com/h3nrzi" 
-                target="_blank" 
+              <a
+                href="https://github.com/h3nrzi"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-500 hover:text-blue-600"
               >

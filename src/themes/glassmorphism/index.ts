@@ -3,26 +3,26 @@ import { Theme } from '../../types/theme';
 export const glassmorphismTheme: Theme = {
   config: {
     id: 'glassmorphism',
-    name: 'شیشه ای مات',
-    description: 'قالب مدرن با افکت شیشه مات و پس‌زمینه های پررنگ',
+    name: 'شیشه‌ای مات',
+    description: 'قالب مدرن با افکت شیشه مات و پس‌زمینه‌های پرنور و شفاف',
     author: 'حسین رضایی',
-    version: '1.1.0',
-    tags: ['شیشه ای', 'مدرن', 'شیشه', 'محو', 'مد'],
+    version: '1.1.1',
+    tags: ['شیشه‌ای', 'مدرن', 'شفاف', 'مات', 'لوکس'],
   },
   colors: {
     primary: '#ffffff',
-    secondary: '#764ba2',
-    accent: '#f093fb',
-    background: '#ffffff',
-    foreground: '#1e293b',
-    muted: 'rgba(255, 255, 255, 0.1)',
-    mutedForeground: 'rgba(255, 255, 255, 0.7)',
-    border: 'rgba(255, 255, 255, 0.2)',
-    card: '#ffffff',
+    secondary: '#6a11cb',
+    accent: '#2575fc',
+    background: 'rgba(255, 255, 255, 0.75)',
+    foreground: '#0f172a',
+    muted: 'rgba(255, 255, 255, 0.15)',
+    mutedForeground: 'rgba(255, 255, 255, 0.8)',
+    border: 'rgba(255, 255, 255, 0.25)',
+    card: 'rgba(255, 255, 255, 0.2)',
     cardForeground: '#1e293b',
-    destructive: '#ff6b6b',
+    destructive: '#ef4444',
     destructiveForeground: '#ffffff',
-    ring: '#f093fb',
+    ring: '#6a11cb',
   },
   typography: {
     fontFamily: '"SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif',
@@ -68,12 +68,12 @@ export const glassmorphismTheme: Theme = {
     full: '9999px',
   },
   shadows: {
-    sm: '0 2px 8px rgba(0, 0, 0, 0.1)',
-    md: '0 4px 16px rgba(0, 0, 0, 0.15)',
-    lg: '0 8px 32px rgba(0, 0, 0, 0.2)',
-    xl: '0 16px 64px rgba(0, 0, 0, 0.25)',
-    '2xl': '0 32px 128px rgba(0, 0, 0, 0.3)',
-    inner: 'inset 0 2px 4px rgba(255, 255, 255, 0.1)',
+    sm: '0 2px 6px rgba(0, 0, 0, 0.08)',
+    md: '0 4px 12px rgba(0, 0, 0, 0.12)',
+    lg: '0 8px 24px rgba(0, 0, 0, 0.16)',
+    xl: '0 16px 48px rgba(0, 0, 0, 0.2)',
+    '2xl': '0 32px 96px rgba(0, 0, 0, 0.25)',
+    inner: 'inset 0 2px 4px rgba(255, 255, 255, 0.15)',
   },
   layout: {
     maxWidth: '1200px',
@@ -96,11 +96,10 @@ export const glassmorphismTheme: Theme = {
   },
   customCSS: `
     .cv-gradient-bg {
-      background: #ffffff;
-      position: relative;
+      background: "#fff";
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       overflow: hidden;
-    }
-    
+      min-height: 100vh;
     .cv-gradient-bg::before {
       content: '';
       position: absolute;
@@ -108,53 +107,46 @@ export const glassmorphismTheme: Theme = {
       left: 0;
       right: 0;
       bottom: 0;
-      background: 
-        radial-gradient(circle at 20% 80%, rgba(240, 147, 251, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(102, 126, 234, 0.3) 0%, transparent 50%);
-      pointer-events: none;
-    }
-    
+      background:
+        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.25) 0%, transparent 60%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 60%);,
+        radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.2) 0%, transparent 50%);
+      z-index: 1;
     .cv-section-card {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
       transition: all 0.3s ease;
-      color: #ffffff;
-    }
-    
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 16px;
     .cv-section-card:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
-    }
-    
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);.15);
+      border-color: rgba(255, 255, 255, 0.4);
     .cv-skill-progress {
-      background: linear-gradient(90deg, #f093fb, #f5576c);
-      box-shadow: 0 4px 16px rgba(240, 147, 251, 0.4);
+      background: linear-gradient(90deg, #6a11cb, #2575fc);
+      box-shadow: 0 4px 16px rgba(106, 17, 203, 0.4);
     }
-    
     .cv-glass-button {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.25);
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.3);
       color: white;
       transition: all 0.3s ease;
     }
-    
     .cv-glass-button:hover {
-      background: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.35);
       transform: translateY(-1px);
-    }
-    
-    @keyframes float-glass {
+    }    @keyframes float-glass {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
-      33% { transform: translateY(-10px) rotate(1deg); }
+      33% { transform: translateY(-8px) rotate(1deg); }
       66% { transform: translateY(5px) rotate(-1deg); }
-    }
-    
-    .cv-floating-glass {
+    }    .cv-floating-glass {
       animation: float-glass 6s ease-in-out infinite;
-    }
-  `,
+    }  `,
 };
+
+
+
