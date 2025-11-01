@@ -1,4 +1,3 @@
-import { PicuterCover } from '@/components/motion/picuter-motion';
 import BlackBasicGrid, { DarkNoisedColor } from '@/components/partial-ui/partial-grid';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Download, Palette, Zap } from 'lucide-react';
@@ -7,21 +6,9 @@ export default function HomePage() {
   return (
     <div className="flex flex-col gap-3 bg-[#150d28]">
       <BlackBasicGrid />
-      <footer className="relative z-20 flex justify-center bg-[#150d282c] py-5  ">
-        <p className="text-gray-400">
-          با ❤️ ساخته شده توسط حسین رضایی -
-          <a
-            href="https://github.com/h3nrzi"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-cyan-400 hover:text-cyan-300"
-          >
-            @h3nrzi
-          </a>
-        </p>
-      </footer>
+
       <div className="group relative  h-[calc(100svh-77px)] overflow-hidden">
-        <section className="relative z-10  flex h-full flex-col items-center justify-center gap-5 md:pb-48">
+        <section className="relative z-10  flex h-full flex-col items-center justify-center gap-5 ">
           <h1 className="z-10 text-5xl font-bold text-white md:text-7xl">
             رزومه ساز
             <span className="z-10 bg-gradient-to-r from-cyan-400 to-pink-400 bg-clip-text text-transparent">
@@ -41,7 +28,7 @@ export default function HomePage() {
             </Link>
           </div>
         </section>
-        <PicuterCover />
+        {/* <PicuterCover /> */}
       </div>
 
       <section className="relative flex flex-col">
@@ -104,6 +91,19 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      <footer className="relative z-20 flex justify-center bg-[#150d282c] py-5  ">
+        <p className="text-gray-400">
+          با ❤️ ساخته شده توسط حسین رضایی -
+          <a
+            href="https://github.com/h3nrzi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-cyan-400 hover:text-cyan-300"
+          >
+            @h3nrzi
+          </a>
+        </p>
+      </footer>
     </div>
   );
 }

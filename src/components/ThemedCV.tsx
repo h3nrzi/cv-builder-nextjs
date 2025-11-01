@@ -1,10 +1,8 @@
 'use client';
-import { Github, Globe, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
-import React from 'react';
 import { useThemeStyles } from '@/hooks/useTheme';
 import { CVData } from '@/types/theme';
-import { FooterBranding } from '@/components/FooterBranding';
-import Image from 'next/image';
+import { Github, Globe, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+import React from 'react';
 import Avatar from './ui/avatar';
 
 interface ThemedCVProps {
@@ -259,7 +257,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
               )}
 
               {/* Interests */}
-              {data.interests && (
+              {data.interests &&  data.interests?.length > 0 && (
                 <div>
                   <SectionTitle title="علایق" />
                   <div
