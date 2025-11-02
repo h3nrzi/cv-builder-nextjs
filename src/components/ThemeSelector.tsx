@@ -1,9 +1,10 @@
 'use client';
 import { LoadingSpinner } from '@/components/LoadingSpinner';
-import { useTheme } from '@/hooks/useTheme';
 import { Theme } from '@/types/theme';
 import { Check, Download, Loader2, Palette, Search, Tag, User, X } from 'lucide-react';
 import React, { useState } from 'react';
+import { Button } from './ui/button';
+import { useTheme } from '@/provider/useTheme';
 
 interface ThemeSelectorProps {
   className?: string;
@@ -66,14 +67,15 @@ export function ThemeSelector({ className = '' }: ThemeSelectorProps) {
   return (
     <div className={`relative ${className}`}>
       {/* Theme Selector Button */}
-      <button
+      <Button
+        variant="secondary"
         onClick={() => setIsOpen(!isOpen)}
-        className="ml-1 flex items-center gap-2 rounded-lg border border-gray-600 bg-white px-4 py-2 shadow-sm transition-shadow duration-200 hover:shadow-md"
+        className="bg-[#88E788] hover:bg-[#88E788]/80"
         disabled={isLoading}
       >
         {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Palette className="h-4 w-4" />}
         <span className="hidden text-sm font-medium md:block">{currentTheme.config.name}</span>
-      </button>
+      </Button>
 
       {/* Loading Transition Overlay */}
       {isTransitioning && (

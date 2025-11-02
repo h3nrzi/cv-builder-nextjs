@@ -1,13 +1,26 @@
 'use client';
 
 import { Button } from '../../components/ui/button';
-import { Edit3, Eye, RefreshCw, Save, Printer, Download, Upload, FileText, Minimize2 } from 'lucide-react';
+import {
+  Edit3,
+  Eye,
+  RefreshCw,
+  Save,
+  Printer,
+  Download,
+  Upload,
+  FileText,
+  Minimize2,
+  House,
+} from 'lucide-react';
 import { ThemeSelector } from '../../components/ThemeSelector';
 import { CVLayout } from '../../types/theme';
+import DialogTemplate from '@/components/template/dialog-template';
+import Link from 'next/link';
 
 type EditorMode = 'edit' | 'preview';
 
-interface CVHeaderProps {
+interface HeaderProps {
   mode: EditorMode;
   setMode: (mode: EditorMode) => void;
   hasUnsavedChanges: boolean;
@@ -19,7 +32,7 @@ interface CVHeaderProps {
   onLayoutChange: (layout: CVLayout) => void;
 }
 
-export function CVHeader({
+export function Header({
   mode,
   setMode,
   hasUnsavedChanges,
@@ -29,13 +42,16 @@ export function CVHeader({
   handleFileImport,
   layout,
   onLayoutChange,
-}: CVHeaderProps) {
+}: HeaderProps) {
   return (
     <div className="sticky top-0 z-40 border-b border-gray-200 bg-white shadow-sm print:hidden">
-      <div className="flex flex-row items-center justify-between gap-3 px-12 py-3">
+      <div className="md-px-12 flex flex-row items-center justify-between gap-3 px-2 py-3">
         {/* Right Column: Mode Toggle and Save Status */}
-        <div className="flex items-center justify-between sm:justify-start sm:gap-6">
+        <div className="flex items-center justify-between sm:justify-start gap-3 sm:gap-6">
           {/* Mode Toggle */}
+          <Link href="/">
+            <House strokeWidth={0.75} className="" />
+          </Link>
           <div className="flex rounded-lg bg-gray-100 p-1">
             <button
               onClick={() => setMode('edit')}
@@ -89,7 +105,13 @@ export function CVHeader({
         {/* Left Column: Actions and Save Status */}
         <div className="flex items-center justify-between sm:justify-end sm:gap-4">
           {/* Layout Selector */}
-          <div className="flex rounded-lg bg-gray-100 p-1">
+          <div className="flex flex-row items-center gap-2">
+            {layout === 'standard' && <ThemeSelector />}
+            <DialogTemplate />
+          </div>
+          <div className="flex gap-3 rounded-lg bg-gray-100 p-1">
+            {/* // !new-features */}
+
             <button
               onClick={() => onLayoutChange('standard')}
               className={`flex items-center gap-1 rounded-md px-2 py-1.5 text-xs font-medium transition-colors sm:px-3 sm:py-2 sm:text-sm ${
@@ -110,12 +132,11 @@ export function CVHeader({
               }`}
             >
               <Minimize2 className="h-4 w-4" />
-              <span className="hidden sm:block">مینیمال</span>
+              <span className="hidden sm:block">پیش فرض</span>
             </button>
           </div>
 
           {/* Theme Selector */}
-          {layout === 'standard' && <ThemeSelector />}
 
           {/* Action Buttons */}
           <div className="sm flex items-center gap-1 sm:gap-2">

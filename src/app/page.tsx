@@ -1,4 +1,4 @@
-import BlackBasicGrid, { DarkNoisedColor } from '@/components/partial-ui/partial-grid';
+import BlackBasicGrid, { DarkNoisedColor } from '@/components/layout/partial-grid';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Download, Palette, Zap } from 'lucide-react';
 import Link from 'next/link';
@@ -28,7 +28,6 @@ export default function HomePage() {
             </Link>
           </div>
         </section>
-        {/* <PicuterCover /> */}
       </div>
 
       <section className="relative flex flex-col">
@@ -91,19 +90,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <footer className="relative z-20 flex justify-center bg-[#150d282c] py-5  ">
-        <p className="text-gray-400">
-          با ❤️ ساخته شده توسط حسین رضایی -
-          <a
-            href="https://github.com/h3nrzi"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-cyan-400 hover:text-cyan-300"
-          >
-            @h3nrzi
-          </a>
-        </p>
-      </footer>
     </div>
   );
 }

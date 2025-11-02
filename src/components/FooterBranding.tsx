@@ -1,5 +1,6 @@
 'use client';
-import { useThemeStyles } from '@/hooks/useTheme';
+
+import { useThemeStyles } from "@/provider/useTheme";
 
 export function FooterBranding() {
   const { colors } = useThemeStyles();
