@@ -3,7 +3,7 @@ import { Theme } from '../../types/theme';
 export const newTheme: Theme = {
   config: {
     id: 'new-theme',
-    name: 'جدید',
+    name: 'خاکستری مدرن',
     description: 'قالب مدرن و شیک با گرادیان‌های ظریف',
     author: 'حسین رضایی',
     version: '1.1.0',
@@ -13,7 +13,7 @@ export const newTheme: Theme = {
     primary: '#0f172a',
     secondary: '#1e293b',
     accent: '#06b6d4',
-    background: '#f8fafc',
+    background: '#ffffff',
     foreground: '#0f172a',
     muted: '#f1f5f9',
     mutedForeground: '#475569',
@@ -96,7 +96,7 @@ export const newTheme: Theme = {
   },
   customCSS: `
     .cv-gradient-bg {
-      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 30%, #e2e8f0 100%);
+      background: #ffffff;
       position: relative;
     }
     
@@ -126,7 +126,7 @@ export const newTheme: Theme = {
     }
     
     .cv-skill-progress {
-      background: #06b6d4;
+      background: #0f172a;
     }
     
     .cv-header-accent {

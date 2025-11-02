@@ -106,7 +106,7 @@ export const nordicMinimalTheme: Theme = {
     }
     
     .cv-skill-progress {
-      background: linear-gradient(90deg, #5e81ac, #88c0d0);
+      background: #5e81ac;
     }
     
     .cv-nordic-accent {

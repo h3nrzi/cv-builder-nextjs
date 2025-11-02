@@ -298,7 +298,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
 
       {/* Page 2 */}
       <div
-        className="relative mx-auto mt-4 min-h-screen w-full max-w-4xl bg-white p-4 shadow-lg sm:min-h-[297mm] sm:w-[210mm] sm:p-[15mm] print:mt-0 print:min-h-[297mm] print:w-[210mm] print:p-[15mm] print:shadow-none"
+        className="page-break-before mx-auto w-full max-w-4xl min-h-screen bg-white shadow-lg print:shadow-none sm:w-[210mm] sm:min-h-[297mm] print:w-[210mm] print:min-h-[297mm] p-4 sm:p-[15mm] print:p-[15mm] relative mt-4 print:mt-0"
         style={{
           fontFamily: theme.typography.fontFamily,
           color: colors.foreground,
@@ -511,7 +511,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
 
       {/* Page 3 */}
       <div
-        className="relative mx-auto mt-4 min-h-screen w-full max-w-4xl bg-white p-4 shadow-lg sm:min-h-[297mm] sm:w-[210mm] sm:p-[15mm] print:mt-0 print:min-h-[297mm] print:w-[210mm] print:p-[15mm] print:shadow-none"
+        className="page-break-before mx-auto w-full max-w-4xl min-h-screen bg-white shadow-lg print:shadow-none sm:w-[210mm] sm:min-h-[297mm] print:w-[210mm] print:min-h-[297mm] p-4 sm:p-[15mm] print:p-[15mm] relative mt-4 print:mt-0"
         style={{
           fontFamily: theme.typography.fontFamily,
           color: colors.foreground,

@@ -3,7 +3,7 @@ import { Theme } from '../../types/theme';
 export const minimalTheme: Theme = {
   config: {
     id: 'minimal-clean',
-    name: 'مینیمال',
+    name: 'سیاه مینیمال',
     description: 'قالب مینیمال با تمرکز بر تایپوگرافی و فضای سفید',
     author: 'حسین رضایی',
     version: '1.1.0',
