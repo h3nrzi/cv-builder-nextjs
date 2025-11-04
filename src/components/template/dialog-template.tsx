@@ -9,9 +9,11 @@ import { LayoutGrid } from 'lucide-react';
 export default function DialogTemplate() {
   const status = useSelectLayoutCv();
   const { LayoutDialog, setLayoutDialog, selectLayoutState, setSelectLayoutStat } = status;
+
+
   return (
     <>
-      <Button onClick={() => setLayoutDialog(!status.LayoutDialog)}>
+      <Button variant={'outline'} onClick={() => setLayoutDialog(!status.LayoutDialog)}>
         <p className="hidden md:block">تغییر دادن قالب</p>
         <LayoutGrid className="h-4 w-4 md:hidden" />
       </Button>
@@ -60,7 +62,6 @@ export default function DialogTemplate() {
                       <div className="flex h-full items-center justify-center">
                         <span className="text-xs text-gray-400">
                           <Image
-                            // fill
                             src={`/images/preview/${item.preview}`}
                             alt={item.name}
                             className="h-full w-full object-cover"

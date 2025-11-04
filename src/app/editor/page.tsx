@@ -7,9 +7,10 @@ import { PersonalInfoEditor } from '@/components/editors/PersonalInfoEditor';
 import { ProjectsEditor } from '@/components/editors/ProjectsEditor';
 import { SkillsEditor } from '@/components/editors/SkillsEditor';
 import { Header } from '@/components/layout/header';
-import { LoadingSpinner } from '@/components/LoadingSpinner';
+import { LoadingSpinner } from '@/components/layout/LoadingSpinner';
 import { MinimalCV } from '@/components/MinimalCV';
 import { PrintGuideNotification } from '@/components/PrintGuideNotification';
+import LayoutContainer from '@/components/template/layout/_layout-container';
 import { ThemedCV } from '@/components/ThemedCV';
 import { useCVData } from '@/hooks/useCVData';
 import { useLayout } from '@/hooks/useLayout';
@@ -203,7 +204,7 @@ function EditorPageContent() {
           ) : (
             <>
               <div className="p-2 sm:p-4 print:p-0">
-                {layout === 'minimal' ? <MinimalCV data={cvData} /> : <ThemedCV data={cvData} />}
+                {layout === 'minimal' ? <MinimalCV data={cvData} /> : <LayoutContainer  />}
               </div>
             </>
           )}

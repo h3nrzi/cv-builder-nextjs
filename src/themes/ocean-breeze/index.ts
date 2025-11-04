@@ -107,7 +107,7 @@ export const oceanBreezeTheme: Theme = {
     }
     
     .cv-skill-progress {
-      background: #0ea5e9;
+     background: #0ea5e9;
     }
     
     @keyframes wave {

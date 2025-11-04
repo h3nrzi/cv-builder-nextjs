@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import Footer from '@/components/layout/footer';
+import { ProviderLayoutCv } from '@/provider/provider-layout-cv';
+import { ThemeProvider } from '@/provider/useTheme';
 
 export const metadata: Metadata = {
   title: 'رزومه چی (ساخت رزومه آنلاین رایگان)',
@@ -12,8 +14,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fa" dir="rtl">
       <body>
-        {children}
-        <Footer />
+        <ThemeProvider>
+          <ProviderLayoutCv>
+            {children}
+            <Footer />
+          </ProviderLayoutCv>
+        </ThemeProvider>
       </body>
     </html>
   );

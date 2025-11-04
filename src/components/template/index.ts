@@ -3,6 +3,7 @@ import ModernTemplateComponent from './layout/_modern';
 import ClassicTemplateComponent from './layout/_classic';
 import MinimalTemplateComponent from './layout/_minimal';
 import CreativeTemplateComponent from './layout/_creative';
+import ElegantTemplateComponent from './layout/_elegant';
 
 const template = [
   {
@@ -27,6 +28,13 @@ const template = [
     preview: 'modern.png',
   },
   {
+    id: 6,
+    name: 'elegant',
+    description: 'elegant',
+    component: ElegantTemplateComponent,
+    preview: 'elegant.png',
+  },
+  {
     id: 4,
     name: 'classic',
     description: 'classic',
@@ -49,4 +57,5 @@ export {
   ClassicTemplateComponent,
   MinimalTemplateComponent,
   CreativeTemplateComponent,
+  ElegantTemplateComponent,
 };

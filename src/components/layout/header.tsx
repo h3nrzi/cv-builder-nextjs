@@ -47,9 +47,9 @@ export function Header({
     <div className="sticky top-0 z-40 border-b border-gray-200 bg-white shadow-sm print:hidden">
       <div className="md-px-12 flex flex-row items-center justify-between gap-3 px-2 py-3">
         {/* Right Column: Mode Toggle and Save Status */}
-        <div className="flex items-center justify-between sm:justify-start gap-3 sm:gap-6">
+        <div className="flex items-center justify-between gap-3 sm:justify-start sm:gap-6">
           {/* Mode Toggle */}
-          <Link href="/">
+          <Link href="/" className='pr-2'>
             <House strokeWidth={0.75} className="" />
           </Link>
           <div className="flex rounded-lg bg-gray-100 p-1">
@@ -103,9 +103,9 @@ export function Header({
         </div>
 
         {/* Left Column: Actions and Save Status */}
-        <div className="flex items-center justify-between sm:justify-end sm:gap-4">
+        <div className="flex items-center justify-between sm:justify-end gap-2">
           {/* Layout Selector */}
-          <div className="flex flex-row items-center gap-2">
+          <div className="flex flex-row items-center gap-2 ">
             {layout === 'standard' && <ThemeSelector />}
             <DialogTemplate />
           </div>

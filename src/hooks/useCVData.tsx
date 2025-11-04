@@ -42,8 +42,7 @@ export function useCVData() {
     }
   }, [cvData]);
 
-  // Auto-save to localStorage with debouncing
-  // ! todo improve logic clean code
+ 
   useEffect(() => {
     if (!isLoading && hasUnsavedChanges) {
       const timeoutId = setTimeout(() => {

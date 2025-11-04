@@ -126,8 +126,7 @@ export const glassmorphismTheme: Theme = {
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);.15);
       border-color: rgba(255, 255, 255, 0.4);
     .cv-skill-progress {
-      background: linear-gradient(90deg, #6a11cb, #2575fc);
-      box-shadow: 0 4px 16px rgba(106, 17, 203, 0.4);
+       background: #667eea;
     }
     .cv-glass-button {
       background: rgba(255, 255, 255, 0.25);
@@ -147,6 +146,3 @@ export const glassmorphismTheme: Theme = {
       animation: float-glass 6s ease-in-out infinite;
     }  `,
 };
-
-
-
