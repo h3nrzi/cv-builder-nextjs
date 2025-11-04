@@ -107,7 +107,7 @@ export const sunsetGradientTheme: Theme = {
     }
     
     .cv-skill-progress {
-      background: #f97316;
+        background: #f97316;
     }
     
     @keyframes sunset-glow {

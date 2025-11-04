@@ -1,41 +1,38 @@
-'use client';
-
-import { ArrowLeft, ArrowRight, Download, Palette, Zap } from 'lucide-react';
+import BlackBasicGrid, { DarkNoisedColor } from '@/components/layout/partial-grid';
+import { Button } from '@/components/ui/button';
+import { ArrowLeft, Download, Palette, Zap } from 'lucide-react';
 import Link from 'next/link';
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
-      {/* Hero Section */}
-      <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="mb-6 text-5xl font-bold text-white md:text-7xl">
-              رزومه ساز
-              <span className="bg-gradient-to-r from-cyan-400 to-pink-400 bg-clip-text text-transparent">
-                {' '}
-                حرفه‌ای
-              </span>
-            </h1>
-            <p className="mx-auto mb-8 max-w-2xl text-xl text-gray-200" dir="rtl">
-              رزومه خود را با قالب‌های زیبا و مدرن بسازید. سریع، آسان و کاملاً رایگان
-            </p>
-            <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <Link
-                href="/editor"
-                className="group flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl"
-              >
+    <div className="flex flex-col gap-3 bg-[#150d28]">
+      <BlackBasicGrid />
+
+      <div className="group relative  h-[calc(100svh-77px)] overflow-hidden">
+        <section className="relative z-10  flex h-full flex-col items-center justify-center gap-5 ">
+          <h1 className="z-10 text-5xl font-bold text-white md:text-7xl">
+            رزومه ساز
+            <span className="z-10 bg-gradient-to-r from-cyan-400 to-pink-400 bg-clip-text text-transparent">
+              {' '}
+              حرفه‌ای
+            </span>
+          </h1>
+          <p className="z-10 mx-auto mb-8 max-w-2xl text-xl text-blue-400" dir="rtl">
+            رزومه خود را با قالب‌های زیبا و مدرن بسازید. سریع، آسان و کاملاً رایگان
+          </p>
+          <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <Link href="/editor">
+              <Button size={'xl'}>
                 شروع کنید
                 <ArrowLeft className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </div>
+              </Button>
+            </Link>
           </div>
-        </div>
+        </section>
       </div>
 
-      {/* Features Section */}
-      <div className="bg-white/5 backdrop-blur-sm">
-        <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+      <section className="relative flex flex-col">
+        <DarkNoisedColor />
+        <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
           <div className="mb-16 text-center">
             <h2 className="mb-4 text-4xl font-bold text-white">چرا ما را انتخاب کنید؟</h2>
             <p className="text-xl text-gray-300" dir="rtl">
@@ -75,11 +72,8 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Stats Section */}
-      <div className="bg-gradient-to-r from-cyan-500/20 to-purple-500/20 backdrop-blur-sm">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <div className="text-center">
               <div className="mb-2 text-4xl font-bold text-white">8+</div>
@@ -95,26 +89,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Footer */}
-      <footer className="bg-black/20 backdrop-blur-sm">
-        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <p className="text-gray-400">
-              با ❤️ ساخته شده توسط حسین رضایی -
-              <a
-                href="https://github.com/h3nrzi"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-cyan-400 hover:text-cyan-300"
-              >
-                @h3nrzi
-              </a>
-            </p>
-          </div>
-        </div>
-      </footer>
+      </section>
     </div>
   );
 }

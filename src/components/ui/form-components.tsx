@@ -1,6 +1,6 @@
 'use client';
 import React, { forwardRef } from 'react';
-import { cn } from '@/components/ui/utils';
+import { cn } from '@/lib/utils';
 
 // Input Component
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}

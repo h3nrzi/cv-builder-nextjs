@@ -1,15 +1,26 @@
 import type { Metadata } from 'next';
-import '../styles/globals.css';
+import './globals.css';
+import Footer from '@/components/layout/footer';
+import { ProviderLayoutCv } from '@/provider/provider-layout-cv';
+import { ThemeProvider } from '@/provider/useTheme';
 
 export const metadata: Metadata = {
-  title: 'CV Builder',
-  description: 'Professional CV Builder with theme support',
+  title: 'رزومه چی (ساخت رزومه آنلاین رایگان)',
+  description: 'ساخت رزومه آنلاین رایگان با قالب‌های زیبا و مدرن',
+  icons: '/favicon.ico',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fa" dir="rtl">
-      <body>{children}</body>
+      <body>
+        <ThemeProvider>
+          <ProviderLayoutCv>
+            {children}
+            <Footer />
+          </ProviderLayoutCv>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

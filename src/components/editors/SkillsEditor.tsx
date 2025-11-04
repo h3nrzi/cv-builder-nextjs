@@ -132,7 +132,7 @@ export function SkillsEditor({ skills, onUpdateSkills }: SkillsEditorProps) {
             return (
               <div
                 key={categoryIndex}
-                className={`rounded-lg border-2 border-dashed border-gray-200 bg-gray-50 p-4 transition-all ${
+                className={`rounded-lg select-none border-2 border-dashed border-gray-200 bg-gray-50 p-4 transition-all ${
                   draggedCategory === categoryIndex ? 'opacity-50' : ''
                 }`}
                 draggable

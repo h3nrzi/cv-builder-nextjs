@@ -1,5 +1,4 @@
 'use client';
-import { CVHeader } from '@/app/editor/cv-header';
 import { EducationEditor } from '@/components/editors/EducationEditor';
 import { ExperienceEditor } from '@/components/editors/ExperienceEditor';
 import { InterestsEditor } from '@/components/editors/InterestsEditor';
@@ -7,14 +6,16 @@ import { LanguagesEditor } from '@/components/editors/LanguagesEditor';
 import { PersonalInfoEditor } from '@/components/editors/PersonalInfoEditor';
 import { ProjectsEditor } from '@/components/editors/ProjectsEditor';
 import { SkillsEditor } from '@/components/editors/SkillsEditor';
-import { LoadingSpinner } from '@/components/LoadingSpinner';
-import { ThemedCV } from '@/components/ThemedCV';
+import { Header } from '@/components/layout/header';
+import { LoadingSpinner } from '@/components/layout/LoadingSpinner';
 import { MinimalCV } from '@/components/MinimalCV';
 import { PrintGuideNotification } from '@/components/PrintGuideNotification';
+import LayoutContainer from '@/components/template/layout/_layout-container';
+import { ThemedCV } from '@/components/ThemedCV';
 import { useCVData } from '@/hooks/useCVData';
 import { useLayout } from '@/hooks/useLayout';
 import { Award, Briefcase, Edit3, FolderOpen, GraduationCap, Heart, Languages } from 'lucide-react';
-import React, { useEffect, useState, Suspense } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 
 type EditorMode = 'edit' | 'preview';
 type EditorSection =
@@ -106,7 +107,7 @@ function EditorPageContent() {
     <div className={`min-h-screen bg-gray-50`}>
       <PrintGuideNotification />
       {/* Header */}
-      <CVHeader
+      <Header
         mode={mode}
         setMode={setMode}
         hasUnsavedChanges={hasUnsavedChanges}
@@ -203,7 +204,7 @@ function EditorPageContent() {
           ) : (
             <>
               <div className="p-2 sm:p-4 print:p-0">
-                {layout === 'minimal' ? <MinimalCV data={cvData} /> : <ThemedCV data={cvData} />}
+                {layout === 'minimal' ? <MinimalCV data={cvData} /> : <LayoutContainer  />}
               </div>
             </>
           )}
