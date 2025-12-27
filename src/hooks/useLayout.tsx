@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 export function useLayout() {
   const searchParams = useSearchParams();
   const [layout, setLayout] = useState<CVLayout>('standard');
+  
 
   useEffect(() => {
     const layoutParam = searchParams.get('layout') as CVLayout;

@@ -23,6 +23,7 @@ export function ThemeProvider({ children, defaultThemeId }: ThemeProviderProps) 
   const [currentTheme, setCurrentTheme] = useState<Theme>(themeRegistry.getActiveTheme());
   const [availableThemes, setAvailableThemes] = useState<Theme[]>(themeRegistry.getAllThemes());
   const [isLoading, setIsLoading] = useState(false);
+  
 
   useEffect(() => {
     // Apply theme on mount

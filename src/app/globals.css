@@ -287,8 +287,16 @@ html {
   }
 
   /* Progress bar print optimization */
-  .minimal-cv div[class*="h-1 w-1"] {
+  .minimal-cv div[class*='h-1 w-1'] {
     display: inline-block !important;
     vertical-align: middle !important;
   }
+}
+/* this variables css use the Avatar component */
+:root {
+  --navy: #1f2937;
+  --pink: #da6aec;
+  --red: #f43f5e;
+  --blue: #2f74dc;
+  --green: #22cd90;
 }

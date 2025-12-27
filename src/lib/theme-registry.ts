@@ -70,49 +70,29 @@ class ThemeRegistry {
   private applyTheme(theme: Theme): void {
     const root = document.documentElement;
 
-    // Apply color variables
-    Object.entries(theme.colors).forEach(([key, value]) => {
-      root.style.setProperty(`--theme-${key}`, value);
-    });
+    const setTheme: Array<keyof Omit<Theme, 'config' | 'customCSS'>> = [
+      'colors',
+      'typography',
+      'spacing',
+      'borderRadius',
+      'shadows',
+      'layout',
+      'animations',
+    ];
 
-    // Apply typography variables
-    root.style.setProperty('--theme-font-family', theme.typography.fontFamily);
-    Object.entries(theme.typography.fontSize).forEach(([key, value]) => {
-      root.style.setProperty(`--theme-font-size-${key}`, value);
-    });
-    Object.entries(theme.typography.fontWeight).forEach(([key, value]) => {
-      root.style.setProperty(`--theme-font-weight-${key}`, value);
-    });
-    Object.entries(theme.typography.lineHeight).forEach(([key, value]) => {
-      root.style.setProperty(`--theme-line-height-${key}`, value);
-    });
-
-    // Apply spacing variables
-    Object.entries(theme.spacing).forEach(([key, value]) => {
-      root.style.setProperty(`--theme-spacing-${key}`, value);
-    });
-
-    // Apply border radius variables
-    Object.entries(theme.borderRadius).forEach(([key, value]) => {
-      root.style.setProperty(`--theme-radius-${key}`, value);
-    });
-
-    // Apply shadow variables
-    Object.entries(theme.shadows).forEach(([key, value]) => {
-      root.style.setProperty(`--theme-shadow-${key}`, value);
-    });
-
-    // Apply layout variables
-    Object.entries(theme.layout).forEach(([key, value]) => {
-      root.style.setProperty(`--theme-layout-${key}`, value);
-    });
-
-    // Apply animation variables
-    Object.entries(theme.animations.duration).forEach(([key, value]) => {
-      root.style.setProperty(`--theme-duration-${key}`, value);
-    });
-    Object.entries(theme.animations.easing).forEach(([key, value]) => {
-      root.style.setProperty(`--theme-easing-${key}`, value);
+    setTheme.forEach(themeKey => {
+      const themeSection = theme[themeKey] as unknown as Record<string, unknown>;
+      Object.entries(themeSection).forEach(([propKey, value]) => {
+        if (typeof value === 'string') {
+          root.style.setProperty(`--theme-${propKey}`, value);
+        } else if (typeof value === 'object' && value !== null) {
+          Object.entries(value as Record<string, unknown>).forEach(([nestedKey, nestedValue]) => {
+            if (typeof nestedValue === 'string') {
+              root.style.setProperty(`--theme-${propKey}-${nestedKey}`, nestedValue);
+            }
+          });
+        }
+      });
     });
 
     // Apply custom CSS
