@@ -10,9 +10,9 @@ interface MinimalCVProps {
 
 export function MinimalCV({ data }: MinimalCVProps) {
   return (
-    <div className="relative mx-auto flex min-h-screen w-full max-w-4xl flex-col overflow-hidden bg-white p-4 text-xs leading-tight shadow-lg sm:h-[297mm] sm:w-[210mm] sm:p-[10mm] print:mx-0 print:my-0 print:h-[297mm] print:w-[210mm] print:p-[10mm] print:shadow-none">
+    <div className="relative mx-auto flex min-h-screen w-full max-w-4xl flex-col overflow-hidden bg-white text-xs leading-tight shadow-lg sm:h-[297mm] sm:w-[210mm] sm:p-[10mm] print:mx-0 print:my-0 print:h-[297mm] print:w-[210mm] print:p-[10mm] print:shadow-none">
       {/* Header */}
-      <div className="mb-3 border-b-2 border-gray-800 pb-2">
+      <div className="mb-4 border-b-[1px] border-gray-300 pb-2">
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-start">
           {/* Name and Title */}
           <div className="flex-1">
@@ -105,13 +105,13 @@ export function MinimalCV({ data }: MinimalCVProps) {
         </div>
       </div>
 
-      <div className="grid flex-1 grid-cols-1 gap-4 overflow-hidden sm:grid-cols-5">
-        {/* Left Column */}
-        <div className="col-span-1 space-y-3 overflow-hidden sm:col-span-3">
+      <div className="grid flex-1 grid-cols-1 gap-8 overflow-hidden sm:grid-cols-5">
+        {/* Right Column */}
+        <div className="col-span-1 space-y-6 overflow-hidden sm:col-span-3">
           {/* Summary */}
           {data.summary && (
             <section>
-              <h2 className="mb-2 text-base font-bold text-slate-900">خلاصه</h2>
+              {/*<h2 className="mb-3 text-base font-bold text-slate-900">خلاصه</h2>*/}
               <p className="text-xs leading-relaxed text-slate-700">{data.summary}</p>
             </section>
           )}
@@ -119,10 +119,10 @@ export function MinimalCV({ data }: MinimalCVProps) {
           {/* Experience */}
           {data.experience.length > 0 && (
             <section>
-              <h2 className="mb-2 border-b border-slate-300 pb-1 text-base font-bold text-slate-900">
+              <h2 className="mb-4 border-b border-slate-300 pb-2 text-base font-bold text-slate-900">
                 تجربه کاری
               </h2>
-              <div className="space-y-1">
+              <div className="space-y-4">
                 {data.experience.slice(0, 3).map((exp, index) => (
                   <div key={index}>
                     <div className="flex items-start justify-between">
@@ -136,13 +136,13 @@ export function MinimalCV({ data }: MinimalCVProps) {
                         {exp.startDate} - {exp.endDate || 'اکنون'}
                       </span>
                     </div>
-                    <p className="mt-1 text-xs leading-relaxed text-slate-600">
+                    <p className="mt-2 text-xs leading-relaxed text-slate-600">
                       {exp.description.length > 300
                         ? `${exp.description.slice(0, 300)}...`
                         : exp.description}
                     </p>
                     {exp.achievements && exp.achievements.length > 0 && (
-                      <ul className="mt-1 space-y-0.5">
+                      <ul className="mt-2 space-y-1">
                         {exp.achievements.slice(0, 3).map((achievement, achIndex) => (
                           <li
                             key={achIndex}
@@ -155,11 +155,11 @@ export function MinimalCV({ data }: MinimalCVProps) {
                       </ul>
                     )}
                     {exp.technologies && exp.technologies.length > 0 && (
-                      <div className="mt-1 flex flex-wrap gap-1">
+                      <div className="mt-2 flex flex-wrap gap-2">
                         {exp.technologies.slice(0, 6).map((tech, techIndex) => (
                           <span
                             key={techIndex}
-                            className="rounded bg-gray-100 px-1 py-0.5 text-xs text-gray-700"
+                            className="rounded bg-gray-100 px-1.5 py-0.5 text-xs text-gray-700"
                           >
                             {tech}
                           </span>
@@ -175,10 +175,10 @@ export function MinimalCV({ data }: MinimalCVProps) {
           {/* Projects */}
           {data.projects.length > 0 && (
             <section>
-              <h2 className="mb-2 border-b border-slate-300 pb-1 text-base font-bold text-slate-900">
+              <h2 className="mb-4 border-b border-slate-300 pb-2 text-base font-bold text-slate-900">
                 پروژهها
               </h2>
-              <div className="space-y-2">
+              <div className="space-y-4">
                 {data.projects.map((project, index) => (
                   <div key={index} className="mb-2">
                     <h3 className="text-xs font-bold text-slate-900">{project.name}</h3>
@@ -187,6 +187,16 @@ export function MinimalCV({ data }: MinimalCVProps) {
                         ? `${project.description.slice(0, 200)}...`
                         : project.description}
                     </p>
+                    <div className="mt-1 flex flex-wrap gap-2">
+                      {project.technologies.slice(0, 5).map((tech, techIndex) => (
+                        <span
+                          key={techIndex}
+                          className="rounded bg-gray-100 px-1.5 py-0.5  text-gray-700"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                     {(project.url || project.github) && (
                       <div className="mt-0.5 flex flex-col gap-1 text-xs">
                         {project.url && (
@@ -217,16 +227,6 @@ export function MinimalCV({ data }: MinimalCVProps) {
                         )}
                       </div>
                     )}
-                    <div className="mt-0.5 flex flex-wrap gap-1">
-                      {project.technologies.slice(0, 5).map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className="rounded bg-gray-100 px-1 py-0.5 text-xs text-gray-700"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
                   </div>
                 ))}
               </div>
@@ -234,19 +234,19 @@ export function MinimalCV({ data }: MinimalCVProps) {
           )}
         </div>
 
-        {/* Right Column */}
-        <div className="col-span-1 space-y-3 overflow-hidden sm:col-span-2">
+        {/* Left Column */}
+        <div className="col-span-1 space-y-6 overflow-hidden sm:col-span-2">
           {/* Skills */}
           {data.skills.length > 0 && (
             <section>
-              <h2 className="mb-2 text-base font-bold text-slate-900">مهارتها</h2>
-              <div className="space-y-1">
+              <h2 className="mb-4 text-base font-bold text-slate-900">مهارتها</h2>
+              <div className="space-y-6">
                 {data.skills.map((skillGroup, index) => (
                   <div key={index}>
-                    <h3 className="mb-1 text-left text-xs font-bold text-indigo-800">
+                    <h3 className="mb-2 text-left text-xs font-bold text-indigo-800">
                       {skillGroup.category}
                     </h3>
-                    <div className="space-y-0.5">
+                    <div>
                       {skillGroup.items.slice(0, 6).map((skill, skillIndex) => (
                         <div key={skillIndex} className="flex items-center justify-between">
                           <span className="text-xs text-gray-500 print:text-black">
@@ -266,13 +266,13 @@ export function MinimalCV({ data }: MinimalCVProps) {
           {/* Education */}
           {data.education.length > 0 && (
             <section>
-              <h2 className="mb-2 border-b border-slate-300 pb-1 text-base font-bold text-slate-900">
+              <h2 className="mb-4 border-b border-slate-300 pb-2 text-base font-bold text-slate-900">
                 تحصیلات
               </h2>
-              <div className="space-y-1">
+              <div className="space-y-3">
                 {data.education.map((edu, index) => (
                   <div key={index}>
-                    <div className="flex items-start justify-between">
+                    <div className="mb-1 flex items-start justify-between">
                       <h3 className="text-xs font-semibold text-slate-900">{edu.degree}</h3>
                       <span className="whitespace-nowrap text-xs font-medium text-slate-500">
                         {edu.startDate} - {edu.endDate || 'اکنون'}
@@ -288,10 +288,10 @@ export function MinimalCV({ data }: MinimalCVProps) {
           {/* Languages */}
           {data.languages && data.languages.length > 0 && (
             <section>
-              <h2 className="mb-2 border-b border-slate-300 pb-1 text-base font-bold text-slate-900">
+              <h2 className="mb-4 border-b border-slate-300 pb-2 text-base font-bold text-slate-900">
                 زبانها
               </h2>
-              <div className="space-y-0.5">
+              <div className="space-y-2">
                 {data.languages.map((lang, index) => (
                   <div key={index} className="flex justify-between">
                     <span className="text-xs font-medium text-slate-700">{lang.name}</span>
@@ -305,14 +305,14 @@ export function MinimalCV({ data }: MinimalCVProps) {
           {/* Interests */}
           {data.interests && data.interests.length > 0 && (
             <section>
-              <h2 className="mb-2 border-b border-slate-300 pb-1 text-base font-bold text-slate-900">
+              <h2 className="mb-4 border-b border-slate-300 pb-2 text-base font-bold text-slate-900">
                 علایق
               </h2>
-              <div className="flex flex-wrap gap-1">
+              <div className="flex flex-wrap gap-2">
                 {data.interests.slice(0, 6).map((interest, index) => (
                   <span
                     key={index}
-                    className="rounded bg-gray-100 px-1 py-0.5 text-xs text-gray-700"
+                    className="rounded bg-gray-100 px-1.5 py-0.5 text-xs text-gray-700"
                   >
                     {interest}
                   </span>
