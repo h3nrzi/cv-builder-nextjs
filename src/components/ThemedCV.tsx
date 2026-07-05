@@ -4,6 +4,7 @@ import React from 'react';
 import { useThemeStyles } from '@/hooks/useTheme';
 import { CVData } from '@/types/theme';
 import { FooterBranding } from '@/components/FooterBranding';
+import { ensureAbsoluteUrl } from '@/lib/utils';
 
 interface ThemedCVProps {
   data: CVData;
@@ -81,21 +82,21 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
                   <ContactItem
                     icon={Globe}
                     text={data.personal.website}
-                    href={`https://${data.personal.website}`}
+                    href={ensureAbsoluteUrl(data.personal.website)}
                   />
                 )}
                 {data.personal.github && (
                   <ContactItem
                     icon={Github}
                     text={data.personal.github}
-                    href={`https://${data.personal.github}`}
+                    href={ensureAbsoluteUrl(data.personal.github)}
                   />
                 )}
                 {data.personal.linkedin && (
                   <ContactItem
                     icon={Linkedin}
                     text={data.personal.linkedin}
-                    href={`https://${data.personal.linkedin}`}
+                    href={ensureAbsoluteUrl(data.personal.linkedin)}
                   />
                 )}
               </div>
@@ -584,7 +585,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
                 <div className="flex gap-4 text-sm">
                   {project.url && (
                     <a
-                      href={project.url}
+                      href={ensureAbsoluteUrl(project.url)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="cv-link underline underline-offset-4"
@@ -595,7 +596,7 @@ export function ThemedCV({ data, className = '' }: ThemedCVProps) {
                   )}
                   {project.github && (
                     <a
-                      href={project.github}
+                      href={ensureAbsoluteUrl(project.github)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="cv-link underline underline-offset-4"

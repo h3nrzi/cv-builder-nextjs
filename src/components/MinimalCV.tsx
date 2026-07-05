@@ -2,6 +2,7 @@
 
 import { CVData } from '@/types/theme';
 import { Mail, Phone, MapPin, Globe, Github, Linkedin } from 'lucide-react';
+import { ensureAbsoluteUrl } from '@/lib/utils';
 
 interface MinimalCVProps {
   data: CVData;
@@ -47,7 +48,7 @@ export function MinimalCV({ data }: MinimalCVProps) {
                 <div className="flex items-center gap-1">
                   <Globe className="h-3 w-3 flex-shrink-0" />
                   <a
-                    href={data.personal.website}
+                    href={ensureAbsoluteUrl(data.personal.website)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="truncate text-gray-600 hover:text-blue-600 hover:underline"
@@ -60,7 +61,7 @@ export function MinimalCV({ data }: MinimalCVProps) {
                 <div className="flex items-center gap-1">
                   <Github className="h-3 w-3 flex-shrink-0" />
                   <a
-                    href={data.personal.github}
+                    href={ensureAbsoluteUrl(data.personal.github)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="truncate text-gray-600 hover:text-blue-600 hover:underline"
@@ -73,7 +74,7 @@ export function MinimalCV({ data }: MinimalCVProps) {
                 <div className="flex items-center gap-1">
                   <Linkedin className="h-3 w-3 flex-shrink-0" />
                   <a
-                    href={data.personal.linkedin}
+                    href={ensureAbsoluteUrl(data.personal.linkedin)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="truncate text-gray-600 hover:text-blue-600 hover:underline"
@@ -192,7 +193,7 @@ export function MinimalCV({ data }: MinimalCVProps) {
                           <div className="flex items-center gap-1">
                             <Globe className="h-2.5 w-2.5 text-blue-600" />
                             <a
-                              href={project.url}
+                              href={ensureAbsoluteUrl(project.url)}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="font-medium text-blue-600 hover:underline"
@@ -205,7 +206,7 @@ export function MinimalCV({ data }: MinimalCVProps) {
                           <div className="flex items-center gap-1">
                             <Github className="h-2.5 w-2.5 text-blue-600" />
                             <a
-                              href={project.github}
+                              href={ensureAbsoluteUrl(project.github)}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="font-medium text-blue-600 hover:underline"
